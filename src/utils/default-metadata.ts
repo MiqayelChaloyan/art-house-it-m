@@ -1,4 +1,4 @@
-import { ImagePath } from '@/types/general';
+import { ImagePath } from '@/types';
 import DeafultIcon from '@/app/favicon.ico';
 
 export const generateMetadataDynamic = (

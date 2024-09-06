@@ -2,8 +2,8 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 
-import { LANGUAGE } from '../../../../sanity/sanity-queries/language';
-import { LESSON } from '../../../../sanity/sanity-queries/design';
+// import { LANGUAGE } from '../../../../sanity/sanity-queries/language';
+// import { LESSON } from '../../../../sanity/sanity-queries/design';
 
 import { Arial } from '@/constants/font';
 
@@ -18,7 +18,7 @@ type FormProps = {
 };
 
 interface SelectProps {
-    data: LANGUAGE[] | LESSON[] | ORDER[]
+    data: any[] 
     state: FormProps
     valueName: string
     handleChange: (value: any) => void

@@ -2,16 +2,15 @@
 
 import React from 'react';
 
-import { ImagePath } from '@/types/general';
+import { ImagePath } from '@/types';
 
 import { urlForImage } from '../../../../sanity/imageUrlBuilder';
-import { PARTNER } from '../../../../sanity/sanity-queries/generic';
 
 import styles from './styles.module.sass';
 
 
 interface Props {
-    partner: PARTNER;
+    partner: any;
 };
 
 const Partner = ({ partner }: Readonly<Props>) => {
