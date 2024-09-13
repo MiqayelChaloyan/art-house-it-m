@@ -5,6 +5,7 @@ const ImagePaths = {
     advantagesURL: require('../../public/assets/images/advantages.png'),
     learnURL: require('../../public/assets/images/learn.png'),
     sectionURL: require('../../public/assets/images/section.png'),
+    abstractURL: require('../../public/assets/images/abstract.png'),
 };
 
 const TRAINING_CENTER = 0;

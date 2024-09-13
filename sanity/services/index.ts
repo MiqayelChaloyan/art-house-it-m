@@ -128,6 +128,17 @@ export const HOME_DETALIS_QUERY = `
     "content": content[$language],
 }`;
 
+export const WEB_SITES_QUERY = 
+`*[_type == "orders"] {
+    "title": title[$language],
+    "our_works": our_works[] {
+        _key,
+        "website_title": website_title[$language],
+        "website_activity": website_activity[$language],
+        web_site_url,
+    },
+}`;
+
 export const PARTNERS_QUERY = 
 `*[_type == "partners"] {
     _id,

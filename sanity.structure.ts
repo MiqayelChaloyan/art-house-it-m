@@ -14,6 +14,7 @@ export default (S: any) =>
                     'partners',
                     'about-us',
                     'courses',
+                    'orders',
                     'price-list',
                     'our-team',
                     'select-option',
@@ -43,6 +44,10 @@ export default (S: any) =>
                                     S.documentList()
                                         .title('Courses')
                                         .filter('_type == "courses"')),
+                            S.listItem()
+                                .title('Orders')
+                                .icon(IoFolderOpen)
+                                .child(S.document().schemaType('orders').documentId('orders')),
                             S.listItem()
                                 .title('Price List')
                                 .icon(IoFolderOpen)

@@ -1,4 +1,4 @@
-import { ABOUT_US_DETAILS_QUERY, CONTACT_US_QUERY, COURSE_SLUG_QUERY, COURSES_QUERY, HOME_DETALIS_QUERY, LESSONS_ORDERS_QUERY, OUR_TEAM_QUERY, PARTNERS_QUERY, PRICE_LIST_QUERY } from '../../../sanity/services';
+import { ABOUT_US_DETAILS_QUERY, CONTACT_US_QUERY, COURSE_SLUG_QUERY, COURSES_QUERY, HOME_DETALIS_QUERY, LESSONS_ORDERS_QUERY, OUR_TEAM_QUERY, PARTNERS_QUERY, PRICE_LIST_QUERY, WEB_SITES_QUERY } from '../../../sanity/services';
 
 import { sanityFetch } from '@/api/sanity-fetch';
 
@@ -124,6 +124,20 @@ export async function getPartners(locale: string): Promise<PARTNER_Result[]> {
         });
 
         return result;
+    } catch (error) {
+        throw error;
+    }
+};
+
+export async function getWebSitesDetails(locale: string): Promise<WEB_SITES_DETAILS_QUERYResult> {
+    try {
+        "use server";
+        const result = await sanityFetch<WEB_SITES_DETAILS_QUERYResult[]>({
+            query: WEB_SITES_QUERY,
+            params: { language: locale },
+        });
+
+        return result[0];
     } catch (error) {
         throw error;
     }

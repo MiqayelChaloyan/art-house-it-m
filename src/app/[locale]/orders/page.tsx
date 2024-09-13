@@ -1,7 +1,7 @@
 'use server'
 
 import Orders from '@/components/screens/orders';
-import { getSelectOptions } from '@/utils/data';
+import { getSelectOptions, getWebSitesDetails } from '@/utils/data';
 import { notFound } from 'next/navigation';
 
 
@@ -16,8 +16,9 @@ export default async function Page({
 }: Readonly<Props>) {
     const orders = await getSelectOptions(locale);
     const ordersArmenianKeyword = await getSelectOptions('am');
+    const data = await getWebSitesDetails(locale);
 
-    if (!orders || !ordersArmenianKeyword) {
+    if (!orders || !ordersArmenianKeyword || !data) {
         notFound();
     };
 
@@ -25,6 +26,7 @@ export default async function Page({
         <Orders
             orders={orders?.orders_names}
             ordersArmenianKeyword={ordersArmenianKeyword?.orders_names}
+            data={data}
         />
     );
 };

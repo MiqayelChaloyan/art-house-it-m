@@ -145,3 +145,15 @@ interface PARTNER_Result {
     company_name: string;
     logo: Asset;
 };
+
+interface WEB_SITE {
+    _key: string;
+    website_title: string;
+    website_activity: string;
+    web_site_url: string;
+};
+
+interface WEB_SITES_DETAILS_QUERYResult {
+    title: string;
+    our_works: WEB_SITE[];
+};
