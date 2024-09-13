@@ -8,16 +8,49 @@ import Image from "next/image";
 import Container from "@/components/components/container";
 import cn from 'classnames';
 import { MMArmenU } from "@/constants/font";
+import { ImagePath } from '@/types';
+import { urlForImage } from '../../../../../sanity/imageUrlBuilder';
+import { notFound, useRouter } from 'next/navigation';
+import { client } from '../../../../../sanity/client';
+import { useLocale } from 'next-intl';
+import { COURSE_ID_QUERY } from '../../../../../sanity/services';
 
-const Programming = () => {
+
+interface Props {
+    data: ABOUT_COURSE;
+};
+
+const Programming = ({ data }: Readonly<Props>) => {
+    const localActive = useLocale();
+    const router = useRouter();
+
+    const path: ImagePath = urlForImage(data?.image);
+
+    const features = data.features?.map((item: FEATURE) =>
+        <p key={item._key} className={styles.program}>{item.feature}</p>
+    );
+
+
+    const getResources = async () => {
+        const _id = data.categories._ref;
+
+        try {
+            const data = await client.fetch(COURSE_ID_QUERY, { language: localActive, _id }, { cache: 'no-store' });
+            router.push(`${localActive}/courses/${data?.slug}`);
+        } catch (error) {
+            notFound()
+        }
+    };
+
+
     return (
         <section id='programming' className={cn(styles.container, MMArmenU.className)}>
             <Container className="container">
                 <div className={styles.box}>
                     <div className={styles.newsletter}>
                         <Image
-                            src={ImagePaths.programmingURL}
-                            alt='programming'
+                            src={path?.src}
+                            alt={data.image?.alt}
                             width={500}
                             height={500}
                             priority
@@ -25,17 +58,16 @@ const Programming = () => {
                     </div>
                     <div className={styles.programs}>
                         <h2 className={styles.title}>
-                            WEB Ծրագրավորում
+                            {data?.title}
                         </h2>
-
                         <div>
-                            <p className={styles.program}>Ծրագիր 1-HTML5, CSS3, Bootstrap5-2 ամիս</p>
-                            <p className={styles.program}>Ծրագիր 1-HTML5, CSS3, Bootstrap5-2 ամիս</p>
-                            <p className={styles.program}>Ծրագիր 1-HTML5, CSS3, Bootstrap5-2 ամիս</p>
+                            {features}
                         </div>
-
                         <div className={styles.button}>
-                            <button className={styles['more-btn']}>
+                            <button
+                                onClick={getResources}
+                                className={styles['more-btn']}
+                            >
                                 Ավելին
                             </button>
                         </div>

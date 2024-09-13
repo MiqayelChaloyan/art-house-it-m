@@ -7,6 +7,7 @@ import coursesSchema from './schemas/courses-schema';
 import ourTeamSchema from './schemas/our-team-schema';
 import lessonsSchema from './schemas/lessons-schema';
 import contactUsSchema from './schemas/contact-us-schema';
+import partnersSchema from './schemas/partners-schema';
 
 export const schemaTypes: SchemaTypeDefinition[] = [
   homeSchema,
@@ -15,6 +16,7 @@ export const schemaTypes: SchemaTypeDefinition[] = [
   priceListSchema,
   ourTeamSchema,
   lessonsSchema,
+  partnersSchema,
   contactUsSchema
 ];
 

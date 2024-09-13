@@ -51,6 +51,20 @@ export const COURSE_SLUG_QUERY = `
     our_day,
 }`;
 
+export const COURSE_ID_QUERY = `
+*[_type == "courses" && _id == $_id][0] {
+    "ogDescription": ogDescription[$language],
+    "course_name": course_name[$language],
+    "course_image": course_image,
+    "slug": slug.current,
+    "about_course": about_course {
+        "title": title[$language],
+        "about_content": about_content[$language]
+    },
+    course_process,
+    our_day,
+}`;
+
 export const LESSONS_ORDERS_QUERY = `
 *[_type == "select-option"] {
     "courses_names": courses_names[] {
@@ -101,6 +115,24 @@ export const HOME_DETALIS_QUERY = `
     ogTitle,
     ogDescription,
     ogImage,
+    "about_course": about_course {
+        "title": title[$language],
+        "features": features[] {
+            _key,
+            "feature": feature[$language]
+        },
+        categories,
+        image
+    },
     "our_advantages": our_advantages[][$language],
     "content": content[$language],
+}`;
+
+export const PARTNERS_QUERY = 
+`*[_type == "partners"] {
+    _id,
+    logo,
+    "company_name": company_name[$language],
+    "cooperation": cooperation[$language],
+    "implemented_projects": implemented_projects[$language],
 }`;

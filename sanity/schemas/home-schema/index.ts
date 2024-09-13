@@ -1,4 +1,5 @@
 import { ProjectsIcon, CheckmarkIcon } from '@sanity/icons';
+import { FaDiscourse } from "react-icons/fa";
 
 import ArrayMaxItems from '@/utils/ArrayMaxItems';
 import { RuleType } from '../../ruleType';
@@ -27,7 +28,7 @@ const homeSchema = {
     fields: [
         {
             type: 'string',
-            title: 'Page Title',
+            title: 'Open Graph Title',
             name: 'ogTitle',
             description:
                 'Set the title Open Graph should use. In most situations, this should be different from the value of the title prop',
@@ -50,15 +51,11 @@ const homeSchema = {
             group: ['og'],
         },
         /* Schema */
-       
-
-
-
         {
             name: 'our_advantages',
             type: 'array',
             title: 'Our advantages',
-            description: 'Դուք կարող եք ավելացնել ցանկացած քանակի (Տեքստը չպետք է լինի 250 նիշից ավելի)',
+            description: 'You can add any amount (Text should not be more than 250 characters).',
             validation: (Rule: RuleType) => Rule.required(),
             of: [
                 {
@@ -86,9 +83,117 @@ const homeSchema = {
             ],
         },
         {
+            name: 'about_course',
+            title: 'About Course',
+            description: 'You can add information about any course that is already in the course list.',
+            type: 'object',
+            validation: (Rule: RuleType) => Rule.required(),
+            fields: [
+                {
+                    name: 'title',
+                    title: 'Title',
+                    type: 'object',
+                    fields: [
+                        {
+                            name: 'am',
+                            title: 'Armenian',
+                            type: 'string',
+                            validation: (Rule: RuleType) => Rule.required(),
+                        },
+                        {
+                            name: 'en',
+                            title: 'English',
+                            type: 'string',
+                            validation: (Rule: RuleType) => Rule.required(),
+                        },
+                        {
+                            name: 'ru',
+                            title: 'Russian',
+                            type: 'string',
+                            validation: (Rule: RuleType) => Rule.required(),
+                        }
+                    ]
+                },
+                {
+                    name: 'features',
+                    type: 'array',
+                    title: 'Features',
+                    of: [
+                        {
+                            name: 'featureObject',
+                            type: 'object',
+                            icon: FaDiscourse,
+                            fields: [
+                                {
+                                    name: 'feature',
+                                    title: 'Feature',
+                                    type: 'object',
+                                    fields: [
+                                        {
+                                            name: 'am',
+                                            title: 'Armenian',
+                                            type: 'string',
+                                            validation: (Rule: RuleType) => Rule.required(),
+                                        },
+                                        {
+                                            name: 'en',
+                                            title: 'English',
+                                            type: 'string',
+                                            validation: (Rule: RuleType) => Rule.required(),
+                                        },
+                                        {
+                                            name: 'ru',
+                                            title: 'Russian',
+                                            type: 'string',
+                                            validation: (Rule: RuleType) => Rule.required(),
+                                        }
+                                    ]
+                                }
+                            ],
+                            preview: {
+                                select: {
+                                    title: 'feature.en',
+                                },
+                                prepare(selection: { title?: string }) {
+                                    return {
+                                        title: selection.title,
+                                    };
+                                }
+                            }
+                        }
+                    ],
+                    validation: (Rule: RuleType) => Rule.required(),
+                },
+                {
+                    name: 'categories',
+                    title: 'Course Category',
+                    type: 'reference',
+                    to: [{ type: 'courses' }],
+                    validation: (Rule: RuleType) => Rule.required(),
+                },
+                {
+                    name: 'image',
+                    title: 'Image',
+                    type: 'image',
+                    description: 'Must be in png format',
+                    options: {
+                        hotspot: true,
+                    },
+                    fields: [
+                        {
+                            name: 'alt',
+                            title: 'Alternative text',
+                            type: 'string',
+                            validation: (Rule: RuleType) => Rule.required(),
+                        }
+                    ],
+                },
+            ]
+        },        
+        {
             title: 'Content',
             name: 'content',
-            description: 'Ի՞նչ սովորել ITM-ում',
+            description: 'What to study at ITM?',
             type: 'object',
             validation: (Rule: RuleType) => Rule.required(),
             fields: [

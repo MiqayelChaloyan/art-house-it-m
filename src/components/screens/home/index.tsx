@@ -1,7 +1,7 @@
 'use client'
 
 import About from './About';
-// import Programming from './Programming';
+import Programming from './Programming';
 import OurAdvantages from './OurAdvantages';
 import Learn from './Learn';
 
@@ -14,8 +14,8 @@ interface Props {
 const Home = ({ about, data }: Readonly<Props>) => {
     return (
         <>
-            <About data={about.about_us} />
-            {/* <Programming /> */}
+            <About data={about?.about_us} />
+            <Programming data={data?.about_course} />
             <OurAdvantages advantages={data?.our_advantages} />
             <Learn content={data?.content}/>
         </>

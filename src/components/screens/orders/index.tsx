@@ -17,15 +17,14 @@ const Orders = ({
 
     return (
         <section id='orders' className={MMArmenU.className}>
-
-         <Container className='container'>
-         <h2 className={styles.title}>Հետադարձ կապ</h2>
-            <Form
-                orders={orders}
-                ordersArmenianKeyword={ordersArmenianKeyword}
-                classNameProperty='large'
-            />
-         </Container>
+            <Container className='container'>
+                <h2 className={styles.title}>Հետադարձ կապ</h2>
+                <Form
+                    orders={orders}
+                    ordersArmenianKeyword={ordersArmenianKeyword}
+                    classNameProperty='large'
+                />
+            </Container>
         </section>
     )
 };

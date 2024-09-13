@@ -7,6 +7,10 @@
     align-items: center
     justify-content: space-between
     border: 20px solid #F2F2F2
+    /* @sm */
+    @media screen and (max-width: 768px)
+        display: grid
+        justify-content: center
 
 .newsletter
     background-color: #CAE24F
@@ -14,10 +18,20 @@
     border-top-right-radius: 40px 250px
     border-bottom-right-radius: 40px 250px
     padding: 13px 71px 13px 71px
+    /* @sm */
+    @media screen and (max-width: 768px)
+        width: 100%
+        border-top-left-radius: 0
+        border-top-right-radius: 0
+        border-bottom-right-radius: 50px
+        border-bottom-left-radius: 50px
+        margin-bottom: 40px
 
 .programs
     width: 50%
-
+    /* @sm */
+    @media screen and (max-width: 768px)
+        width: 100%
 
 .title
     font-weight: 400
@@ -26,6 +40,10 @@
     color: #B2D01B
     text-align: center
     margin-bottom: 30px
+    /* @sm */
+    @media screen and (max-width: 768px)
+        font-size: 12.82px
+        line-height: 13.48px
 
 .program
     font-weight: 400
@@ -33,7 +51,10 @@
     line-height: 19.38px
     color: #000000
     text-align: center
-
+    /* @sm */
+    @media screen and (max-width: 768px)
+        font-size: 10.9px
+        line-height: 14.08px
 
 .button
     display: flex
@@ -46,6 +67,30 @@
     line-height: 25.68px
     width: 176px
     height: 43px
+    display: flex
+    justify-content: center
+    align-items: center
     background-color: #B2D01B
-    border: 1px solid #B2D01B
+    border: 2px solid #B2D01B
     color: white
+    cursor: pointer
+    transition: color 400ms
+    position: relative
+    z-index: 1
+    &:before 
+        content: '' 
+        position: absolute 
+        top: 0 
+        left: 0 
+        right: 0 
+        bottom: 0 
+        background: white
+        z-index: -1 
+        transition: transform 400ms ease-out 
+        transform: scaleX(0) 
+        transform-origin: left 
+    &:hover 
+        color: #B2D01B 
+        border: 2px solid #B2D01B 
+        &:before 
+            transform: scaleX(1) 

@@ -9,6 +9,11 @@ interface Asset {
     asset: AssetRef;
 };
 
+interface Ref {
+    _ref: string;
+    _type: 'reference';
+};
+
 interface PRICES {
     _key: string;
     course: string;
@@ -114,10 +119,31 @@ interface ABOUT_US_DETAILS_QUERYResult {
     video: VIDEO;
 };
 
+interface FEATURE {
+    _key: string;
+    feature: string;
+};
+
+interface ABOUT_COURSE {
+    title: string;
+    features: FEATURE[];
+    categories: Ref;
+    image: Asset;
+};
+
 interface HOME_DETALIS_QUERYResult {
     ogTitle: string;
     ogDescription: string;
     ogImage: Asset;
+    about_course: ABOUT_COURSE;
     our_advantages: string[];
     content: string;
+};
+
+interface PARTNER_Result {
+    _id: string;
+    company_name: string;
+    cooperation: string;
+    implemented_projects: string;
+    logo: Asset;
 };
