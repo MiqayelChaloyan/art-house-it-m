@@ -1,9 +1,9 @@
 /* Form Contact types */
 export interface FormContact {
+    full_name: string;
     email: string;
     phone: string;
     training_center: number;
-    message: string;
     course_name: string;
 };
 

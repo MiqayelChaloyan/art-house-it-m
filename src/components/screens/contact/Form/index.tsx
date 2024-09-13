@@ -8,7 +8,6 @@ import Snackbars from '@/components/components/snackbar';
 import Select from '@/lib/ui/select';
 import InputField from '@/lib/ui/InputField';
 import InputNumber from '@/lib/ui/InputNumber';
-import TextareaField from '@/lib/ui/TextareaField';
 
 import { sendContactUsITM } from '@/api';
 import { TRAINING_CENTER } from '@/constants';
@@ -48,7 +47,7 @@ const Form = ({
         content: t('texts.send-message-success')
     });
 
-    const initValues = { email: '', phone: '', course_name: t('contact-us-form.select-course'), message: '', training_center: TRAINING_CENTER, };
+    const initValues = { full_name: '', email: '', phone: '', course_name: t('contact-us-form.select-course'), training_center: TRAINING_CENTER };
     const initState = { isLoading: false, error: false, values: initValues };
 
     const [state, setState] = useState<FormT>(initState);
@@ -68,10 +67,10 @@ const Form = ({
         e.preventDefault();
 
         const formData = {
+            full_name: state.values.full_name,
             email: state.values.email,
             phone: state.values.phone,
             course_name: course,
-            message: state.values.message,
             training_center: TRAINING_CENTER,
         };
 
@@ -136,6 +135,15 @@ const Form = ({
             <form onSubmit={handleSubmit} className={styles.form}>
                 <InputField
                     className={cn(styles.input, MMArmenU.className)}
+                    name='full_name'
+                    type='name'
+                    placeholder={t('contact-us-form.full-name')}
+                    requiredField={true}
+                    value={values.full_name}
+                    onChange={handleChange}
+                />
+                <InputField
+                    className={cn(styles.input, MMArmenU.className)}
                     name='email'
                     type='email'
                     placeholder={t('contact-us-form.email')}
@@ -161,14 +169,6 @@ const Form = ({
                     classNameProperty={`${classNameProperty}-itm`}
                     isClear={false}
                     getValueToSlug={getValueToSlug}
-                />
-                <TextareaField
-                    className={cn(styles.textarea, MMArmenU.className)}
-                    name='message'
-                    placeholder={t('contact-us-form.message')}
-                    requiredField={true}
-                    value={values.message}
-                    onChange={handleChange}
                 />
                 <button type='submit' className={styles.button}>
                     {isLoading ?

@@ -30,15 +30,17 @@ const Card = ({ worker }: Readonly<Props>) => {
                 priority
             />
             <div className={styles.position}>
-                {worker.additional_detalis?.length &&
-                    <div className={styles['detalis-group']}>
-                        {worker.additional_detalis.map((detalis, index) => (
-                            <p key={index} className={styles.detalis}>
-                                {detalis.detalis}
-                            </p>
-                        ))}
-                    </div>
-                }
+                <div className={styles.additional_detalis}>
+                    {worker.additional_detalis?.length &&
+                        <div className={styles['detalis-group']}>
+                            {worker.additional_detalis.map((detalis, index) => (
+                                <p key={index} className={styles.detalis}>
+                                    {detalis.detalis}
+                                </p>
+                            ))}
+                        </div>
+                    }
+                </div>
                 <h3 className={styles.worker}>
                     {worker?.worker}
                 </h3>

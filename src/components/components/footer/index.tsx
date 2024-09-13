@@ -1,31 +1,49 @@
 'use client'
 
-import { useState, ChangeEvent, FormEvent } from 'react';
+import React, { useState, ChangeEvent, FormEvent, useEffect, useCallback } from 'react';
+
+import Link from 'next/link';
+import { useTranslations } from 'next-intl';
+import { notFound, usePathname } from 'next/navigation';
+
+import { FaFacebookF, FaTwitter, FaPinterestP, FaTiktok } from 'react-icons/fa';
+import { FaInstagram, FaViber } from 'react-icons/fa6';
+import { IoMailSharp } from 'react-icons/io5';
+import { GrLinkedinOption } from 'react-icons/gr';
+import { PiTelegramLogoLight, PiWhatsappLogo } from 'react-icons/pi';
+import { AiOutlineYoutube } from 'react-icons/ai';
+
+import useWindowSize from '@/hooks/useWindowSize';
+import { socialNetwork } from '@/types';
+
+import { client } from '../../../../sanity/client';
+import { CONTACT_US_QUERY, COURSES_QUERY } from '../../../../sanity/services';
+
+import { MMArmenU } from '@/constants/font';
+import { Pages } from '@/constants/pages';
+
 import cn from 'classnames';
 
 import styles from './styles.module.sass';
-import { MMArmenU } from '@/constants/font';
-import { Pages } from '@/constants/pages';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation'
-import { useTranslations } from 'next-intl';
+
+
 import BulbIcon from '@/lib/icons/Bulb';
 
 
-const testCourses = [
-    {
-        name: 'test course'
-    },
-    {
-        name: 'test course'
-    },
-    {
-        name: 'test course'
-    },
-    {
-        name: 'test course test course'
-    }
-]
+
+const socialNetworkComponents: socialNetwork = {
+    facebook: FaFacebookF,
+    x: FaTwitter,
+    instagram: FaInstagram,
+    gmail: IoMailSharp,
+    linkedin: GrLinkedinOption,
+    pinterest: FaPinterestP,
+    telegram: PiTelegramLogoLight,
+    tiktok: FaTiktok,
+    viber: FaViber,
+    whatsapp: PiWhatsappLogo,
+    youtube: AiOutlineYoutube,
+};
 
 const navigationLinks = [
     { path: Pages.ABOUT, label: 'about' },
@@ -41,21 +59,40 @@ interface Props {
     locale: string;
 };
 
-
 const Footer = ({ locale }: Readonly<Props>) => {
     const [email, setEmail] = useState<string>('');
     const [error, setError] = useState<string>('');
+    const [courses, setCourses] = useState<COURSES_QUERYResult[]>([]);
+    const [contacts, setContacts] = useState<CONTACT_US_QUERYResult[]>([]);
 
+    const windowSize = useWindowSize();
     const t = useTranslations();
     const pathname = usePathname();
 
+    const getResources = useCallback(async () => {
+        try {
+            const [data, socialData] = await Promise.all([
+                client.fetch(COURSES_QUERY, { language: locale }, { cache: 'no-store' }),
+                client.fetch(CONTACT_US_QUERY, { language: locale }, { cache: 'no-store' })
+            ]);
+
+            setCourses(data);
+            setContacts(socialData);
+        } catch (error) {
+            notFound();
+        }
+    }, [locale]);
+
+    useEffect(() => {
+        getResources();
+    }, [getResources]);
+
     const handleEmailChange = (e: ChangeEvent<HTMLInputElement>): void => {
         setEmail(e.target.value);
-        setError(''); // Reset error on input change
+        setError('');
     };
 
     const validateEmail = (email: string): boolean => {
-        // Basic email regex pattern
         const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         return regex.test(email);
     };
@@ -67,9 +104,29 @@ const Footer = ({ locale }: Readonly<Props>) => {
             setError('Խնդրում ենք մուտքագրել վավեր էլ․ հասցե');
             return;
         }
-
-        console.log('Submitted:', email);
     };
+
+    const hosts = contacts[0]?.social_links?.map((host: SOCIAL) => {
+        const socialName = host?.social_name.toLowerCase();
+        const link = socialName === 'gmail' ? `mailto:${host?.social_link}` : host?.social_link;
+        const SocialIcon = (socialNetworkComponents as any)[socialName];
+        if (!SocialIcon) return null;
+
+        return (
+            <Link
+                key={host._key}
+                href={link}
+                aria-label={host?.social_name}
+                className={styles.social_network}
+                target='_blank'
+            >
+                <SocialIcon
+                    size={windowSize.width <= 1024 ? 15 : 30}
+                    fill='#B2D01B'
+                />
+            </Link>
+        )
+    });
 
 
     return (
@@ -123,36 +180,56 @@ const Footer = ({ locale }: Readonly<Props>) => {
                                 key={key}
                                 href={`/${locale}${link.path}`}
                                 aria-label={link.path}
-                                className={`${MMArmenU.className} ${styles.link} ${pathname === `/${locale}${link.path}` ? styles.linkActive : ''}`}
+                                className={cn(MMArmenU.className, styles.link, pathname.includes(`/${locale}${link.path}`) && styles.linkActive)}
                                 prefetch={true}
                                 passHref
-                            // onClick={() => setIsOpenMenu(false)}
                             >
                                 {t(`navigation.${link.label}`)}
                             </Link>
                         ))}
                     </div>
                     <div className={styles.courses}>
-                        {testCourses.map((link, key) => (
+                        {courses?.map((link, key) => (
                             <Link
                                 key={key}
-                                href={`/${locale}${link.name}`}
-                                aria-label={link.name}
-                                className={`${MMArmenU.className} ${styles.link} ${pathname === `/${locale}${link}` ? styles.linkActive : ''}`}
+                                href={`/${locale}${Pages.COURSES}/${link?.slug}`}
+                                aria-label={`${Pages.COURSES}/${link?.slug}`}
+                                className={cn(MMArmenU.className, styles.link, pathname.includes(`/${link?.slug}`) && styles.linkActive)}
                                 prefetch={true}
                                 passHref
-                            // onClick={() => setIsOpenMenu(false)}
                             >
-                                {link.name}
+                                {link?.course_name}
                             </Link>
                         ))}
                     </div>
                     <div className={styles.contact}>
-                        <p className={styles.link}>+374 96 200 408</p>
-                        <p className={styles.link}>+374 96 200 408</p>
-                        <p className={styles.link}>+374 96 200 408</p>
-                        <p className={styles.link}>+374 96 200 408</p>
-                        <p className={styles.link}>+374 96 200 408</p>
+                        {contacts[0]?.phone_numbers?.map((number, index) => (
+                            <Link
+                                key={index}
+                                href={`tel:${number}`}
+                                aria-label={number}
+                                className={cn(styles.link, MMArmenU.className)}
+                                prefetch={true}
+                                passHref
+                            >
+                                <p className={MMArmenU.className}>
+                                    {number}
+                                </p>
+                            </Link>
+                        ))}
+                        <Link
+                            href={`mailto:${contacts[0]?.email}`}
+                            aria-label='Email'
+                            className={styles.link}
+                        >
+                            <p className={MMArmenU.className}>
+                                {contacts[0]?.email}
+                            </p>
+                        </Link>
+                        <p className={styles.address}>{contacts[0]?.address}</p>
+                        <div className={styles.hosts}>
+                            {hosts}
+                        </div>
                     </div>
                 </div>
             </footer>

@@ -5,13 +5,11 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation'
 import { useTranslations } from 'next-intl';
-import Image from 'next/image';
 
 import useWindowSize from '@/hooks/useWindowSize';
 
 import { Pages } from '@/constants/pages';
 import { MMArmenU } from '@/constants/font';
-import { ImagePaths } from '@/constants';
 import LogoMobile from '@/lib/icons/LogoMobile'
 import Logo from '@/lib/icons/Logo'
 
@@ -62,7 +60,6 @@ const Header = ({ typePosition, locale }: Readonly<IHeaderProps>) => {
     const toggleMenuClick = () => setIsOpenMenu(!isOpenMenu);
 
 
-
     return (
         <header className={cn(
             styles.box,
@@ -84,7 +81,7 @@ const Header = ({ typePosition, locale }: Readonly<IHeaderProps>) => {
                         aria-label={Pages.HOME}
                         className={styles.logo}
                     >
-                        <Logo width={204} height={84} />
+                        <Logo width={windowSize.width <= 1440 ? 150 : 204} height={84} />
                     </Link>
                 )}
                 <div className={cn(

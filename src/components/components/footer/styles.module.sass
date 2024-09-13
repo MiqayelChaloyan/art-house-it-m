@@ -3,7 +3,8 @@ $assetPath: "../../../../public/assets/images/section.png"
 
 .footer
     background-color: #B2D01B
-    height: 556px
+    min-height: 556px
+    height: auto
     padding-top: 150px
     @media screen and (max-width: 991px)
         height: auto
@@ -162,9 +163,6 @@ $assetPath: "../../../../public/assets/images/section.png"
     font-weight: 400
     line-height: 18.94px 
 
-
-
-
 .links
     display: flex
     align-items: flex-start
@@ -173,7 +171,6 @@ $assetPath: "../../../../public/assets/images/section.png"
     max-width: 1380px
     margin: 0 auto
     padding: 1rem
-
 
 .nav,
 .contact,
@@ -194,7 +191,25 @@ $assetPath: "../../../../public/assets/images/section.png"
     @media screen and (max-width: 991px)
         margin-left: 0
 
+.linkActive
+    color: #1A2738 !important
+    
 .link
+    color: white
+    font-weight: 400
+    font-size: 18px
+    line-height: 17.88px
+    margin: 0.8rem
+    text-align: left
+    transition: color 0.5s ease
+    cursor: pointer
+    &:hover
+        color: #1A2738
+    @media screen and (max-width: 991px)
+        font-size: 16px
+        line-height: 16px
+
+.address
     color: white
     font-weight: 400
     font-size: 18px
@@ -205,6 +220,31 @@ $assetPath: "../../../../public/assets/images/section.png"
         font-size: 16px
         line-height: 16px
 
+
+.hosts
+   display: flex
+   align-items: center
+   justify-content: flex-start
+
+.social_network
+   margin: 5px
+   background-color: white
+   padding: 10px 10px 0 10px
+   border-radius: 50px
+   transition: background-color 0.5s ease
+   border: 1px solid white 
+   svg 
+      transition: background-color 0.5s ease
+      fill: #B2D01B
+   &:hover
+      background-color: #B2D01B
+      border: 1px solid white 
+      svg
+         fill: white 
+   /* lg */
+   @media screen and ( max-width: 1024px )
+      padding: 4px 10px 0 10px
+      margin: 2px
 
 .article
     background-image: url($assetPath)

@@ -1,33 +1,36 @@
 'use server'
 
-import Footer from "@/components/components/footer";
-import GoBack from "@/components/components/goBack";
-import Header from "@/components/components/header";
-import PlayerModal from "@/components/components/playerModal";
-import ScrollToTopButton from "@/components/components/scrollToTopButton";
-import { ImagePath } from "@/types";
-import { Metadata } from "next";
-import { urlForImage } from "../../../sanity/imageUrlBuilder";
-import { generateMetadataDynamic } from "@/utils/default-metadata";
-import { getHomeDetails } from "@/utils/data";
-import { Locale } from "@/locales";
-
 import { NextIntlClientProvider, useMessages } from 'next-intl';
+import { Metadata } from 'next';
+
+import { Locale } from '@/locales';
+
+import Footer from '@/components/components/footer';
+import GoBack from '@/components/components/goBack';
+import Header from '@/components/components/header';
+import PlayerModal from '@/components/components/playerModal';
+import ScrollToTopButton from '@/components/components/scrollToTopButton';
+
+import { ImagePath } from '@/types';
 
 import { StoreProvider } from '@/store/StoreProvider';
 
+import { urlForImage } from '../../../sanity/imageUrlBuilder';
+
+import { generateMetadataDynamic } from '@/utils/default-metadata';
+import { getHomeDetails } from '@/utils/data';
+
+import { MMArmenU } from '@/constants/font';
+
 import '@/styles/globals.sass';
-import { MMArmenU } from "@/constants/font";
-
-
 
 
 interface RootLayoutProps {
     children: React.ReactNode;
     params: {
-        locale: string
+        locale: string;
     };
-}
+};
 
 function RootLayout({
     children,
@@ -40,16 +43,14 @@ function RootLayout({
             <body className={MMArmenU.className}>
                 <NextIntlClientProvider locale={locale} messages={messages}>
                     <StoreProvider>
-                        <>
-                            <Header typePosition='fixed' locale={locale} />
-                            <div className='itm-container'>
-                                <GoBack locale={locale} theme='#1A2738' />
-                                <ScrollToTopButton theme='#1A2738' />
-                                    {children}
-                                <Footer locale={locale} />
-                            </div>
-                            <PlayerModal />
-                        </>
+                        <Header typePosition='fixed' locale={locale} />
+                        <div className='itm-container'>
+                            <GoBack locale={locale} theme='#1A2738' />
+                            <ScrollToTopButton theme='#1A2738' />
+                            {children}
+                            <Footer locale={locale} />
+                        </div>
+                        <PlayerModal />
                     </StoreProvider>
                 </NextIntlClientProvider>
             </body>
@@ -58,7 +59,6 @@ function RootLayout({
 };
 
 export default RootLayout;
-
 
 
 export async function generateMetadata({
