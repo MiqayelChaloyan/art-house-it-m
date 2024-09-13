@@ -133,6 +133,4 @@ export const PARTNERS_QUERY =
     _id,
     logo,
     "company_name": company_name[$language],
-    "cooperation": cooperation[$language],
-    "implemented_projects": implemented_projects[$language],
 }`;

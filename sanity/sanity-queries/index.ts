@@ -143,7 +143,5 @@ interface HOME_DETALIS_QUERYResult {
 interface PARTNER_Result {
     _id: string;
     company_name: string;
-    cooperation: string;
-    implemented_projects: string;
     logo: Asset;
 };

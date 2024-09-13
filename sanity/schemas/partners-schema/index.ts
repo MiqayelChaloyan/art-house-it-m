@@ -31,52 +31,6 @@ const partnersSchema = {
             ]
         },
         {
-            title: 'Cooperation (Համագործակցություն)',
-            name: 'cooperation',
-            type: 'object',
-            validation: (Rule: RuleType) => Rule.required(),
-            fields: [
-                {
-                    title: 'Armenian',
-                    name: 'am',
-                    type: 'string'
-                },
-                {
-                    title: 'English',
-                    name: 'en',
-                    type: 'string'
-                },
-                {
-                    title: 'Russian',
-                    name: 'ru',
-                    type: 'string'
-                }
-            ]
-        },
-        {
-            title: 'Implemented Projects (Իրականացված ծրագրեր)',
-            name: 'implemented_projects',
-            type: 'object',
-            validation: (Rule: RuleType) => Rule.required(),
-            fields: [
-                {
-                    title: 'Armenian',
-                    name: 'am',
-                    type: 'string'
-                },
-                {
-                    title: 'English',
-                    name: 'en',
-                    type: 'string'
-                },
-                {
-                    title: 'Russian',
-                    name: 'ru',
-                    type: 'string'
-                }
-            ]
-        },
-        {
             name: 'logo',
             title: 'Co-worker company logo (Գործընկեր ընկերության լոգոն)',
             type: 'image',
