@@ -1,6 +1,3 @@
-$assetPath: "../../../../public/assets/images/section.png"
-
-
 .footer
     background-color: #B2D01B
     min-height: 556px
@@ -16,7 +13,7 @@ $assetPath: "../../../../public/assets/images/section.png"
     justify-content: flex-start
     width: 100%
     max-width: 1200px
-    margin: 0 auto
+    margin: 0 auto 40px auto
     @media screen and (max-width: 991px)
         display: grid
         grid-template-columns: 1fr
@@ -173,8 +170,7 @@ $assetPath: "../../../../public/assets/images/section.png"
     padding: 1rem
 
 .nav,
-.contact,
-.courses
+.contact
     display: grid
     justify-content: center
     align-items: center
@@ -191,10 +187,28 @@ $assetPath: "../../../../public/assets/images/section.png"
     @media screen and (max-width: 991px)
         margin-left: 0
 
+.row
+    display: grid
+
+.courses
+    width: 40%
+    display: grid
+    margin-bottom: 1rem
+    grid-template-columns: repeat(2, 1fr)
+    @media screen and ( max-width: 1350px )
+        width: 73%
+    @media screen and ( max-width: 991px )
+        width: 64%
+    @media screen and ( max-width: 767px )
+        grid-template-columns: repeat(1, 1fr)
+        margin: 0 auto
+        width: 100%
+
 .linkActive
     color: #1A2738 !important
     
 .link
+    width: 100%
     color: white
     font-weight: 400
     font-size: 18px
@@ -220,7 +234,6 @@ $assetPath: "../../../../public/assets/images/section.png"
         font-size: 16px
         line-height: 16px
 
-
 .hosts
    display: flex
    align-items: center
@@ -245,48 +258,3 @@ $assetPath: "../../../../public/assets/images/section.png"
    @media screen and ( max-width: 1024px )
       padding: 4px 10px 0 10px
       margin: 2px
-
-.article
-    background-image: url($assetPath)
-    width: 100%
-    padding: 50px
-    min-height: 60vh
-    display: grid
-    min-width: 100%
-    background-size: cover
-    background-repeat: no-repeat
-    background-position: center center
-    /* @md */
-    @media screen and (max-width: 1024px)
-        height: 70vh
-        min-height: 70vh
-    /* @xs */
-    @media screen and (max-width: 600px)
-        height: 70vh
-    /* @2xs */
-    @media screen and (max-width: 480px)
-        height: 70vh
-    /* @3xs */
-    @media screen and (max-width: 360px)
-        height: 70vh
-
-.bulb
-    display: flex
-    justify-content: center
-    align-items: center
-
-
-.advertisement-title
-    font-weight: 700
-    font-size: 48px
-    line-height: 50.83px
-    color: #B2D01B
-    text-align: center
-
-
-.advertisement-text
-    font-weight: 400
-    font-size: 40px
-    line-height: 42.08px
-    color: #FFFFFF
-    text-align: center

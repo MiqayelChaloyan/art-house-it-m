@@ -27,10 +27,6 @@ import cn from 'classnames';
 import styles from './styles.module.sass';
 
 
-import BulbIcon from '@/lib/icons/Bulb';
-
-
-
 const socialNetworkComponents: socialNetwork = {
     facebook: FaFacebookF,
     x: FaTwitter,
@@ -128,112 +124,114 @@ const Footer = ({ locale }: Readonly<Props>) => {
         )
     });
 
+    const matrix = courses?.reduce<COURSES_QUERYResult[][]>((acc, item: COURSES_QUERYResult, index: number) => {
+        const rowIndex = Math.floor(index / 6);
+        if (!acc[rowIndex]) {
+            acc[rowIndex] = [];
+        }
+        acc[rowIndex].push(item);
+        return acc;
+    }, []);
+
+    const links = matrix?.map((row, rowIndex) => (
+        <div key={rowIndex} className={styles.row}>
+            {row.map((course) => (
+                <Link
+                    key={course?.slug}
+                    href={`/${locale}${Pages.COURSES}/${course?.slug}`}
+                    aria-label={`${Pages.COURSES}/${course?.slug}`}
+                    className={cn(MMArmenU.className, styles.link, pathname.includes(`/${course?.slug}`) && styles.linkActive)}
+                    prefetch={true}
+                    passHref
+                >
+                    {course?.course_name}
+                </Link>
+            ))}
+        </div>
+    ));
+
 
     return (
-        <>
-            <div id='advertisement' className={cn(styles.article, MMArmenU.className)}>
-                <div className={styles.bulb}>
-                    <BulbIcon width={130} height={130} />
+        <footer className={styles.footer}>
+            {/* <div className={styles.request}>
+                <div>
+                    <p className={cn(styles['request-text'], MMArmenU.className)}>
+                        <span>Գրանցվիր հիմա․</span> Ուղարկիր հայտ կամ կապվիր մեզ հետ {'\n'}
+                        Էլ․ փոստի միջոցով՝ հետադարձ կապ հաստատելու համար
+                    </p>
                 </div>
-                <h2 className={styles['advertisement-title']}>
-                    ITM Training Centre
-                </h2>
-                <h2 className={styles['advertisement-text']}>
-                    Դարձրու՛ երազանքդ իրականություն
-                </h2>
-            </div>
-            <footer className={styles.footer}>
-                <div className={styles.request}>
-                    <div>
-                        <p className={cn(styles['request-text'], MMArmenU.className)}>
-                            <span>Գրանցվիր հիմա․</span> Ուղարկիր հայտ կամ կապվիր մեզ հետ {'\n'}
-                            Էլ․ փոստի միջոցով՝ հետադարձ կապ հաստատելու համար
-                        </p>
-                    </div>
-                    <div className={styles.newsletter}>
-                        <form onSubmit={handleSubmit}>
-                            <div className={styles['form-input']}>
-                                <input
-                                    type="email"
-                                    className={cn(styles.input, MMArmenU.className)}
-                                    placeholder="էլ․ հասցե"
-                                    value={email}
-                                    onChange={handleEmailChange}
-                                />
-                            </div>
-                            <div className={styles['form-button']}>
-                                <button
-                                    type="submit"
-                                    className={cn(styles.btnEnviar, MMArmenU.className)}
-                                >
-                                    Ուղարկել
-                                </button>
-                            </div>
-                        </form>
-                        {error && <p className={cn(styles.error, MMArmenU.className)}>{error}</p>}
-                    </div>
+                <div className={styles.newsletter}>
+                    <form onSubmit={handleSubmit}>
+                        <div className={styles['form-input']}>
+                            <input
+                                type="email"
+                                className={cn(styles.input, MMArmenU.className)}
+                                placeholder="էլ․ հասցե"
+                                value={email}
+                                onChange={handleEmailChange}
+                            />
+                        </div>
+                        <div className={styles['form-button']}>
+                            <button
+                                type="submit"
+                                className={cn(styles.btnEnviar, MMArmenU.className)}
+                            >
+                                Ուղարկել
+                            </button>
+                        </div>
+                    </form>
+                    {error && <p className={cn(styles.error, MMArmenU.className)}>{error}</p>}
                 </div>
-                <div className={styles.links}>
-                    <div className={styles.nav}>
-                        {navigationLinks.map((link, key) => (
-                            <Link
-                                key={key}
-                                href={`/${locale}${link.path}`}
-                                aria-label={link.path}
-                                className={cn(MMArmenU.className, styles.link, pathname.includes(`/${locale}${link.path}`) && styles.linkActive)}
-                                prefetch={true}
-                                passHref
-                            >
-                                {t(`navigation.${link.label}`)}
-                            </Link>
-                        ))}
-                    </div>
-                    <div className={styles.courses}>
-                        {courses?.map((link, key) => (
-                            <Link
-                                key={key}
-                                href={`/${locale}${Pages.COURSES}/${link?.slug}`}
-                                aria-label={`${Pages.COURSES}/${link?.slug}`}
-                                className={cn(MMArmenU.className, styles.link, pathname.includes(`/${link?.slug}`) && styles.linkActive)}
-                                prefetch={true}
-                                passHref
-                            >
-                                {link?.course_name}
-                            </Link>
-                        ))}
-                    </div>
-                    <div className={styles.contact}>
-                        {contacts[0]?.phone_numbers?.map((number, index) => (
-                            <Link
-                                key={index}
-                                href={`tel:${number}`}
-                                aria-label={number}
-                                className={cn(styles.link, MMArmenU.className)}
-                                prefetch={true}
-                                passHref
-                            >
-                                <p className={MMArmenU.className}>
-                                    {number}
-                                </p>
-                            </Link>
-                        ))}
+            </div> */}
+            <div className={styles.links}>
+                <div className={styles.nav}>
+                    {navigationLinks.map((link, key) => (
                         <Link
-                            href={`mailto:${contacts[0]?.email}`}
-                            aria-label='Email'
-                            className={styles.link}
+                            key={key}
+                            href={`/${locale}${link.path}`}
+                            aria-label={link.path}
+                            className={cn(MMArmenU.className, styles.link, pathname.includes(`/${locale}${link.path}`) && styles.linkActive)}
+                            prefetch={true}
+                            passHref
+                        >
+                            {t(`navigation.${link.label}`)}
+                        </Link>
+                    ))}
+                </div>
+                <div className={styles.courses}>
+                    {links}
+                </div>
+                <div className={styles.contact}>
+                    {contacts[0]?.phone_numbers?.map((number, index) => (
+                        <Link
+                            key={index}
+                            href={`tel:${number}`}
+                            aria-label={number}
+                            className={cn(styles.link, MMArmenU.className)}
+                            prefetch={true}
+                            passHref
                         >
                             <p className={MMArmenU.className}>
-                                {contacts[0]?.email}
+                                {number}
                             </p>
                         </Link>
-                        <p className={styles.address}>{contacts[0]?.address}</p>
-                        <div className={styles.hosts}>
-                            {hosts}
-                        </div>
+                    ))}
+                    <Link
+                        href={`mailto:${contacts[0]?.email}`}
+                        aria-label='Email'
+                        className={styles.link}
+                    >
+                        <p className={MMArmenU.className}>
+                            {contacts[0]?.email}
+                        </p>
+                    </Link>
+                    <p className={styles.address}>{contacts[0]?.address}</p>
+                    <div className={styles.hosts}>
+                        {hosts}
                     </div>
                 </div>
-            </footer>
-        </>
+            </div>
+        </footer>
     );
 };
 

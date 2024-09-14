@@ -10,6 +10,7 @@ import GoBack from '@/components/components/goBack';
 import Header from '@/components/components/header';
 import PlayerModal from '@/components/components/playerModal';
 import ScrollToTopButton from '@/components/components/scrollToTopButton';
+import Advertisement from '@/components/components/advertisement';
 
 import { ImagePath } from '@/types';
 
@@ -47,7 +48,8 @@ function RootLayout({
                         <div className='itm-container'>
                             <GoBack locale={locale} theme='#1A2738' />
                             <ScrollToTopButton theme='#1A2738' />
-                            {children}
+                                {children}
+                            <Advertisement />
                             <Footer locale={locale} />
                         </div>
                         <PlayerModal />
