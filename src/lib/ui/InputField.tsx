@@ -11,7 +11,6 @@ interface InputProps {
 }
 
 const InputField: FC<InputProps> = ({ className, type, name, placeholder, requiredField, value, onChange }) => {
-
 	return (
 		<input
 			name={name}

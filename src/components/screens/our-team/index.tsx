@@ -4,6 +4,7 @@ import Container from '@/components/components/container';
 import Card from './Card';
 
 import styles from './styles.module.sass';
+import TestCard from './TestCard';
 
 
 interface Props {
@@ -20,6 +21,9 @@ const OurTeam = ({ data }: Readonly<Props>) => {
                 ))}
                 </div>
             </Container>
+
+            {/* <TestCard /> */}
+
         </section>
     )
 }

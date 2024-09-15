@@ -19,6 +19,12 @@ export interface FormOrder {
     order_name: string;
 };
 
+/* Form Email types */
+export interface Contact {
+    email: string;
+    training_center: number;
+};
+
 export interface socialNetwork {
     facebook: (props: { size: string | number; fill: string | number } | any) => JSX.Element,
     x: ({ size, fill }: { size: string | number; fill: string | number } | any) => JSX.Element,

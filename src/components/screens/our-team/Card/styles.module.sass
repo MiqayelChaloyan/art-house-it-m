@@ -1,6 +1,6 @@
 .card
     width: 313px
-    height: max-content
+    height: 400px
     box-shadow: 0 6px 6px #00000052
     margin: 50px
     /* @3xl */
@@ -21,9 +21,11 @@
     /* @sm */
     @media screen and (max-width: 768px)
        width: 200px
+       height: 325px
     /* @xs */
     @media screen and (max-width: 600px)
        width: 166.81px
+       height: 266px
        margin: 20px
     /* @2xs */
     @media screen and (max-width: 480px)
@@ -65,37 +67,6 @@
     @media screen and (max-width: 360px)
         height: 187.6px
 
-.position
-    background-color: #B2D01B
-    padding: 20px
-    /* @3xl */
-    @media screen and (max-width: 1920px)
-       padding: 20px
-    /* @2xl */
-    @media screen and (max-width: 1600px)
-       padding: 20px
-    /* @xl */
-    @media screen and (max-width: 1440px)
-       padding: 20px
-    /* @lg */
-    @media screen and (max-width: 1280px)
-       padding: 20px
-    /* @md */
-    @media screen and (max-width: 1024px)
-       padding: 20px
-    /* @sm */
-    @media screen and (max-width: 768px)
-       padding: 20px
-    /* @xs */
-    @media screen and (max-width: 600px)
-       padding: 10px
-    /* @2xs */
-    @media screen and (max-width: 480px)
-       padding: 10px
-    /* @3xs */
-    @media screen and (max-width: 360px)
-       padding: 10px
-
 .worker
     font-size: 20px
     font-weight: 400
@@ -135,17 +106,17 @@
         margin-bottom: 20px
     /* @xs */
     @media screen and (max-width: 600px)
-        font-size: 16px
+        font-size: 12px
         line-height: 15.88px
         margin-bottom: 20px
     /* @2xs */
     @media screen and (max-width: 480px)
-        font-size: 16px
+        font-size: 12px
         line-height: 15.88px
         margin-bottom: 20px
     /* @3xs */
     @media screen and (max-width: 360px)
-        font-size: 16px
+        font-size: 12px
         line-height: 15.88px
         margin-bottom: 20px
 
@@ -181,15 +152,15 @@
         line-height: 12.83px
     /* @xs */
     @media screen and (max-width: 600px)
-        font-size: 13px
+        font-size: 11px
         line-height: 12.83px
     /* @2xs */
     @media screen and (max-width: 480px)
-        font-size: 13px
+        font-size: 11px
         line-height: 12.83px
     /* @3xs */
     @media screen and (max-width: 360px)
-        font-size: 13px
+        font-size: 11px
         line-height: 12.83px
 
 .detalis
@@ -337,3 +308,34 @@
             height: 2.63px
             background-color: #FFFFFF
             margin: 5px auto
+
+
+
+
+.product-detail
+    position: absolute
+    left: 0
+    right: 0
+    bottom: 0
+    height: 80px
+    overflow: hidden
+    padding: 15px
+    background-color: rgba(223, 217, 217, 0.75)
+    transition: height 0.35s ease
+    text-align: center
+    transition: all 0.4s
+    background-color: #B2D01B
+    padding: 20px
+    /* @sm */
+    @media screen and (max-width: 768px)
+        padding: 22px 5px
+
+.card
+    transition: all 0.4s ease-in-out
+    position: relative
+    &:hover
+        .product-detail
+            height: calc(100%)
+            padding-top: 100px
+            background-color: #1a2738
+

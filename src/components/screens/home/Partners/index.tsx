@@ -30,7 +30,7 @@ interface Props {
 interface ArrowProps {
     onClick?: () => void;
     fill: string;
-}
+};
 
 const SampleNextArrow: React.FC<ArrowProps> = ({ onClick, fill, ...props }) => (
     <div className={cn(styles.arrow, styles.arrow_right)} onClick={onClick}>
@@ -43,7 +43,6 @@ const SamplePrevArrow: React.FC<ArrowProps> = ({ onClick, fill, ...props }) => (
         <ArrowLeft width={18} height={50} fill={fill} />
     </div>
 );
-
 
 const Partners = ({ partners }: Readonly<Props>) => {
     const t = useTranslations('navigation');
@@ -83,6 +82,14 @@ const Partners = ({ partners }: Readonly<Props>) => {
                 breakpoint: 1024,
                 settings: {
                     slidesToShow: 4,
+                    slidesToScroll: 1,
+                    dots: false
+                }
+            },
+            {
+                breakpoint: 991,
+                settings: {
+                    slidesToShow: 3,
                     slidesToScroll: 1,
                     dots: false
                 }

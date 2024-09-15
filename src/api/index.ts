@@ -7,7 +7,7 @@ import { BASE_URL } from '@/constants/api';
 
 // IT-M
 // SEND CONTACT US
-export const sendContactUsITM = async (ITMFormData: any) => {
+export const sendContactUs = async (ITMFormData: any) => {
     try {
         // const response = await axios.post(BASE_URL, null, {
         //     params: { ITMFormData },
@@ -33,7 +33,7 @@ export const sendContactUsITM = async (ITMFormData: any) => {
 };
 
 // SEND ORDER
-export const sendOrderITM = async (ITMFormData: any) => {
+export const sendOrderForm = async (ITMFormData: any) => {
     try {
         // const response = await axios.post(BASE_URL, null, {
         //     params: { ITMFormData },
@@ -48,6 +48,32 @@ export const sendOrderITM = async (ITMFormData: any) => {
 
         // TEST
         console.log(ITMFormData)
+
+
+        return {
+            status: 200
+        }
+    } catch (error) {
+        return error
+    }
+};
+
+// SEND EMAIL
+export const sendEmail = async (values: any) => {
+    try {
+        // const response = await axios.post(BASE_URL, null, {
+        //     params: { ITMFormData },
+        //     timeout: 10000
+        // });
+
+        // return {
+        //     status: response.status
+        // };
+
+
+
+        // TEST
+        console.log(values)
 
 
         return {

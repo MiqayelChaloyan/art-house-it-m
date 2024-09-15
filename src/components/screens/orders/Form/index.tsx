@@ -10,7 +10,7 @@ import InputField from '@/lib/ui/InputField';
 import InputNumber from '@/lib/ui/InputNumber';
 import TextareaField from '@/lib/ui/TextareaField';
 
-import { sendOrderITM } from '@/api';
+import { sendOrderForm } from '@/api';
 import { TRAINING_CENTER } from '@/constants';
 
 import { MMArmenU } from "@/constants/font";
@@ -93,13 +93,12 @@ const Form = ({
                 return
             };
 
-            const res: ContactUsResponse = await sendOrderITM(formData);
+            const res: ContactUsResponse = await sendOrderForm(formData);
 
             if (res.status !== 200) {
                 throw new Error('Failed to send message');
-            }
+            };
 
-            // Success case
             setOpen(true);
             setInfo({
                 status: 'success',

@@ -6,6 +6,9 @@ import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 import { notFound, usePathname } from 'next/navigation';
 
+import InputField from '@/lib/ui/InputField';
+import Snackbars from '../snackbar';
+
 import { FaFacebookF, FaTwitter, FaPinterestP, FaTiktok } from 'react-icons/fa';
 import { FaInstagram, FaViber } from 'react-icons/fa6';
 import { IoMailSharp } from 'react-icons/io5';
@@ -13,19 +16,32 @@ import { GrLinkedinOption } from 'react-icons/gr';
 import { PiTelegramLogoLight, PiWhatsappLogo } from 'react-icons/pi';
 import { AiOutlineYoutube } from 'react-icons/ai';
 
+import { sendEmail } from '@/api';
+
 import useWindowSize from '@/hooks/useWindowSize';
-import { socialNetwork } from '@/types';
+import { Contact, ContactUsResponse, socialNetwork } from '@/types';
 
 import { client } from '../../../../sanity/client';
 import { CONTACT_US_QUERY, COURSES_QUERY } from '../../../../sanity/services';
 
 import { MMArmenU } from '@/constants/font';
 import { Pages } from '@/constants/pages';
+import { TRAINING_CENTER } from '@/constants';
 
 import cn from 'classnames';
 
 import styles from './styles.module.sass';
 
+
+interface Props {
+    locale: string;
+};
+
+interface Form {
+    isLoading: boolean;
+    error: boolean;
+    values: Contact;
+};
 
 const socialNetworkComponents: socialNetwork = {
     facebook: FaFacebookF,
@@ -50,20 +66,26 @@ const navigationLinks = [
     { path: Pages.CONTACT, label: 'contact' }
 ];
 
-
-interface Props {
-    locale: string;
-};
-
 const Footer = ({ locale }: Readonly<Props>) => {
-    const [email, setEmail] = useState<string>('');
-    const [error, setError] = useState<string>('');
     const [courses, setCourses] = useState<COURSES_QUERYResult[]>([]);
     const [contacts, setContacts] = useState<CONTACT_US_QUERYResult[]>([]);
 
-    const windowSize = useWindowSize();
     const t = useTranslations();
+    const windowSize = useWindowSize();
     const pathname = usePathname();
+
+    const [open, setOpen] = useState(false);
+    const [info, setInfo] = useState({
+        status: 'success',
+        content: t('texts.send-message-success')
+    });
+
+    const initValues = { email: '', training_center: TRAINING_CENTER };
+    const initState = { isLoading: false, error: false, values: initValues };
+
+    const [state, setState] = useState<Form>(initState);
+    const { values, isLoading, error } = state;
+
 
     const getResources = useCallback(async () => {
         try {
@@ -83,25 +105,6 @@ const Footer = ({ locale }: Readonly<Props>) => {
         getResources();
     }, [getResources]);
 
-    const handleEmailChange = (e: ChangeEvent<HTMLInputElement>): void => {
-        setEmail(e.target.value);
-        setError('');
-    };
-
-    const validateEmail = (email: string): boolean => {
-        const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return regex.test(email);
-    };
-
-    const handleSubmit = (e: FormEvent<HTMLFormElement>): void => {
-        e.preventDefault();
-
-        if (!validateEmail(email)) {
-            setError('Խնդրում ենք մուտքագրել վավեր էլ․ հասցե');
-            return;
-        }
-    };
-
     const hosts = contacts[0]?.social_links?.map((host: SOCIAL) => {
         const socialName = host?.social_name.toLowerCase();
         const link = socialName === 'gmail' ? `mailto:${host?.social_link}` : host?.social_link;
@@ -117,7 +120,7 @@ const Footer = ({ locale }: Readonly<Props>) => {
                 target='_blank'
             >
                 <SocialIcon
-                    size={windowSize.width <= 1024 ? 15 : 30}
+                    size={windowSize.width <= 1440 ? 15 : 30}
                     fill='#B2D01B'
                 />
             </Link>
@@ -150,88 +153,158 @@ const Footer = ({ locale }: Readonly<Props>) => {
         </div>
     ));
 
+    const handleChange = (event: ChangeEvent<HTMLInputElement> | any) => {
+        const { target } = event;
+        const { name, value } = target;
+
+        setState((prev: Form) => ({
+            ...prev,
+            values: {
+                ...prev.values,
+                [name]: value,
+            },
+        }));
+    }
+
+    const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+
+        const formData = {
+            email: state.values.email,
+            training_center: TRAINING_CENTER,
+        };
+
+        try {
+            if (formData.email === '') {
+                return
+            };
+
+            const res: ContactUsResponse = await sendEmail(formData);
+
+            if (res.status !== 200) {
+                throw new Error('Failed to send message');
+            }
+
+            setOpen(true);
+            setInfo({
+                status: 'success',
+                content: t('texts.send-message-success'),
+            });
+
+            setState(() => ({
+                ...initState,
+                isLoading: false,
+                error: false,
+            }));
+        } catch (error) {
+            setOpen(true);
+            setInfo({
+                status: 'info',
+                content: t('texts.send-message-failure'),
+            });
+
+            setState((prev: Form) => ({
+                ...prev,
+                isLoading: false,
+                error: true,
+            }));
+        }
+    };
+
+    const handleClose = () => setOpen(false);
+
 
     return (
-        <footer className={styles.footer}>
-            {/* <div className={styles.request}>
-                <div>
-                    <p className={cn(styles['request-text'], MMArmenU.className)}>
-                        <span>Գրանցվիր հիմա․</span> Ուղարկիր հայտ կամ կապվիր մեզ հետ {'\n'}
-                        Էլ․ փոստի միջոցով՝ հետադարձ կապ հաստատելու համար
-                    </p>
-                </div>
-                <div className={styles.newsletter}>
-                    <form onSubmit={handleSubmit}>
-                        <div className={styles['form-input']}>
-                            <input
-                                type="email"
-                                className={cn(styles.input, MMArmenU.className)}
-                                placeholder="էլ․ հասցե"
-                                value={email}
-                                onChange={handleEmailChange}
-                            />
-                        </div>
-                        <div className={styles['form-button']}>
-                            <button
-                                type="submit"
-                                className={cn(styles.btnEnviar, MMArmenU.className)}
-                            >
-                                Ուղարկել
-                            </button>
-                        </div>
-                    </form>
-                    {error && <p className={cn(styles.error, MMArmenU.className)}>{error}</p>}
-                </div>
-            </div> */}
-            <div className={styles.links}>
-                <div className={styles.nav}>
-                    {navigationLinks.map((link, key) => (
-                        <Link
-                            key={key}
-                            href={`/${locale}${link.path}`}
-                            aria-label={link.path}
-                            className={cn(MMArmenU.className, styles.link, pathname.includes(`/${locale}${link.path}`) && styles.linkActive)}
-                            prefetch={true}
-                            passHref
-                        >
-                            {t(`navigation.${link.label}`)}
-                        </Link>
-                    ))}
-                </div>
-                <div className={styles.courses}>
-                    {links}
-                </div>
-                <div className={styles.contact}>
-                    {contacts[0]?.phone_numbers?.map((number, index) => (
-                        <Link
-                            key={index}
-                            href={`tel:${number}`}
-                            aria-label={number}
-                            className={cn(styles.link, MMArmenU.className)}
-                            prefetch={true}
-                            passHref
-                        >
-                            <p className={MMArmenU.className}>
-                                {number}
+        <>
+            <Snackbars
+                open={open}
+                handleChange={handleClose}
+                info={info}
+            />
+            <footer className={styles.footer}>
+                <div className={styles.boxs}>
+                    <div className={styles.request}>
+                        <div>
+                            <p className={cn(styles['request-text'], MMArmenU.className)}>
+                                <span>Գրանցվիր հիմա․</span> Ուղարկիր հայտ կամ կապվիր մեզ հետ {'\n'}
+                                Էլ․ փոստի միջոցով՝ հետադարձ կապ հաստատելու համար
                             </p>
-                        </Link>
-                    ))}
-                    <Link
-                        href={`mailto:${contacts[0]?.email}`}
-                        aria-label='Email'
-                        className={styles.link}
-                    >
-                        <p className={MMArmenU.className}>
-                            {contacts[0]?.email}
-                        </p>
-                    </Link>
-                    <p className={styles.address}>{contacts[0]?.address}</p>
-                    <div className={styles.hosts}>
-                        {hosts}
+                        </div>
+                        <div className={styles.newsletter}>
+                            <form onSubmit={handleSubmit}>
+                                <div className={styles['form-input']}>
+                                    <InputField
+                                        className={cn(styles.input, MMArmenU.className)}
+                                        name='email'
+                                        type='email'
+                                        placeholder={t('contact-us-form.email')}
+                                        requiredField={true}
+                                        value={values.email}
+                                        onChange={handleChange}
+                                    />
+                                </div>
+                                <div className={styles['form-button']}>
+                                    <button
+                                        type="submit"
+                                        className={cn(styles.btnEnviar, MMArmenU.className)}
+                                    >
+                                        Ուղարկել
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div className={styles.links}>
+                        <div className={styles.nav}>
+                            {navigationLinks.map((link, key) => (
+                                <Link
+                                    key={key}
+                                    href={`/${locale}${link.path}`}
+                                    aria-label={link.path}
+                                    className={cn(MMArmenU.className, styles.link, pathname.includes(`/${locale}${link.path}`) && styles.linkActive)}
+                                    prefetch={true}
+                                    passHref
+                                >
+                                    {t(`navigation.${link.label}`)}
+                                </Link>
+                            ))}
+                        </div>
+                        <div className={styles.courses}>
+                            {links}
+                        </div>
+                        <div className={styles.contact}>
+                            {contacts[0]?.phone_numbers?.map((number, index) => (
+                                <Link
+                                    key={index}
+                                    href={`tel:${number}`}
+                                    aria-label={number}
+                                    className={cn(styles.link, MMArmenU.className)}
+                                    prefetch={true}
+                                    passHref
+                                >
+                                    <p className={MMArmenU.className}>
+                                        {number}
+                                    </p>
+                                </Link>
+                            ))}
+                            <Link
+                                href={`mailto:${contacts[0]?.email}`}
+                                aria-label='Email'
+                                className={styles.link}
+                            >
+                                <p className={MMArmenU.className}>
+                                    {contacts[0]?.email}
+                                </p>
+                            </Link>
+                            <p className={styles.address}>{contacts[0]?.address}</p>
+                            <div className={styles.hosts}>
+                                {hosts}
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </footer>
+            </footer>
+        </>
     );
 };
 

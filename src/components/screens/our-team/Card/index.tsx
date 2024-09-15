@@ -29,7 +29,13 @@ const Card = ({ worker }: Readonly<Props>) => {
                 height={500}
                 priority
             />
-            <div className={styles.position}>
+            <div className={styles['product-detail']}>
+            <h3 className={styles.worker}>
+                    {worker?.worker}
+                </h3>
+                <p className={styles.profession}>
+                    {worker?.profession}
+                </p>
                 <div className={styles.additional_detalis}>
                     {worker.additional_detalis?.length &&
                         <div className={styles['detalis-group']}>
@@ -41,12 +47,6 @@ const Card = ({ worker }: Readonly<Props>) => {
                         </div>
                     }
                 </div>
-                <h3 className={styles.worker}>
-                    {worker?.worker}
-                </h3>
-                <p className={styles.profession}>
-                    {worker?.profession}
-                </p>
             </div>
         </figure>
     )
