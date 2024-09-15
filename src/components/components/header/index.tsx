@@ -19,6 +19,7 @@ import cn from 'classnames';
 
 import styles from './styles.module.sass';
 
+
 interface IHeaderProps {
     typePosition: string;
     locale: string;

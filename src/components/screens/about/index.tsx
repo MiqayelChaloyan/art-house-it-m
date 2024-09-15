@@ -1,6 +1,5 @@
 'use client'
 
-import Container from "@/components/components/container";
 import AboutUs from "./AboutUs";
 import Strengths from "./Strengths";
 import VideoPlayer from "./VideoPlayer";

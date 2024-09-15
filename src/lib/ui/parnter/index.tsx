@@ -10,7 +10,7 @@ import styles from './styles.module.sass';
 
 
 interface Props {
-    partner: any;
+    partner: PARTNER_Result;
 };
 
 const Partner = ({ partner }: Readonly<Props>) => {

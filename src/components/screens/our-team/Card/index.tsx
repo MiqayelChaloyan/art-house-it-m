@@ -41,7 +41,7 @@ const Card = ({ worker }: Readonly<Props>) => {
                         <div className={styles['detalis-group']}>
                             {worker.additional_detalis.map((detalis, index) => (
                                 <p key={index} className={styles.detalis}>
-                                    {detalis.detalis}
+                                    {detalis?.detalis}
                                 </p>
                             ))}
                         </div>

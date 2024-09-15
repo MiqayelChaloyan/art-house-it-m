@@ -5,11 +5,12 @@ import Image from 'next/image';
 import { PortableText } from '@portabletext/react';
 import components from '@/utils/PortableTextComponents';
 
+import Container from '@/components/components/container';
+
 import { ImagePaths } from '@/constants';
 import { MMArmenU } from '@/constants/font';
 
 import styles from './styles.module.sass';
-import Container from '@/components/components/container';
 
 
 interface Props {

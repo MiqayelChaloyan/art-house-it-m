@@ -2,9 +2,6 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 
-// import { LANGUAGE } from '../../../../sanity/sanity-queries/language';
-// import { LESSON } from '../../../../sanity/sanity-queries/design';
-
 import { Arial } from '@/constants/font';
 
 import cn from 'classnames';
@@ -13,8 +10,8 @@ import styles from './styles.module.sass';
 
 
 type FormProps = {
-    isLoading: boolean,
-    values: any
+    isLoading: boolean;
+    values: any;
 };
 
 interface SelectProps {

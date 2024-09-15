@@ -39,14 +39,26 @@ export interface socialNetwork {
     youtube: ({ size, fill }: { size: string | number; fill: string | number } | any) => JSX.Element,
 };
 
+interface ToolbarDisplay {
+    left: string[];
+    middle: string[];
+    right: string[];
+};
 
+interface Toolbar {
+    display: ToolbarDisplay;
+};
 
+interface Images {
+    zoom: boolean;
+};
 
-
-
-
-
-
+export interface Options {
+    compact: boolean;
+    hideScrollbar: boolean;
+    Toolbar: Toolbar;
+    Images: Images;
+};
 
 interface PortableChildren {
     marks: any;

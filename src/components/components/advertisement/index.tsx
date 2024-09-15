@@ -27,7 +27,7 @@ const Advertisement = () => {
                     ITM Training Centre
                 </h2>
                 <h2 className={styles['advertisement-text']}>
-                    Դարձրու՛ երազանքդ իրականություն
+                    {t("texts.dream")}
                 </h2>
             </div>
         </section>

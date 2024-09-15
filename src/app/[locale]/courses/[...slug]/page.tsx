@@ -30,7 +30,7 @@ export default async function Page({
         notFound();
     };
 
-    return (<Course data={data} locale={locale} />);
+    return (<Course data={data} />);
 };
 
 

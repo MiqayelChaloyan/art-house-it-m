@@ -1,19 +1,23 @@
 'use client'
 
-import styles from './styles.module.sass';
 
-import { ImagePaths } from "@/constants";
-import Image from "next/image";
-
-import Container from "@/components/components/container";
-import cn from 'classnames';
-import { MMArmenU } from "@/constants/font";
-import { ImagePath } from '@/types';
-import { urlForImage } from '../../../../../sanity/imageUrlBuilder';
+import Image from 'next/image';
+import { useLocale, useTranslations } from 'next-intl';
 import { notFound, useRouter } from 'next/navigation';
+
+import Container from '@/components/components/container';
+
+import { MMArmenU } from '@/constants/font';
+
 import { client } from '../../../../../sanity/client';
-import { useLocale } from 'next-intl';
+import { urlForImage } from '../../../../../sanity/imageUrlBuilder';
 import { COURSE_ID_QUERY } from '../../../../../sanity/services';
+
+import { ImagePath } from '@/types';
+
+import cn from 'classnames';
+
+import styles from './styles.module.sass';
 
 
 interface Props {
@@ -23,7 +27,7 @@ interface Props {
 const Programming = ({ data }: Readonly<Props>) => {
     const localActive = useLocale();
     const router = useRouter();
-
+    const t = useTranslations('buttons');
     const path: ImagePath = urlForImage(data?.image);
 
     const features = data.features?.map((item: FEATURE) =>
@@ -45,7 +49,7 @@ const Programming = ({ data }: Readonly<Props>) => {
 
     return (
         <section id='programming' className={cn(styles.container, MMArmenU.className)}>
-            <Container className="container">
+            <Container className='container'>
                 <div className={styles.box}>
                     <div className={styles.newsletter}>
                         <Image
@@ -68,7 +72,7 @@ const Programming = ({ data }: Readonly<Props>) => {
                                 onClick={getResources}
                                 className={styles['more-btn']}
                             >
-                                Ավելին
+                                {t("more")}
                             </button>
                         </div>
                     </div>

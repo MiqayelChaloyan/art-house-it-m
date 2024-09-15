@@ -4,88 +4,29 @@
         "partners": "Գործընկերներ",
         "price-list": "Գնացուցակ",
         "courses": "Դասընթացներ",
-        "languages": "Լեզուներ",
-        "promotions": "Ակցիաներ",
-        "send-request": "Ուղարկել հայտ",
-        "take-the-test": "Անցնել թեստ",
-        "departments": "Բաժիններ",
         "orders": "Պատվերներ",
-        "portfolios": "Պորտֆոլիո",
         "our-team": "Մեր թիմը",
         "contact": "Կապ"
     },
-    "footer": {
-        "about-us": "Մեր մասին",
-        "programs": "Ծրագրեր",
-        "partners": "Գործընկերներ"
-    },
-    "address": {
-        "address": "Հայաստան, Երևան, Աբովյան 33"
-    },
     "texts": {
-        "welcome": "Բարի գալուստ",
-        "main-title": "ԵՐԲԵՔ ՈՒՇ ՉԷ ՍՈՎՈՐԵԼ",
-        "follow-us": "ՀԵՏԵՎԵՔ ՄԵԶ",
-        "rights": "Բոլոր իրավունքները պաշտպանված են",
-        "rating-title": "Art House ուսումնական կենտրոն",
-        "send-request": "Ուղարկել \n հայտ",
-        "take-the-test": "Անցնել \n թեստ",
-        "contact-us": "Կապ մեզ հետ",
-        "more": "Ավելին",
-        "total-points": "Վիկտորինայի ընդհանուր միավորներ",
-        "total-questions": "Ընդհանուր հարցեր",
-        "quiz-result": "Վիկտորինայի արդյունք",
-        "select-language": "Ընտրել Լեզուն",
         "send-message-success": "Ձեր նամակը հաջողությամբ ուղարկվեց",
         "send-message-failure": "Ինչ որ բան այնպես չգնաց, խնդրում ենք փորձել նորից",
-        "other-platforms": "Այլ հարթակներ",
-        "address": "Հասցե"
+        "send-request": "Ուղարկել \n հայտ",
+        "dream": "Դարձրու՛ երազանքդ իրականություն",
+        "register": "Գրանցվիր հիմա․",
+        "request-now": "Ուղարկիր հայտ կամ կապվիր մեզ հետ \n Էլ․ փոստի միջոցով՝ հետադարձ կապ հաստատելու համար"
     },
     "buttons": {
-        "contact-us": "Կապ մեզ հետ",
-        "view-more": "Դիտել ավելին",
-        "show-less": "Ցույց տալ ավելի քիչ",
-        "view": "Դիտել",
-        "go-back": "Վերադառնալ",
-        "confirm": "Հաստատել",
-        "back": "Նախորդը",
-        "next": "Հաջորդը",
-        "view-all": "Դիտել բոլորը",
-        "read-more": "Կարդալ ավելին",
         "register": "Գրանցվել",
-        "register-now": "Գրանցվիր հիմա",
-        "see-more": "Տեսնել ավելին",
         "more": "Ավելին",
+        "register-now": "Գրանցվիր հիմա",
         "courses": "Դասընթացներ"
-    },
-    "sections": {
-        "partners": "Գործընկերներ",
-        "courses": "Դասընթացներ",
-        "about-courses": "Դասընթացների մասին",
-        "courses-process": "Դասընթացի ընթացքի մասին",
-        "student-work": "Ուսանողների աշխատանքները",
-        "price-list": "Գնացուցակ",
-        "about": "Մեր մասին",
-        "specialists": "Մասնագետներ",
-        "rating": "Մեր վարկանիշը",
-        "our-daily": "Մեր առօրյան",
-        "your-answers": "Ձեր պատասխանները",
-        "our-day": "Մեր առօրյան",
-        "our-team": "Մեր թիմը",
-        "our-partners": "Մեր Գործընկերները",
-        "contact-us": "Կապ մեզ հետ",
-        "promotions": "Ակցիաներ",
-        "portfolios": "Պորտֆոլիոներ",
-        "orders": "Պատվերներ"
     },
     "contact": {
         "tell": "Հեռ.",
         "email": "Էլ."
     },
     "contact-us-form": {
-        "title": "ԿԱՊՎԵԼ ՄԵԶ ՀԵՏ",
-        "form-title-language": "ՈՒՂԱՐԿԵԼ ՀԱՅՏ",
-        "form-title-order": "Պատվիրել",
         "name": "Անուն",
         "last-name": "Ազգանուն",
         "surname": "Հայրանուն",
@@ -94,11 +35,9 @@
         "phone-number": "Հեռախոսահամար",
         "message": "Հաղորդագրություն",
         "select-course": "Ընտրել դասընթացը",
-        "select-quantity": "Դասի տևողությունը",
-        "select-course-type": "Դասընթացի տեսակը",
+        "select-field": "Ընտրել ոլորտը",
         "send": "Ուղարկել",
-        "loading": "Բեռնվում է",
-        "select-field": "Ընտրել ոլորտը"
+        "loading": "Բեռնվում է"
     },
     "price-list": {
         "month": "ամիս",
@@ -106,27 +45,19 @@
     },
     "titles": {
         "price-list": "Գնացուցակ",
-        "private-lessons": "Անհատական դասեր \n օտարերկրացիների համար",
-        "english-language-lessons": "Օտար լեզուների \n մասնագիտական դասեր",
-        "quiz-result": "Վիկտորինայի արդյունք",
         "what-to-learn": "Ի՞նչ սովորել ITM-ում",
-        "our-advantages": "Մեր առավելությունները"
+        "our-advantages": "Մեր առավելությունները",
+        "feedback": "Հետադարձ կապ",
+        "contact-us": "Կապ մեզ հետ",
+        "other-platforms": "Այլ հարթակներ",
+        "address": "Հասցե"
     },
     "tables-titles": {
-        "languages-taught": "Դասավանդվող \n լեզուներ",
-        "group-lessons": "Խմբային դասեր \n 1 ամսվա արժեք",
-        "private-lessons": "Անհատական դասեր \n 1 ամսվա արժեք",
-        "three-days-week": "Շաբաթական 3 օր",
-        "two-days-week": "Շաբաթական 2 օր",
-        "english": "Անգլերեն",
         "duration": "Տևողությունը",
         "course": "Դասընթաց",
         "group": "Խմբային",
         "individual": "Անհատական",
         "duration-all": "Տևողություն \n Խմբային/Անհատական",
         "hours-all": "Ժամեր \n Խմբային/Անհատական"
-    },
-    "metadata": {
-        "introduction": "Հիմունքներ"
     }
 }

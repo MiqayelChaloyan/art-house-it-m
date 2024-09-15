@@ -21,7 +21,7 @@ interface Props {
 };
 
 const Prices = ({ data }: Readonly<Props>) => {
-    const t = useTranslations('sections');
+    const t = useTranslations('titles');
     const windowSize = useWindowSize();
 
     return (

@@ -20,7 +20,7 @@ const OurWorks = ({ data }: Readonly<Props>) => {
                 {data?.title}
             </h1>
             <div className={styles['our-works']}>
-                {data?.our_works.map(site => (
+                {data.our_works?.map(site => (
                     <Work key={site._key} site={site} />
                 ))}
             </div>

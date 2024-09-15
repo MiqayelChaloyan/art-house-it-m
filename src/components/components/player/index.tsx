@@ -7,14 +7,13 @@ import { usePathname } from 'next/navigation';
 import { PiPlayCircleBold } from 'react-icons/pi';
 import { MdPlayCircle } from 'react-icons/md';
 
-// import { UrlType } from '@/types/educational-center';
+import { ImagePath } from '@/types';
 
 import colors from '@/themes';
 
 import cn from 'classnames';
 
 import styles from './styles.module.sass';
-import { ImagePath } from '@/types';
 
 
 const key = '/it-m';

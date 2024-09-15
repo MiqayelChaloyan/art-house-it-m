@@ -6,10 +6,9 @@ import VideoPlayer from "./VideoPlayer";
 
 interface Props {
     data: COURSES_QUERYResult;
-    locale: string;
 };
 
-const Course = ({ data, locale }: Readonly<Props>) => {
+const Course = ({ data }: Readonly<Props>) => {
     const { course_name, course_image, about_course, our_day, course_process } = data;
 
     return (

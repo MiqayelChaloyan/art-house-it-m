@@ -2,6 +2,7 @@
 
 import Container from '@/components/components/container';
 import Fancybox from '@/components/components/fancybox';
+import { options } from '@/components/components/fancybox/options';
 
 import ImageBlock from './Image';
 
@@ -12,26 +13,6 @@ import styles from './styles.module.sass';
 
 interface Props {
     our_day: Image[];
-};
-
-const options = {
-    compact: false,
-    hideScrollbar: false,
-    Toolbar: {
-        display: {
-            left: [
-                "infobar",
-            ],
-            middle: [],
-            right: [
-                "close",
-                "fullScreen"
-            ],
-        }
-    },
-    Images: {
-        zoom: false,
-    },
 };
 
 const OurDay = ({ our_day }: Readonly<Props>) => {

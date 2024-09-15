@@ -52,7 +52,6 @@ const Contacts = ({
     const t = useTranslations();
     const windowSize = useWindowSize();
 
-
     const phoneNumbers = contacts.phone_numbers?.map((number, index) => (
         <div key={index} className={styles.social}>
             <span className={styles.contactName}>
@@ -116,14 +115,14 @@ const Contacts = ({
                 <div className={styles.block}>
                     <div className={styles.left}>
                         <h2 className={styles.title}>
-                            {t('texts.contact-us')}
+                            {t('titles.contact-us')}
                         </h2>
                         <div className={styles.contacts}>
                             <div className={styles.box}>
                                 {messengers}
                                 <div className={styles.social}>
                                     <span className={styles.contactName}>
-                                        {t('texts.address')}:
+                                        {t('titles.address')}:
                                     </span>
                                     <p className={styles.address}>
                                         {contacts?.address}
@@ -134,7 +133,7 @@ const Contacts = ({
                                 {phoneNumbers}
                                 <div className={styles.social}>
                                     <span className={styles.contactName}>
-                                        {t('texts.other-platforms')}
+                                        {t('titles.other-platforms')}
                                     </span>
                                     <div className={styles.hosts}>
                                         {hosts}

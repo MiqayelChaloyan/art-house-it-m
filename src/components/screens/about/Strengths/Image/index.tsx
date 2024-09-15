@@ -4,32 +4,12 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 import Fancybox from '@/components/components/fancybox';
+import { options } from '@/components/components/fancybox/options';
 
 import { Image as Asset, ImagePath } from '@/types';
 import { urlForImage } from '../../../../../../sanity/imageUrlBuilder';
 
 import styles from './styles.module.sass';
-
-
-const options = {
-    compact: false,
-    hideScrollbar: false,
-    Toolbar: {
-        display: {
-            left: [
-                "infobar",
-            ],
-            middle: [],
-            right: [
-                "close",
-                "fullScreen"
-            ],
-        }
-    },
-    Images: {
-        zoom: false,
-    },
-};
 
 
 interface Props {

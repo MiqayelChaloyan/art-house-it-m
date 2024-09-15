@@ -1,5 +1,7 @@
 'use client'
 
+import { useTranslations } from 'next-intl';
+
 import Form from './Form';
 import OurWorks from './OurWorks';
 import Container from '@/components/components/container';
@@ -16,11 +18,15 @@ interface Props {
 };
 
 const Orders = ({ orders, ordersArmenianKeyword, data }: Readonly<Props>) => {
+    const t = useTranslations('titles');
+
     return (
         <section id='orders' className={MMArmenU.className}>
             <Container className='container'>
                 <OurWorks data={data} />
-                <h2 className={styles.title}>Հետադարձ կապ</h2>
+                <h2 className={styles.title}>
+                    {t("feedback")}
+                </h2>
                 <Form
                     orders={orders}
                     ordersArmenianKeyword={ordersArmenianKeyword}

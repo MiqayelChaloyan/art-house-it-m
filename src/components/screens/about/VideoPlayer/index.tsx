@@ -12,6 +12,8 @@ import Player from '@/components/components/player';
 import Container from '@/components/components/container';
 
 import { Pages } from '@/constants/pages';
+import { MMArmenU } from '@/constants/font';
+
 import { ImagePath } from '@/types';
 import { ReduxType } from '@/types';
 
@@ -20,7 +22,6 @@ import { urlForImage } from '../../../../../sanity/imageUrlBuilder';
 import cn from 'classnames';
 
 import styles from './styles.module.sass';
-import { MMArmenU } from '@/constants/font';
 
 
 interface Props {

@@ -2,8 +2,6 @@
 
 import React from 'react';
 
-import { useTranslations } from 'next-intl';
-
 import Slider from 'react-slick';
 
 import 'slick-carousel/slick/slick.css';
@@ -26,7 +24,6 @@ interface Props {
     partners: PARTNER_Result[];
 };
 
-
 interface ArrowProps {
     onClick?: () => void;
     fill: string;
@@ -45,7 +42,6 @@ const SamplePrevArrow: React.FC<ArrowProps> = ({ onClick, fill, ...props }) => (
 );
 
 const Partners = ({ partners }: Readonly<Props>) => {
-    const t = useTranslations('navigation');
     const windowSize = useWindowSize();
 
     const slidesItems: JSX.Element[] = partners?.map((partner: PARTNER_Result) => (

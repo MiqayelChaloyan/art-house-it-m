@@ -153,7 +153,7 @@ const Footer = ({ locale }: Readonly<Props>) => {
         </div>
     ));
 
-    const handleChange = (event: ChangeEvent<HTMLInputElement> | any) => {
+    const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
         const { target } = event;
         const { name, value } = target;
 
@@ -226,8 +226,7 @@ const Footer = ({ locale }: Readonly<Props>) => {
                     <div className={styles.request}>
                         <div>
                             <p className={cn(styles['request-text'], MMArmenU.className)}>
-                                <span>Գրանցվիր հիմա․</span> Ուղարկիր հայտ կամ կապվիր մեզ հետ {'\n'}
-                                Էլ․ փոստի միջոցով՝ հետադարձ կապ հաստատելու համար
+                                <span>{t("texts.register")}</span> {t("texts.request-now")}
                             </p>
                         </div>
                         <div className={styles.newsletter}>
@@ -248,7 +247,7 @@ const Footer = ({ locale }: Readonly<Props>) => {
                                         type="submit"
                                         className={cn(styles.btnEnviar, MMArmenU.className)}
                                     >
-                                        Ուղարկել
+                                        {t("contact-us-form.send")}
                                     </button>
                                 </div>
                             </form>
