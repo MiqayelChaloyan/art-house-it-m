@@ -10,4 +10,4 @@ const Pages = {
 
 export {
     Pages
-}
+};

@@ -1,9 +1,7 @@
-import { EarthGlobeIcon, CheckmarkIcon } from '@sanity/icons'
+import { EarthGlobeIcon, UserIcon } from '@sanity/icons';
+import { BiSolidUserDetail } from 'react-icons/bi';
 
 import { RuleType } from '../../ruleType';
-import { BookIcon } from '@sanity/icons';
-
-const title = 'Մեր թիմը';
 
 const ourTeamSchema = {
     name: 'our-team',
@@ -23,7 +21,7 @@ const ourTeamSchema = {
                 {
                     name: 'Object',
                     type: 'object',
-                    icon: BookIcon,
+                    icon: UserIcon,
                     fields: [
                         {
                             title: 'Worker',
@@ -95,7 +93,7 @@ const ourTeamSchema = {
                                 {
                                     name: 'Object',
                                     type: 'object',
-                                    icon: BookIcon,
+                                    icon: BiSolidUserDetail,
                                     fields: [
                                         {
                                             title: "Detalis",
@@ -119,11 +117,31 @@ const ourTeamSchema = {
                                                 }
                                             ]
                                         },
-                                    ]
+                                    ],
+                                    preview: {
+                                        select: {
+                                            title: 'detalis.en'
+                                        },
+                                        prepare(selection: { title?: string }) {
+                                            return {
+                                                title: selection.title,
+                                            };
+                                        },
+                                    },
                                 }
                             ]
                         }
-                    ]
+                    ],
+                    preview: {
+                        select: {
+                            title: 'worker.en'
+                        },
+                        prepare(selection: { title?: string }) {
+                            return {
+                                title: selection.title,
+                            };
+                        },
+                    },
                 }
             ]
         },
@@ -134,7 +152,7 @@ const ourTeamSchema = {
         },
         prepare() {
             return {
-                title,
+                title: 'Մեր թիմը',
             };
         },
     }

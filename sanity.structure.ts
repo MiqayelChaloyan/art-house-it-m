@@ -1,4 +1,3 @@
-import { DocumentsIcon } from '@sanity/icons';
 import { IoFolderOpen } from 'react-icons/io5';
 import { MdFolder } from 'react-icons/md';
 import { MdContactSupport } from 'react-icons/md';
@@ -96,7 +95,7 @@ export default (S: any) =>
                         .items([
                             S.listItem()
                                 .title('Contact Us')
-                                .icon(DocumentsIcon)
+                                .icon(MdContactSupport)
                                 .child(S.document().schemaType('contact-us').documentId('contact-us')),
                         ])
                 ),

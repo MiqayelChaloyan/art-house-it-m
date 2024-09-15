@@ -1,7 +1,6 @@
 import { ClipboardIcon, TrendUpwardIcon, LaunchIcon, UserIcon } from '@sanity/icons';
 import { BsLayersHalf } from "react-icons/bs";
 
-import ArrayMaxItems from '@/utils/ArrayMaxItems';
 import { RuleType } from '../../ruleType';
 
 export const aboutUsSchema = {
@@ -70,7 +69,7 @@ export const aboutUsSchema = {
             name: 'strengths',
             type: 'array',
             title: 'Strengths',
-            description: 'Դուք կարող եք ավելացնել ցանկացած քանակի:',
+            description: 'You can add any amount.',
             of: [
                 {
                     title: 'Advantage',

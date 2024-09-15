@@ -1,7 +1,6 @@
-import { ProjectsIcon, CheckmarkIcon } from '@sanity/icons';
-import { FaDiscourse } from "react-icons/fa";
+import { CheckmarkIcon } from '@sanity/icons';
+import { FaDiscourse } from 'react-icons/fa';
 
-import ArrayMaxItems from '@/utils/ArrayMaxItems';
 import { RuleType } from '../../ruleType';
 
 const homeSchema = {

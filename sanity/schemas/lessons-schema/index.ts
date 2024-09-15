@@ -1,5 +1,4 @@
-import { RocketIcon } from '@sanity/icons'
-
+import { RocketIcon } from '@sanity/icons';
 import { RuleType } from '../../ruleType';
 
 const lessonsSchema = {
@@ -51,7 +50,17 @@ const lessonsSchema = {
                             },
                             validation: (Rule: RuleType) => Rule.required(),
                         },
-                    ]
+                    ],
+                    preview: {
+                        select: {
+                            title: 'course_name.en'
+                        },
+                        prepare(selection: { title?: string }) {
+                            return {
+                                title: selection.title,
+                            };
+                        },
+                    },
                 }
             ],
         },
@@ -98,7 +107,17 @@ const lessonsSchema = {
                             },
                             validation: (Rule: RuleType) => Rule.required(),
                         },
-                    ]
+                    ],
+                    preview: {
+                        select: {
+                            title: 'order_name.en'
+                        },
+                        prepare(selection: { title?: string }) {
+                            return {
+                                title: selection.title,
+                            };
+                        },
+                    },
                 }
             ],
         },

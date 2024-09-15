@@ -4,7 +4,6 @@ import { IoShareSocial } from 'react-icons/io5';
 import ArrayMaxItems from '@/utils/ArrayMaxItems';
 import { RuleType } from '../../ruleType';
 
-
 const contactUsSchema = {
     name: 'contact-us',
     type: 'document',

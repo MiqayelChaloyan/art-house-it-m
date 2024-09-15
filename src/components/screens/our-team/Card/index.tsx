@@ -30,7 +30,7 @@ const Card = ({ worker }: Readonly<Props>) => {
                 priority
             />
             <div className={styles['product-detail']}>
-            <h3 className={styles.worker}>
+                <h3 className={styles.worker}>
                     {worker?.worker}
                 </h3>
                 <p className={styles.profession}>

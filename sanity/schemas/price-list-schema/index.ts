@@ -1,9 +1,7 @@
-import { EarthGlobeIcon, CheckmarkIcon } from '@sanity/icons'
-
-import { RuleType } from '../../ruleType';
+import { EarthGlobeIcon } from '@sanity/icons';
 import { BookIcon } from '@sanity/icons';
 
-const title = 'Գնացուցակ';
+import { RuleType } from '../../ruleType';
 
 const priceListSchema = {
     name: 'price-list',
@@ -109,7 +107,17 @@ const priceListSchema = {
                                 }
                             ]
                         },
-                    ]
+                    ],
+                    preview: {
+                        select: {
+                            title: 'course.en'
+                        },
+                        prepare(selection: { title?: string }) {
+                            return {
+                                title: selection.title,
+                            };
+                        },
+                    },
                 }
             ]
         },
@@ -120,7 +128,7 @@ const priceListSchema = {
         },
         prepare() {
             return {
-                title,
+                title: 'Գնացուցակ',
             };
         },
     }
