@@ -8,7 +8,7 @@ const ImagePaths = {
     abstractURL: require('../../public/assets/images/abstract.png'),
 };
 
-const TRAINING_CENTER = 0;
+const TRAINING_CENTER = 50;
 
 export {
     ImagePaths,

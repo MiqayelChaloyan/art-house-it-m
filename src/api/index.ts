@@ -3,82 +3,53 @@
 import axios from 'axios';
 
 import { BASE_URL } from '@/constants/api';
+import { Contact, FormContact, FormOrder } from '@/types';
 
 
 // IT-M
 // SEND CONTACT US
-export const sendContactUs = async (ITMFormData: any) => {
+export const sendContactUs = async (contactUs: FormContact) => {
     try {
-        // const response = await axios.post(BASE_URL, null, {
-        //     params: { ITMFormData },
-        //     timeout: 10000
-        // });
-
-        // return {
-        //     status: response.status
-        // };
-
-
-
-        // TEST
-        console.log(ITMFormData)
-
+        const response = await axios.post(BASE_URL, null, {
+            params: { contactUs },
+            timeout: 10000
+        });
 
         return {
-            status: 200
-        }
+            status: response.status
+        };
     } catch (error) {
         return error
     }
 };
 
 // SEND ORDER
-export const sendOrderForm = async (ITMFormData: any) => {
+export const sendOrderForm = async (itmFormData: FormOrder) => {
     try {
-        // const response = await axios.post(BASE_URL, null, {
-        //     params: { ITMFormData },
-        //     timeout: 10000
-        // });
-
-        // return {
-        //     status: response.status
-        // };
-
-
-
-        // TEST
-        console.log(ITMFormData)
-
+        const response = await axios.post(BASE_URL, null, {
+            params: { itmFormData },
+            timeout: 10000
+        });
 
         return {
-            status: 200
-        }
+            status: response.status
+        };
     } catch (error) {
         return error
     }
 };
 
 // SEND EMAIL
-export const sendEmail = async (values: any) => {
+export const sendEmail = async (itmContactUs: Contact) => {
     try {
-        // const response = await axios.post(BASE_URL, null, {
-        //     params: { ITMFormData },
-        //     timeout: 10000
-        // });
-
-        // return {
-        //     status: response.status
-        // };
-
-
-
-        // TEST
-        console.log(values)
-
+        const response = await axios.post(BASE_URL, null, {
+            params: { itmContactUs },
+            timeout: 10000
+        });
 
         return {
-            status: 200
-        }
+            status: response.status
+        };
     } catch (error) {
         return error
     }
