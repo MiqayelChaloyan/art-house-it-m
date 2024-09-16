@@ -5,6 +5,8 @@ import { visionTool } from '@sanity/vision';
 import { apiVersion, dataset, projectId, title, basePath } from './sanity/env';
 import { dashboardTool, projectUsersWidget, projectInfoWidget } from '@sanity/dashboard';
 
+import { BsDatabaseFillGear } from 'react-icons/bs';
+
 import Structure from './sanity.structure';
 
 const config = defineConfig(
@@ -15,6 +17,7 @@ const config = defineConfig(
     apiVersion,
     basePath,
     schema,
+    icon: BsDatabaseFillGear,
     plugins: [
       deskTool({
         structure: Structure,
