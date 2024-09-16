@@ -31,7 +31,7 @@ const Programming = ({ data }: Readonly<Props>) => {
     const path: ImagePath = urlForImage(data?.image);
 
     const features = data.features?.map((item: FEATURE) =>
-        <p key={item._key} className={styles.program}>{item.feature}</p>
+        <p key={item._key} className={cn(styles.program, MMArmenU.className)}>{item.feature}</p>
     );
 
 
@@ -64,7 +64,7 @@ const Programming = ({ data }: Readonly<Props>) => {
                         <h2 className={styles.title}>
                             {data?.title}
                         </h2>
-                        <div>
+                        <div className={styles.features}>
                             {features}
                         </div>
                         <div className={styles.button}>

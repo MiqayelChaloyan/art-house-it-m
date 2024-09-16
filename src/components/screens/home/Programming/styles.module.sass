@@ -33,6 +33,10 @@
     @media screen and (max-width: 768px)
         width: 100%
 
+.features
+    display: grid
+    justify-content: center
+
 .title
     font-weight: 400
     font-size: 18px
@@ -40,7 +44,9 @@
     color: #B2D01B
     text-align: center
     margin-bottom: 30px
-    /* @sm */
+    @media screen and ( max-width: 991px )
+        margin-top: 10px
+    /* @sm */   
     @media screen and (max-width: 768px)
         font-size: 12.82px
         line-height: 13.48px
@@ -50,7 +56,9 @@
     font-size: 15px
     line-height: 19.38px
     color: #000000
-    text-align: center
+    text-align: left
+    @media screen and ( max-width: 991px )
+        font-size: 12px
     /* @sm */
     @media screen and (max-width: 768px)
         font-size: 10.9px
