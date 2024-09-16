@@ -96,7 +96,7 @@ const Header = ({ typePosition, locale }: Readonly<IHeaderProps>) => {
                                 key={key}
                                 href={`/${locale}${link.path}`}
                                 aria-label={link.path}
-                                className={`${styles.link} ${styles.from_center} ${pathname === `/${locale}${link.path}` ? styles.linkActive : ''} ${isSticky ? styles.scrollX : styles.scrollY} ${MMArmenU.className}`}
+                                className={cn(styles.link, styles.from_center, pathname === `/${locale}${link.path}` && styles.linkActive, isSticky ? styles.scrollX : styles.scrollY, MMArmenU.className)}
                                 prefetch={true}
                                 passHref
                                 onClick={() => setIsOpenMenu(false)}
