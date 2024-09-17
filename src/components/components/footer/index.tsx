@@ -4,7 +4,7 @@ import React, { useState, ChangeEvent, FormEvent, useEffect, useCallback } from 
 
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
-import { notFound, usePathname } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 
 import InputField from '@/lib/ui/InputField';
 import Snackbars from '../snackbar';
@@ -21,9 +21,6 @@ import { sendEmail } from '@/api';
 import useWindowSize from '@/hooks/useWindowSize';
 import { Contact, ContactUsResponse, socialNetwork } from '@/types';
 
-import { client } from '../../../../sanity/client';
-import { CONTACT_US_QUERY, COURSES_QUERY } from '../../../../sanity/services';
-
 import { MMArmenU } from '@/constants/font';
 import { Pages } from '@/constants/pages';
 import { TRAINING_CENTER } from '@/constants';
@@ -35,6 +32,8 @@ import styles from './styles.module.sass';
 
 interface Props {
     locale: string;
+    courses: COURSES_QUERYResult;
+    contacts?: CONTACT_US_QUERYResult;
 };
 
 interface Form {
@@ -66,10 +65,7 @@ const navigationLinks = [
     { path: Pages.CONTACT, label: 'contact' }
 ];
 
-const Footer = ({ locale }: Readonly<Props>) => {
-    const [courses, setCourses] = useState<COURSES_QUERYResult[]>([]);
-    const [contacts, setContacts] = useState<CONTACT_US_QUERYResult[]>([]);
-
+const Footer = ({ locale, courses, contacts }: Readonly<Props>) => {
     const t = useTranslations();
     const windowSize = useWindowSize();
     const pathname = usePathname();
@@ -84,28 +80,9 @@ const Footer = ({ locale }: Readonly<Props>) => {
     const initState = { isLoading: false, error: false, values: initValues };
 
     const [state, setState] = useState<Form>(initState);
-    const { values, isLoading, error } = state;
+    const { values, isLoading } = state;
 
-
-    const getResources = useCallback(async () => {
-        try {
-            const [data, socialData] = await Promise.all([
-                client.fetch(COURSES_QUERY, { language: locale }, { cache: 'no-store' }),
-                client.fetch(CONTACT_US_QUERY, { language: locale }, { cache: 'no-store' })
-            ]);
-
-            setCourses(data);
-            setContacts(socialData);
-        } catch (error) {
-            notFound();
-        }
-    }, [locale]);
-
-    useEffect(() => {
-        getResources();
-    }, [getResources]);
-
-    const hosts = contacts[0]?.social_links?.map((host: SOCIAL) => {
+    const hosts = contacts?.social_links?.map((host: SOCIAL) => {
         const socialName = host?.social_name.toLowerCase();
         const link = socialName === 'gmail' ? `mailto:${host?.social_link}` : host?.social_link;
         const SocialIcon = (socialNetworkComponents as any)[socialName];
@@ -127,7 +104,7 @@ const Footer = ({ locale }: Readonly<Props>) => {
         )
     });
 
-    const matrix = courses?.reduce<COURSES_QUERYResult[][]>((acc, item: COURSES_QUERYResult, index: number) => {
+    const matrix = courses?.reduce((acc: COURSES_QUERYResult[][], item: COURSES_QUERYResult, index: number) => {
         const rowIndex = Math.floor(index / 6);
         if (!acc[rowIndex]) {
             acc[rowIndex] = [];
@@ -136,9 +113,9 @@ const Footer = ({ locale }: Readonly<Props>) => {
         return acc;
     }, []);
 
-    const links = matrix?.map((row, rowIndex) => (
+    const links = matrix?.map((row: any[], rowIndex: React.Key | string ) => (
         <div key={rowIndex} className={styles.row}>
-            {row.map((course) => (
+            {row.map((course: COURSES_QUERYResult) => (
                 <Link
                     key={course?.slug}
                     href={`/${locale}${Pages.COURSES}/${course?.slug}`}
@@ -164,7 +141,7 @@ const Footer = ({ locale }: Readonly<Props>) => {
                 [name]: value,
             },
         }));
-    }
+    };
 
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -272,7 +249,7 @@ const Footer = ({ locale }: Readonly<Props>) => {
                             {links}
                         </div>
                         <div className={styles.contact}>
-                            {contacts[0]?.phone_numbers?.map((number, index) => (
+                            {contacts?.phone_numbers?.map((number, index) => (
                                 <Link
                                     key={index}
                                     href={`tel:${number}`}
@@ -287,15 +264,15 @@ const Footer = ({ locale }: Readonly<Props>) => {
                                 </Link>
                             ))}
                             <Link
-                                href={`mailto:${contacts[0]?.email}`}
+                                href={`mailto:${contacts?.email}`}
                                 aria-label='Email'
                                 className={styles.link}
                             >
                                 <p className={MMArmenU.className}>
-                                    {contacts[0]?.email}
+                                    {contacts?.email}
                                 </p>
                             </Link>
-                            <p className={styles.address}>{contacts[0]?.address}</p>
+                            <p className={styles.address}>{contacts?.address}</p>
                             <div className={styles.hosts}>
                                 {hosts}
                             </div>

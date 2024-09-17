@@ -43,6 +43,18 @@ interface OUR_TEAM_QUERYResult {
     our_team: OUR_TEAM[];
 };
 
+interface VIDEO {
+    video_url: string;
+    video_light: Asset;
+};
+
+interface OUR_DAY {
+    _type: string;
+    alt: string;
+    _key: string;
+    asset: AssetRef;
+};
+
 interface COURSES_QUERYResult {
     [x: string]: any;
     ogDescription: string;
@@ -53,8 +65,8 @@ interface COURSES_QUERYResult {
         title: string;
         about_content: string;
     },
-    course_process: any;
-    our_day: any
+    course_process: VIDEO;
+    our_day: OUR_DAY[];
 };
 
 interface LESSON {
@@ -103,14 +115,6 @@ interface STRENGTHS {
     content: any;
     showImage?: boolean;
     image?: Asset;
-};
-
-interface VIDEO {
-    video_url: string;
-    video_light: {
-        asset: Asset;
-        alt: string;
-    } | null;
 };
 
 interface ABOUT_US_DETAILS_QUERYResult {

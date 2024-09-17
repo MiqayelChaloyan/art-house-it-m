@@ -1,7 +1,10 @@
 'use server'
 
+import { use } from 'react';
+
 import { NextIntlClientProvider, useMessages } from 'next-intl';
 import { Metadata } from 'next';
+import { notFound } from 'next/navigation';
 
 import { Locale } from '@/locales';
 
@@ -19,7 +22,7 @@ import { StoreProvider } from '@/store/StoreProvider';
 import { urlForImage } from '../../../sanity/imageUrlBuilder';
 
 import { generateMetadataDynamic } from '@/utils/default-metadata';
-import { getHomeDetails } from '@/utils/data';
+import { getContacts, getCourses, getHomeDetails } from '@/utils/data';
 
 import { MMArmenU } from '@/constants/font';
 
@@ -39,6 +42,13 @@ function RootLayout({
 }: Readonly<RootLayoutProps>) {
     const messages = useMessages();
 
+    const courses = use(getCourses(locale));
+    const contacts = use(getContacts(locale));
+
+    if (!courses || !contacts) {
+        notFound();
+    };
+
     return (
         <html lang={locale}>
             <body className={MMArmenU.className}>
@@ -48,9 +58,13 @@ function RootLayout({
                         <div className='itm-container'>
                             <GoBack locale={locale} theme='#1A2738' />
                             <ScrollToTopButton theme='#1A2738' />
-                                {children}
+                            {children}
                             <Advertisement />
-                            <Footer locale={locale} />
+                            <Footer
+                                locale={locale}
+                                courses={courses}
+                                contacts={contacts}
+                            />
                         </div>
                         <PlayerModal />
                     </StoreProvider>
