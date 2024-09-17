@@ -16,8 +16,6 @@ import cn from 'classnames';
 import styles from './styles.module.sass';
 
 
-const key = '/it-m';
-
 interface Props {
     path: ImagePath;
     video_url: string;
@@ -30,12 +28,10 @@ const Player = ({ path, video_url, handlePlayVideo }: Readonly<Props>) => {
     return (
         <div className={styles.playing} style={{ backgroundImage: `url(${path?.src})` }}>
             <button
-                className={cn(pathname.includes(key) ? styles.icon : styles['default-icon'])}
+                className={styles.icon}
                 onClick={() => handlePlayVideo(video_url)}
             >
-                {pathname.includes(key) ?
-                    (<PiPlayCircleBold size={178} color={colors.white} />)
-                    : (<MdPlayCircle size={75} color={colors.white} />)}
+               <PiPlayCircleBold size={150} color={colors.white} />
             </button>
         </div>
     );
