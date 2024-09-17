@@ -26,7 +26,7 @@ const Prices = ({ data }: Readonly<Props>) => {
 
     return (
         <section id='price-list'>
-            <h1 className={cn(styles.title, MMArmenU)}>{t('price-list')}</h1>
+            <h1 className={cn(styles.title, MMArmenU.className)}>{t('price-list')}</h1>
             <div>
                 {windowSize.width < 600 ?
                     <AccordionList data={data?.price_list} /> :

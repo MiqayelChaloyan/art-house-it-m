@@ -8,8 +8,9 @@ import { usePathname, useRouter } from 'next/navigation';
 import useWindowSize from '@/hooks/useWindowSize';
 
 import Planet from '@/lib/icons/Planet';
-import { ImagePaths } from '@/constants';
 import { MMArmenU } from '@/constants/font';
+
+import colors from '@/themes';
 
 import cn from 'classnames';
 
@@ -24,8 +25,7 @@ const localeStrings: {
   en: 'Eng',
 };
 
-
-export default function LocalSwitcher({ activeColor = '#B21B1B', color = 'black' }) {
+export default function LocalSwitcher({ activeColor = colors.green, color = 'black' }) {
   const [isPending, startTransition] = useTransition();
   const router = useRouter();
   const localActive = useLocale();

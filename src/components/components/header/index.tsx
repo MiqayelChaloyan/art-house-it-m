@@ -10,10 +10,12 @@ import useWindowSize from '@/hooks/useWindowSize';
 
 import { Pages } from '@/constants/pages';
 import { MMArmenU } from '@/constants/font';
-import LogoMobile from '@/lib/icons/LogoMobile'
-import Logo from '@/lib/icons/Logo'
+import LogoMobile from '@/lib/icons/LogoMobile';
+import Logo from '@/lib/icons/Logo';
 
 import LocalSwitcher from '@/components/components/local-switcher';
+
+import colors from '@/themes';
 
 import cn from 'classnames';
 
@@ -75,14 +77,14 @@ const Header = ({ typePosition, locale }: Readonly<IHeaderProps>) => {
                         aria-label={Pages.HOME}
                         className={styles.logoMobile}
                     >
-                        <LogoMobile width={40} height={40} />
+                        <LogoMobile width={40} height={40} fill='#65a30d' />
                     </Link>) : (
                     <Link
                         href={`/${locale}${Pages.HOME}`}
                         aria-label={Pages.HOME}
                         className={styles.logo}
                     >
-                        <Logo width={windowSize.width <= 1440 ? 150 : 204} height={84} />
+                        <Logo width={windowSize.width <= 1440 ? 150 : 204} height={84} textColor='#5B5B5B' fill='#65a30d' />
                     </Link>
                 )}
                 <div className={cn(
@@ -105,7 +107,7 @@ const Header = ({ typePosition, locale }: Readonly<IHeaderProps>) => {
                             </Link>
                         ))}
                     </div>
-                    <LocalSwitcher activeColor='#B2D01B' color={switchColor} />
+                    <LocalSwitcher activeColor={colors.green} color={switchColor} />
                 </div>
                 <Link
                     href={`/${locale}${Pages.CONTACT}`}

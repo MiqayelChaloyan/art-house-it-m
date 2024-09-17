@@ -22,7 +22,7 @@ import { StoreProvider } from '@/store/StoreProvider';
 import { urlForImage } from '../../../sanity/imageUrlBuilder';
 
 import { generateMetadataDynamic } from '@/utils/default-metadata';
-import { getContacts, getCourses, getHomeDetails } from '@/utils/data';
+import { getContacts, getHomeDetails } from '@/utils/data';
 
 import { MMArmenU } from '@/constants/font';
 
@@ -42,10 +42,9 @@ function RootLayout({
 }: Readonly<RootLayoutProps>) {
     const messages = useMessages();
 
-    const courses = use(getCourses(locale));
     const contacts = use(getContacts(locale));
 
-    if (!courses || !contacts) {
+    if (!contacts) {
         notFound();
     };
 
@@ -60,11 +59,7 @@ function RootLayout({
                             <ScrollToTopButton theme='#1A2738' />
                             {children}
                             <Advertisement />
-                            <Footer
-                                locale={locale}
-                                courses={courses}
-                                contacts={contacts}
-                            />
+                            <Footer contacts={contacts} />
                         </div>
                         <PlayerModal />
                     </StoreProvider>

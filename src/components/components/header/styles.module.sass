@@ -190,7 +190,7 @@
 		width: 35px
 		height: 4px
 		border-radius: 2px
-		background: #B2D01B
+		background: var(--color-green)
 		position: absolute
 		top: 50%
 		left: 50%
@@ -201,7 +201,7 @@
 	&:after
 		transform: translate(calc(-50%), calc(-50% - 10px))
 	span
-		background: #B2D01B
+		background: var(--color-green)
 		width: 35px
 		height: 4px
 		border-radius: 2px
@@ -265,7 +265,7 @@
 	transition: var(--tr-time)
 	&:hover
 		color: var(--color-white)
-		background-color: #B2D01B
+		background-color: var(--color-green)
 	/* @4xl */
 	@media screen and (max-width: 2560px)
 		padding: 40px 0
@@ -303,7 +303,7 @@
 		text-align: left
 		color: white
 		&:hover
-			color: #B2D01B
+			color: var(--color-green)
 			background-color: transparent
 	/* @sm */
 	@media screen and (max-width: 768px)
@@ -326,21 +326,20 @@
 		width: 120px
 		font-size: 16px
 
-
 .linkActive
 	color: var(--color-white)
-	background-color: #B2D01B
+	background-color: var(--color-green)
 	&:after
 		opacity: 1
 	@media screen and ( max-width: 991px )
-		color: #B2D01B
+		color: var(--color-green)
 		background-color: transparent
 
 .linkActiveSub
 	color: var(--color-white)
-	background-color: #B2D01B
+	background-color: var(--color-green)
 	@media screen and ( max-width: 991px )
-		color: #B2D01B
+		color: var(--color-green)
 		background-color: transparent
 
 
@@ -348,12 +347,12 @@
 	font-size: 17px
 	font-weight: 400
 	color: white
-	background-color: #B2D01B
+	background-color: var(--color-green)
 	padding: 14px 18px 14px 18px
-	border: 1px solid #B2D01B
+	border: 1px solid var(--color-green)
 	transition: var(--tr-time)
 	&:hover
-		color: #B2D01B
+		color: var(--color-green)
 		transition: var(--tr-time)
 		background-color: white
-		border: 1px solid #B2D01B
+		border: 1px solid var(--color-green)

@@ -15,6 +15,7 @@ import { ImagePaths } from '@/constants';
 import cn from 'classnames';
 
 import styles from './styles.module.sass';
+import colors from '@/themes';
 
 
 interface Props {
@@ -27,7 +28,7 @@ const OurAdvantages = ({ advantages }: Readonly<Props>) => {
 
     const result = advantages?.map((advantae, idnex) => (
         <div key={idnex} className={styles.feature}>
-            <FaCheck size={20} color='#B2D01B' />
+            <FaCheck size={20} color={colors.green} />
             <p className={styles.advantae}>{advantae}</p>
         </div>
     ));

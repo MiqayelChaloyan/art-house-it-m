@@ -3,7 +3,7 @@
 import axios from 'axios';
 
 import { BASE_URL } from '@/constants/api';
-import { Contact, FormContact, FormOrder } from '@/types';
+import { FormContact, FormOrder } from '@/types';
 
 
 // IT-M
@@ -28,22 +28,6 @@ export const sendOrderForm = async (itmFormData: FormOrder) => {
     try {
         const response = await axios.post(BASE_URL, null, {
             params: { itmFormData },
-            timeout: 10000
-        });
-
-        return {
-            status: response.status
-        };
-    } catch (error) {
-        return error
-    }
-};
-
-// SEND EMAIL
-export const sendEmail = async (itmContactUs: Contact) => {
-    try {
-        const response = await axios.post(BASE_URL, null, {
-            params: { itmContactUs },
             timeout: 10000
         });
 

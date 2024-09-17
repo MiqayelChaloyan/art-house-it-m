@@ -1,335 +1,175 @@
 .footer
-    background-color: #B2D01B
-    min-height: 556px
-    height: auto
-    padding-top: 150px
-    @media screen and (max-width: 991px)
-        height: auto
-        padding-top: 100px
+   background-color: var(--color-green)
+   height: max-content
+   display: grid
 
-.links
-    display: flex
-    align-items: flex-start
-    justify-content: flex-start
-    width: 100%
-    max-width: 1380px
-    margin: 0 auto
-    padding: 1rem
-    @media screen and (max-width: 991px)
-        margin: auto
-        width: 90%
-    /* @xs */
-    @media screen and (max-width: 600px)
-        width: 100%
-        margin: 0
-        padding: 0
-    /* @3xs */
-    @media screen and (max-width: 360px)
-        display: grid
-        margin: 0
-        width: 100%
-        justify-content: flex-start
+.column
+   display: flex
+   justify-content: space-between
+   align-items: center
+   margin: 50px auto
+   /* @xs */
+   @media screen and (max-width: 600px)
+      display: grid
+      justify-content: center
 
-.nav,
-.contact
-    display: grid
-    justify-content: center
-    align-items: center
-    flex-wrap: wrap
-    margin-bottom: 1rem
-    @media screen and (max-width: 991px)
-        margin-bottom: 1.5rem
-    /* @3xs */
-    @media screen and (max-width: 360px)
-        width: 100%
-        justify-content: flex-start
-
-.contact,
-.courses
-    margin-left: 8px
-    @media screen and (max-width: 991px)
-        margin-left: 0
-
-.row
-    display: grid
-
-.courses
-    width: 40%
-    display: grid
-    margin-bottom: 1rem
-    grid-template-columns: repeat(2, 1fr)
-    @media screen and ( max-width: 1350px )
-        width: 40%
-    @media screen and ( max-width: 991px )
-        width: 40%
-    @media screen and ( max-width: 767px )
-        grid-template-columns: repeat(1, 1fr)
-        margin: initial
-        width: 32%
-    /* @3xs */
-    @media screen and (max-width: 360px)
-        margin: 0
-
-.linkActive
-    color: #1A2738 !important
-    
-.link
-    width: 100%
-    color: white
-    font-weight: 400
-    font-size: 18px
-    line-height: 17.88px
-    margin: 0.8rem
-    text-align: left
-    transition: color 0.5s ease
-    cursor: pointer
-    &:hover
-        color: #1A2738
-    /* @xl */
-    @media screen and (max-width: 1440px)
-        font-size: 15px
-    /* @lg */
-    @media screen and (max-width: 1280px)
-        font-size: 14px
-    @media screen and (max-width: 991px)
-        font-size: 14px
-        line-height: 12px
-    /* @xs */
-    @media screen and (max-width: 600px)
-        font-size: 10px
-        line-height: 0
+.reserved
+   color: white
+   font-weight: var(--font-weight-normal)
+   font-size: 17px
+   line-height: 25.5px
+   /* @4xl */
+   @media screen and (max-width: 2560px)
+      font-size: 17px
+   /* @2xl */
+   @media screen and (max-width: 1600px)
+      font-size: 17px
+   /* @xl */
+   @media screen and (max-width: 1440px)
+   /* @lg */
+   @media screen and (max-width: 1280px)
+      font-size: 14px
+   /* @md */
+   @media screen and (max-width: 1024px)
+      font-size: 13px
+   /* @sm */
+   @media screen and (max-width: 768px)
+      font-size: 13px
+      text-align: center
+   /* @xs */
+   @media screen and (max-width: 600px)
+      font-size: 14px
+      text-align: center
+   /* @2xs */
+   @media screen and (max-width: 480px)
+      font-size: 14px
+      text-align: center
+   /* @3xs */
+   @media screen and (max-width: 360px)
+      font-size: 14px
+      text-align: center
 
 .address
-    color: white
-    font-weight: 400
-    font-size: 18px
-    line-height: 17.88px
-    margin: 0.8rem
-    text-align: left
-    /* @xl */
-    @media screen and (max-width: 1440px)
+   display: grid
+   align-items: center
+   span
+      color: white
+      font-weight: var(--font-weight-normal)
+      font-size: 17px
+      line-height: 25.5px
+      /* @2xl */
+      @media screen and (max-width: 1600px)
+         font-size: 15px
+      /* @xl */
+      @media screen and (max-width: 1440px)
+         font-size: 15px
+      /* @lg */
+      @media screen and (max-width: 1280px)
+         font-size: 14px
+      /* @md */
+      @media screen and (max-width: 1024px)
+         font-size: 13px
+      /* @sm */
+      @media screen and (max-width: 768px)
+         font-size: 13px
+         text-align: center
+      /* @xs */
+      @media screen and (max-width: 600px)
+         font-size: 13px
+         text-align: center
+      /* @2xs */
+      @media screen and (max-width: 480px)
+         font-size: 13px
+         text-align: center
+      /* @3xs */
+      @media screen and (max-width: 360px)
+         font-size: 13px
+         text-align: center
+   /* @sm */
+   @media screen and (max-width: 768px)
+      display: grid
+   /* @xs */
+   @media screen and (max-width: 600px)
+      display: grid
+
+.phone_numbers
+    display: grid
+    /* md */
+    @media screen and ( max-width: 768px )
+       display: grid
+
+.link
+    font-weight: var(--font-weight-normal)
+    font-size: 16px
+    line-height: 30px
+    color: var(--color-white)
+    &:hover
+        transition: var(--tr-time)
+        color: #1A2738
+    /* 2xl */
+    @media screen and ( max-width: 1536px )
+        font-size: 16px
+        line-height: 30px
+    /* xl */
+    @media screen and ( max-width: 1280px )
+        font-size: 12px
+        line-height: 30px
+    /* lg */
+    @media screen and ( max-width: 1024px )
+        font-size: 12px
+        line-height: 20px
+    /* md */
+    @media screen and ( max-width: 768px )
+        text-align: center
         font-size: 15px
-    /* @lg */
-    @media screen and (max-width: 1280px)
-        font-size: 14px
-    @media screen and (max-width: 991px)
-        font-size: 14px
-        line-height: 16px
-    /* @xs */
-    @media screen and (max-width: 600px)
-        font-size: 10px
-        line-height: 10.52px
+        line-height: 30px
+        &:hover
+            transition: 0
+            color: var(--color-white)
+    /* sm */
+    @media screen and ( max-width: 640px )
+        text-align: center
+    /* xs */
+    @media screen and ( max-width: 475px )
+        text-align: center
 
 .hosts
-    display: flex
-    align-items: center
-    justify-content: flex-start
-    margin-left: 10px
+   display: flex
+   align-items: center
+   justify-content: center
+
+.logo
+    width: 10%
+    /* @xs */
+    @media screen and ( max-width: 600px )
+      display: flex
+      justify-content: center
+      width: 100% 
 
 .social_network
-    margin: 5px
-    background-color: white
-    padding: 10px 10px 0 10px
-    border-radius: 50px
-    transition: background-color 0.5s ease
-    border: 1px solid white 
-    svg 
-        transition: background-color 0.5s ease
-        fill: #B2D01B
-    &:hover
-        background-color: #B2D01B
-        border: 1px solid white 
-        svg
-            fill: white 
-    /* @lg */
-    @media screen and (max-width: 1280px)
-        padding: 0 5px
-        margin: 2px
-        height: 27px
-        margin: 2px
+   margin: 5px
+   background-color: white
+   padding: 10px 10px 0 10px
+   border-radius: 50px
+   transition: background-color 0.5s ease
+   border: 1px solid white 
+   svg 
+      transition: background-color 0.5s ease
+      fill: var(--color-green)
+   &:hover
+      background-color: var(--color-green)
+      border: 1px solid white 
+      svg
+         fill: #FFFFFF 
+   /* lg */
+   @media screen and ( max-width: 1024px )
+      padding: 4px 10px 0 10px
+      margin: 2px
 
-.boxs
-    width: 80%
-    margin: 0 auto
 
-.request
-    display: flex
-    align-items: flex-start
-    justify-content: flex-start
-    width: 100%
-    max-width: 1380px
-    margin: 0 auto
-    padding: 2rem
-    @media screen and (max-width: 991px)
-        margin: auto
-        width: 90%
-        display: grid
-    /* @xs */
-    @media screen and (max-width: 600px)
-        width: 100%
-        margin: 0
-        padding: 12px
-    /* @3xs */
-    @media screen and (max-width: 360px)
-        display: grid
-        margin: 0
-        width: 100%
-        justify-content: center
 
-.request-text
-    white-space: pre-line
-    color: white
-    span
-        font-weight: 600
-    /* @xl */
-    @media screen and (max-width: 1440px)
-        font-size: 15px
-    /* @lg */
-    @media screen and (max-width: 1280px)
-        font-size: 14px
-    @media screen and (max-width: 991px)
-        font-size: 14px
-        text-align: left
-    /* @xs */
-    @media screen and (max-width: 600px)
-        font-size: 11px
 
-.newsletter 
-    margin: 0 30px 
-    font-weight: 500 
-    @media screen and (max-width: 991px)
-        display: flex
-        width: 100%
-        justify-content: flex-start
-        margin: 38px 0 0 0
-    /* @xs */
-    @media screen and (max-width: 600px)
-        margin: 20px 0 0 0
 
-.input 
-    width: 100%
-    height: 50px 
-    line-height: 24.38px
-    padding-left: 35px 
-    color: black
-    font-size: 18px
-    font-weight: 400 
-    border: 1px solid #d6d6d6 
-    -webkit-box-sizing: border-box 
-    -moz-box-sizing: border-box 
-    box-sizing: border-box 
-    outline: 0 
-    background-color: #FFFFFF
-    &::placeholder
-        color: #A5A4AA 
-    /* @3xl */
-    @media screen and (max-width: 1920px)
-        height: 50px
-        font-size: 18px
-    /* @2xl */
-    @media screen and (max-width: 1600px)
-        height: 50px
-        font-size: 18px
-    /* @xl */
-    @media screen and (max-width: 1440px)
-        height: 50px
-        font-size: 18px
-    /* @lg */
-    @media screen and (max-width: 1280px)
-        height: 45px
-        font-size: 16px
-    /* @md */
-    @media screen and (max-width: 1024px)
-        height: 45px
-        font-size: 16px
-    @media screen and (max-width: 991px)
-        height: 45px
-        padding-left: 20px
-        font-size: 16px
-    /* @xs */
-    @media screen and (max-width: 600px)
-        height: 40px
-        font-size: 12px
 
-.btnEnviar 
-    background: #1A2738 
-    color: #fff 
-    line-height: 18.94px 
-    font-size: 18px
-    display: inline-block 
-    padding: 15px 20px 
-    margin-bottom: 0 
-    font-weight: 400 
-    text-align: center 
-    white-space: nowrap 
-    vertical-align: middle 
-    border: 1px solid #333 
-    width: 135px
-    height: 50px 
-    cursor: pointer 
-    &:hover 
-        background: #222 
-        transition: all 0.4s ease-out 
-    /* @3xl */
-    @media screen and (max-width: 1920px)
-        width: 135px
-        height: 50px
-        font-size: 18px
-    /* @2xl */
-    @media screen and (max-width: 1600px)
-        height: 50px
-        font-size: 18px
-    /* @xl */
-    @media screen and (max-width: 1440px)
-        height: 50px
-        font-size: 18px
-    /* @lg */
-    @media screen and (max-width: 1280px)
-        height: 45px
-        font-size: 16px
-        width: 120px
-    /* @md */
-    @media screen and (max-width: 1024px)
-        height: 45px
-        font-size: 16px
-    @media screen and (max-width: 991px)
-        height: 45px
-        font-size: 16px
-        width: 120px
-    /* @xs */
-    @media screen and (max-width: 600px)
-        width: 75px
-        height: 40px
-        font-size: 12px
-        padding: 11px 0
 
-.form-input,
-.form-button 
-    display: inline-block 
-    float: left 
-    margin-bottom: 10px
 
-.form-input 
-    width: 85% 
-    /* @3xl */
-    @media screen and (max-width: 1920px)
-        width: 85% 
-    /* @2xl */
-    @media screen and (max-width: 1600px)
-        width: 85% 
-    /* @xl */
-    @media screen and (max-width: 1440px)
-        width: 85% 
-    /* @lg */
-    @media screen and (max-width: 1280px)
-        width: 70% 
-    /* @md */
-    @media screen and (max-width: 1024px)
-        width: 75%
-    @media screen and (max-width: 991px)
-        width: 70%
-
-.form-button 
-    width: 15% 
-    @media screen and (max-width: 991px)
-        width: 20%

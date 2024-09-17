@@ -26,7 +26,7 @@ const About = ({ data }: Readonly<Props>) => {
     const activeLocale = useLocale();
     const t = useTranslations();
 
-    const contentText: string = BlocksToText(content).slice(0, 100);
+    const contentText: string = BlocksToText(content).slice(0, 350);
 
     return (
         <section id='about' className={cn(styles.container, MMArmenU.className)}>

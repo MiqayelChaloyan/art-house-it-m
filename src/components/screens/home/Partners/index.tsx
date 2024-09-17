@@ -2,6 +2,8 @@
 
 import React from 'react';
 
+import { useTranslations } from 'next-intl';
+
 import Slider from 'react-slick';
 
 import 'slick-carousel/slick/slick.css';
@@ -14,6 +16,8 @@ import ArrowLeft from '@/lib/icons/ArrowLeft';
 import ArrowRight from '@/lib/icons/ArrowRight';
 
 import useWindowSize from '@/hooks/useWindowSize';
+
+import { MMArmenU } from '@/constants/font';
 
 import cn from 'classnames';
 
@@ -42,6 +46,7 @@ const SamplePrevArrow: React.FC<ArrowProps> = ({ onClick, fill, ...props }) => (
 );
 
 const Partners = ({ partners }: Readonly<Props>) => {
+    const t = useTranslations('titles');
     const windowSize = useWindowSize();
 
     const slidesItems: JSX.Element[] = partners?.map((partner: PARTNER_Result) => (
@@ -113,6 +118,7 @@ const Partners = ({ partners }: Readonly<Props>) => {
 
     return (
         <section id='partners' className={styles.section}>
+            <h1 className={cn(styles.title, MMArmenU.className)}>{t('our-partners')}</h1>
             <div className={styles.slider}>
                 <Slider {...settings}>
                     {slidesItems}
