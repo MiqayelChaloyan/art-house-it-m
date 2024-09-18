@@ -3,15 +3,15 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
-import Course from '@/components/screens/course';
+import Course from '@/src/components/screens/course';
 
-import { Locale } from '@/locales';
-import { ImagePath } from '@/types';
+import { Locale } from '@/src/locales';
+import { ImagePath } from '@/src/types';
 
-import { getCourse } from '@/utils/data';
-import { generateMetadataDynamic } from '@/utils/default-metadata';
+import { getCourse } from '@/src/utils/data';
+import { generateMetadataDynamic } from '@/src/utils/default-metadata';
 
-import { urlForImage } from '../../../../../sanity/imageUrlBuilder';
+import { urlForImage } from '@/sanity/imageUrlBuilder';
 
 
 interface Props {

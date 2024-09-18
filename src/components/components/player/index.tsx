@@ -5,13 +5,10 @@ import React from 'react';
 import { usePathname } from 'next/navigation';
 
 import { PiPlayCircleBold } from 'react-icons/pi';
-import { MdPlayCircle } from 'react-icons/md';
 
-import { ImagePath } from '@/types';
+import { ImagePath } from '@/src/types';
 
-import colors from '@/themes';
-
-import cn from 'classnames';
+import colors from '@/src/themes';
 
 import styles from './styles.module.sass';
 

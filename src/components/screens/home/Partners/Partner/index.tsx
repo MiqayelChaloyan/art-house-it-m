@@ -4,10 +4,10 @@ import React from 'react';
 
 import Image from 'next/image';
 
-import { urlForImage } from '../../../../../../sanity/imageUrlBuilder';
+import { urlForImage } from '@/sanity/imageUrlBuilder';
 
-import { Arial } from '@/constants/font';
-import { ImagePath } from '@/types';
+import { Arial } from '@/src/constants/font';
+import { ImagePath } from '@/src/types';
 
 import cn from 'classnames';
 

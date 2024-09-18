@@ -1,12 +1,12 @@
 'use client'
 
-import Container from '@/components/components/container';
-import Fancybox from '@/components/components/fancybox';
-import { options } from '@/components/components/fancybox/options';
+import Container from '@/src/components/components/container';
+import Fancybox from '@/src/components/components/fancybox';
+import { options } from '@/src/components/components/fancybox/options';
 
 import ImageBlock from './Image';
 
-import { Image } from '@/types';
+import { Image } from '@/src/types';
 
 import styles from './styles.module.sass';
 

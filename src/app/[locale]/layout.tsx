@@ -6,27 +6,29 @@ import { NextIntlClientProvider, useMessages } from 'next-intl';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
-import { Locale } from '@/locales';
+import { Locale } from '@/src/locales';
 
-import Footer from '@/components/components/footer';
-import GoBack from '@/components/components/goBack';
-import Header from '@/components/components/header';
-import PlayerModal from '@/components/components/playerModal';
-import ScrollToTopButton from '@/components/components/scrollToTopButton';
-import Advertisement from '@/components/components/advertisement';
+import Footer from '@/src/components/components/footer';
+import GoBack from '@/src/components/components/goBack';
+import Header from '@/src/components/components/header';
+import PlayerModal from '@/src/components/components/playerModal';
+import ScrollToTopButton from '@/src/components/components/scrollToTopButton';
+import Advertisement from '@/src/components/components/advertisement';
 
-import { ImagePath } from '@/types';
+import { ImagePath } from '@/src/types';
 
-import { StoreProvider } from '@/store/StoreProvider';
+import { StoreProvider } from '@/src/store/StoreProvider';
 
-import { urlForImage } from '../../../sanity/imageUrlBuilder';
+import { urlForImage } from '@/sanity/imageUrlBuilder';
 
-import { generateMetadataDynamic } from '@/utils/default-metadata';
-import { getContacts, getHomeDetails } from '@/utils/data';
+import { generateMetadataDynamic } from '@/src/utils/default-metadata';
+import { getContacts, getHomeDetails } from '@/src/utils/data';
 
-import { MMArmenU } from '@/constants/font';
+import { MMArmenU } from '@/src/constants/font';
 
-import '@/styles/globals.sass';
+import colors from '@/src/themes';
+
+import '@/src/styles/globals.sass';
 
 
 interface RootLayoutProps {
@@ -55,8 +57,8 @@ function RootLayout({
                     <StoreProvider>
                         <Header typePosition='fixed' locale={locale} />
                         <div className='itm-container'>
-                            <GoBack locale={locale} theme='#1A2738' />
-                            <ScrollToTopButton theme='#1A2738' />
+                            <GoBack locale={locale} theme={colors.blue} />
+                            <ScrollToTopButton theme={colors.blue} />
                             {children}
                             <Advertisement />
                             <Footer contacts={contacts} />

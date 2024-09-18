@@ -13,14 +13,14 @@ import { GrLinkedinOption } from 'react-icons/gr';
 import { PiTelegramLogoLight, PiWhatsappLogo } from 'react-icons/pi';
 import { AiOutlineYoutube } from 'react-icons/ai';
 
-import Logo from '@/lib/icons/Logo';
+import Logo from '@/src/lib/icons/Logo';
 
-import useWindowSize from '@/hooks/useWindowSize';
-import { socialNetwork } from '@/types';
+import useWindowSize from '@/src/hooks/useWindowSize';
+import { socialNetwork } from '@/src/types';
 
-import { MMArmenU } from '@/constants/font';
+import { MMArmenU } from '@/src/constants/font';
 
-import colors from '@/themes';
+import colors from '@/src/themes';
 
 import cn from 'classnames';
 
@@ -92,8 +92,8 @@ const Footer = ({ contacts }: Readonly<Props>) => {
                         <Logo
                             width={windowSize.width <= 1440 ? 150 : 204}
                             height={84}
-                            textColor='white'
-                            fill='#3f6212'
+                            textColor={colors.white}
+                            fill={colors.blue}
                         />
                     </div>
                     <div>

@@ -1,10 +1,8 @@
 'use server'
 
+import Courses from '@/src/components/screens/courses';
+import { getCourses } from '@/src/utils/data';
 import { notFound } from 'next/navigation';
-
-import Courses from '@/components/screens/courses';
-
-import { getCourses } from '@/utils/data';
 
 
 interface Props {

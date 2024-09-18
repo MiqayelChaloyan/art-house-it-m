@@ -1,7 +1,7 @@
 'use server'
 
-import Orders from '@/components/screens/orders';
-import { getSelectOptions, getWebSitesDetails } from '@/utils/data';
+import Orders from '@/src/components/screens/orders';
+import { getSelectOptions, getWebSitesDetails } from '@/src/utils/data';
 import { notFound } from 'next/navigation';
 
 

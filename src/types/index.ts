@@ -86,24 +86,24 @@ export interface Ref {
 };
 
 export type ImagePath = {
-    src: string,
-    width: number,
-    height: number
+    src: string;
+    width: number;
+    height: number;
 
 } | any;
 
 export type ContactUsResponse = { status: number } | { error: string } | any;
 
 export interface Site {
-    ogTitle: string,
+    ogTitle: string;
     ogImage: {
-        _type: string,
+        _type: string;
         asset: {
-            _ref: string,
-            _type: string
+            _ref: string;
+            _type: string;
         }
     },
-    ogDescription: string
+    ogDescription: string;
 };
 
 /* REDUX STATE TYPES */
@@ -134,4 +134,9 @@ interface Questions {
     answer: any[];
     isLoading: boolean;
     isViewAnswer: boolean;
+};
+
+export interface STATUS {
+    status: "success" | "info" | any;
+    content: string;
 };

@@ -1,7 +1,7 @@
-import { getCourses } from '@/utils/data';
+import { getCourses } from '@/src/utils/data';
 
 import { MetadataRoute } from 'next';
-import { Pages } from '@/constants/pages';
+import { Pages } from '@/src/constants/pages';
 
 type LocaleKeys = 'am' | 'en' | 'ru';
 type LocaleValues = string;

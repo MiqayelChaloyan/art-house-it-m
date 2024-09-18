@@ -6,16 +6,16 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation'
 import { useTranslations } from 'next-intl';
 
-import useWindowSize from '@/hooks/useWindowSize';
+import useWindowSize from '@/src/hooks/useWindowSize';
 
-import { Pages } from '@/constants/pages';
-import { MMArmenU } from '@/constants/font';
-import LogoMobile from '@/lib/icons/LogoMobile';
-import Logo from '@/lib/icons/Logo';
+import { Pages } from '@/src/constants/pages';
+import { MMArmenU } from '@/src/constants/font';
+import LogoMobile from '@/src/lib/icons/LogoMobile';
+import Logo from '@/src/lib/icons/Logo';
 
-import LocalSwitcher from '@/components/components/local-switcher';
+import LocalSwitcher from '@/src/components/components/local-switcher';
 
-import colors from '@/themes';
+import colors from '@/src/themes';
 
 import cn from 'classnames';
 
@@ -40,7 +40,7 @@ const Header = ({ typePosition, locale }: Readonly<IHeaderProps>) => {
     const [isSticky, setIsSticky] = useState<boolean>(false);
     const [isOpenMenu, setIsOpenMenu] = useState<boolean>(false);
     const windowSize = useWindowSize();
-    const switchColor = windowSize.width <= 991 ? 'white' : '#706F73';
+    const switchColor = windowSize.width <= 991 ? colors.white : colors.gray;
 
     const t = useTranslations();
     const pathname = usePathname();
@@ -77,14 +77,14 @@ const Header = ({ typePosition, locale }: Readonly<IHeaderProps>) => {
                         aria-label={Pages.HOME}
                         className={styles.logoMobile}
                     >
-                        <LogoMobile width={40} height={40} fill='#65a30d' />
+                        <LogoMobile width={40} height={40} fill={colors.green} />
                     </Link>) : (
                     <Link
                         href={`/${locale}${Pages.HOME}`}
                         aria-label={Pages.HOME}
                         className={styles.logo}
                     >
-                        <Logo width={windowSize.width <= 1440 ? 150 : 204} height={84} textColor='#5B5B5B' fill='#65a30d' />
+                        <Logo width={windowSize.width <= 1440 ? 150 : 204} height={84} textColor={colors.darkGray} fill={colors.green} />
                     </Link>
                 )}
                 <div className={cn(

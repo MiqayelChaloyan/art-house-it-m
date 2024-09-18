@@ -1,10 +1,8 @@
 'use server'
 
+import Contacts from '@/src/components/screens/contact';
+import { getContacts, getSelectOptions } from '@/src/utils/data';
 import { notFound } from 'next/navigation';
-
-import Contacts from '@/components/screens/contact';
-
-import { getContacts, getSelectOptions } from '@/utils/data';
 
 
 interface Props {

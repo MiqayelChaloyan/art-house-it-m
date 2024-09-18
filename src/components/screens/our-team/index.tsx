@@ -1,6 +1,6 @@
 'use client'
 
-import Container from '@/components/components/container';
+import Container from '@/src/components/components/container';
 import Card from './Card';
 
 import styles from './styles.module.sass';

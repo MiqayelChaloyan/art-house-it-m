@@ -3,12 +3,14 @@
 import Image from 'next/image';
 
 import { PortableText } from '@portabletext/react';
-import components from '@/utils/PortableTextComponents';
+import components from '@/src/utils/PortableTextComponents';
 
-import Container from '@/components/components/container';
+import Container from '@/src/components/components/container';
 
-import { ImagePaths } from '@/constants';
-import { MMArmenU } from '@/constants/font';
+import { MMArmenU } from '@/src/constants/font';
+import { ImagePath } from '@/src/types';
+
+import { urlForImage } from '@/sanity/imageUrlBuilder';
 
 import styles from './styles.module.sass';
 
@@ -18,7 +20,9 @@ interface Props {
 };
 
 const AboutUs = ({ data }: Readonly<Props>) => {
-    const { content, title } = data;
+    const { content, title, image } = data;
+
+    const path: ImagePath = urlForImage(image);
 
     return (
         <section id='about-us' className={MMArmenU.className}>
@@ -37,7 +41,7 @@ const AboutUs = ({ data }: Readonly<Props>) => {
                 </div>
                 <div className={styles.left}>
                     <Image
-                        src={ImagePaths.illustrationURL}
+                        src={path?.src}
                         alt='illustration'
                         className={styles.image}
                         width={500}

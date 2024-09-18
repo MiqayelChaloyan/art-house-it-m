@@ -1,8 +1,8 @@
 'use client'
 
-import AboutUs from "./AboutUs";
-import Strengths from "./Strengths";
-import VideoPlayer from "./VideoPlayer";
+import AboutUs from './AboutUs';
+import Strengths from './Strengths';
+import VideoPlayer from './VideoPlayer';
 
 
 interface Props {

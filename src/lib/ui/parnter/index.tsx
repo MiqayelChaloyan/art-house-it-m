@@ -2,9 +2,8 @@
 
 import React from 'react';
 
-import { ImagePath } from '@/types';
-
-import { urlForImage } from '../../../../sanity/imageUrlBuilder';
+import { urlForImage } from '@/sanity/imageUrlBuilder';
+import { ImagePath } from '@/src/types';
 
 import styles from './styles.module.sass';
 

@@ -4,18 +4,17 @@ import React, { ChangeEvent, FormEvent, useState } from 'react';
 
 import { useTranslations } from 'next-intl';
 
-import Snackbars from '@/components/components/snackbar';
-import Select from '@/lib/ui/select';
-import InputField from '@/lib/ui/InputField';
-import InputNumber from '@/lib/ui/InputNumber';
-import TextareaField from '@/lib/ui/TextareaField';
+import Snackbars from '@/src/components/components/snackbar';
+import Select from '@/src/lib/ui/select';
+import InputField from '@/src/lib/ui/InputField';
+import InputNumber from '@/src/lib/ui/InputNumber';
+import TextareaField from '@/src/lib/ui/TextareaField';
 
-import { sendOrderForm } from '@/api';
-import { TRAINING_CENTER } from '@/constants';
+import { sendOrderForm } from '@/src/api';
+import { TRAINING_CENTER } from '@/src/constants';
+import { MMArmenU } from '@/src/constants/font';
 
-import { MMArmenU } from "@/constants/font";
-import { FormOrder } from '@/types';
-import { ContactUsResponse } from '@/types';
+import { FormOrder, ContactUsResponse, STATUS } from '@/src/types';
 
 import cn from 'classnames';
 
@@ -34,16 +33,12 @@ interface Props {
     classNameProperty: 'small' | 'large';
 };
 
-const Form = ({
-    orders,
-    ordersArmenianKeyword,
-    classNameProperty
-}: Readonly<Props>) => {
+const Form = ({ orders, ordersArmenianKeyword, classNameProperty }: Readonly<Props>) => {
     const t = useTranslations();
     const [order, setOrder] = useState<string>('');
 
     const [open, setOpen] = useState(false);
-    const [info, setInfo] = useState({
+    const [info, setInfo] = useState<STATUS>({
         status: 'success',
         content: t('texts.send-message-success')
     });

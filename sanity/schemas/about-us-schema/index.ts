@@ -1,7 +1,5 @@
-import { ClipboardIcon, TrendUpwardIcon, LaunchIcon, UserIcon } from '@sanity/icons';
-import { BsLayersHalf } from "react-icons/bs";
-
-import { RuleType } from '../../ruleType';
+import { TrendUpwardIcon } from '@sanity/icons';
+import { RuleType } from '@/sanity/ruleType';
 
 export const aboutUsSchema = {
     name: 'about-us',
@@ -42,6 +40,7 @@ export const aboutUsSchema = {
                     name: 'content',
                     type: 'object',
                     validation: (Rule: RuleType) => Rule.required(),
+                    description: 'Will display 318 characters on the main page. Ensure it ends with a full stop, and that the sentence is not left incomplete.',
                     fields: [
                         {
                             title: 'Armenian',
@@ -62,6 +61,22 @@ export const aboutUsSchema = {
                             of: [{ type: 'block' }],
                         },
                     ],
+                },
+                {
+                    name: 'image',
+                    type: 'image',
+                    title: 'Image',
+                    options: {
+                        hotspot: true,
+                    },
+                    fields: [
+                        {
+                            name: 'alt',
+                            type: 'string',
+                            title: 'Alternative text',
+                        },
+                    ],
+                    description: 'This image will be displayed on both the main page and this specific section.',
                 },
             ],
         },

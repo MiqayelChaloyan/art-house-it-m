@@ -2,7 +2,7 @@
 
 import Work from './Work';
 
-import { MMArmenU } from '@/constants/font';
+import { MMArmenU } from '@/src/constants/font';
 
 import cn from 'classnames';
 

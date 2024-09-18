@@ -3,11 +3,12 @@
 import Link from 'next/link';
 import Image from 'next/image';
 
-import Fancybox from '@/components/components/fancybox';
-import { options } from '@/components/components/fancybox/options';
+import Fancybox from '@/src/components/components/fancybox';
+import { options } from '@/src/components/components/fancybox/options';
 
-import { Image as Asset, ImagePath } from '@/types';
-import { urlForImage } from '../../../../../../sanity/imageUrlBuilder';
+import { Image as Asset, ImagePath } from '@/src/types';
+
+import { urlForImage } from '@/sanity/imageUrlBuilder';
 
 import styles from './styles.module.sass';
 

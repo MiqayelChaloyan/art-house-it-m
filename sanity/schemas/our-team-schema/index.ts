@@ -1,7 +1,6 @@
 import { EarthGlobeIcon, UserIcon } from '@sanity/icons';
 import { BiSolidUserDetail } from 'react-icons/bi';
-
-import { RuleType } from '../../ruleType';
+import { RuleType } from '@/sanity/ruleType';
 
 const ourTeamSchema = {
     name: 'our-team',

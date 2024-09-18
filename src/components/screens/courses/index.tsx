@@ -3,14 +3,13 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import Container from '@/components/components/container';
+import Container from '@/src/components/components/container';
 
-import { urlForImage } from '../../../../sanity/imageUrlBuilder';
+import { urlForImage } from '@/sanity/imageUrlBuilder';
 
-
-import { ImagePath } from '@/types';
-import { Pages } from '@/constants/pages';
-import { MMArmenU } from '@/constants/font';
+import { ImagePath } from '@/src/types';
+import { Pages } from '@/src/constants/pages';
+import { MMArmenU } from '@/src/constants/font';
 
 import cn from 'classnames';
 

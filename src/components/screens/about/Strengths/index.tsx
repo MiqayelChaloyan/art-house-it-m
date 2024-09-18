@@ -1,12 +1,12 @@
 'use client'
 
 import { PortableText } from '@portabletext/react';
-import components from '@/utils/PortableTextComponents';
+import components from '@/src/utils/PortableTextComponents';
 
-import Container from '@/components/components/container';
+import Container from '@/src/components/components/container';
 import ImageBlock from './Image';
 
-import { MMArmenU } from '@/constants/font';
+import { MMArmenU } from '@/src/constants/font';
 
 import cn from 'classnames';
 

@@ -1,8 +1,7 @@
 import { LinkIcon } from '@sanity/icons';
 import { IoShareSocial } from 'react-icons/io5';
-
-import ArrayMaxItems from '@/utils/ArrayMaxItems';
-import { RuleType } from '../../ruleType';
+import { RuleType } from '@/sanity/ruleType';
+import ArrayMaxItems from '@/src/utils/ArrayMaxItems';
 
 const contactUsSchema = {
     name: 'contact-us',

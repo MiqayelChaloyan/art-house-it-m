@@ -1,18 +1,19 @@
 'use client'
 
 import Link from 'next/link';
-import { useLocale, useTranslations } from 'next-intl';
 import Image from 'next/image';
+import { useLocale, useTranslations } from 'next-intl';
 
-import Container from '@/components/components/container';
+import Container from '@/src/components/components/container';
 
 import { PortableText } from '@portabletext/react';
-import components from '@/utils/PortableTextComponents';
+import type { PortableTextBlock } from '@portabletext/types';
+import components from '@/src/utils/PortableTextComponents';
 
-import { Pages } from '@/constants/pages';
-import { MMArmenU } from '@/constants/font';
+import { Pages } from '@/src/constants/pages';
+import { MMArmenU } from '@/src/constants/font';
 
-import { ImagePaths } from '@/constants';
+import { ImagePaths } from '@/src/constants';
 
 import cn from 'classnames';
 
@@ -20,7 +21,7 @@ import styles from './styles.module.sass';
 
 
 interface Props {
-    content: any;
+    content: PortableTextBlock[] | TEXT;
 };
 
 const Learn = ({ content }: Readonly<Props>) => {

@@ -1,7 +1,7 @@
 'use server'
 
-import OurTeam from '@/components/screens/our-team';
-import { getOurTeam } from '@/utils/data';
+import OurTeam from '@/src/components/screens/our-team';
+import { getOurTeam } from '@/src/utils/data';
 import { notFound } from 'next/navigation';
 
 
@@ -16,5 +16,9 @@ export default async function Page({
 }: Readonly<Props>) {
     const data = await getOurTeam(locale);
 
-    return (<OurTeam data={data}/>);
+    if (!data) {
+        notFound();
+    }
+
+    return (<OurTeam data={data} />);
 };

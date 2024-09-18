@@ -1,6 +1,5 @@
 const ImagePaths = {
     logoURL: require('../../public/assets/images/logo.png'),
-    illustrationURL: require('../../public/assets/images/Illustration.png'),
     programmingURL: require('../../public/assets/images/programming.png'),
     advantagesURL: require('../../public/assets/images/advantages.png'),
     learnURL: require('../../public/assets/images/learn.png'),

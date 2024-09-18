@@ -3,9 +3,9 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { urlForImage } from '../../../../../../sanity/imageUrlBuilder';
+import { urlForImage } from '@/sanity/imageUrlBuilder';
 
-import { Image as Asset, ImagePath } from '@/types';
+import { Image as Asset, ImagePath } from '@/src/types';
 
 import styles from './styles.module.sass';
 

@@ -14,6 +14,21 @@ interface Ref {
     _type: 'reference';
 };
 
+interface PortableChildren {
+    marks: any;
+    text: string;
+    _key: string;
+    _type: string;
+};
+
+interface TEXT {
+    children: PortableChildren[];
+    markDefs: any;
+    style: string;
+    _key: string;
+    _type: string;
+};
+
 interface PRICES {
     _key: string;
     course: string;
@@ -63,7 +78,7 @@ interface COURSES_QUERYResult {
     slug: string;
     about_course: {
         title: string;
-        about_content: string;
+        about_content: TEXT[];
     },
     course_process: VIDEO;
     our_day: OUR_DAY[];
@@ -106,7 +121,8 @@ interface CONTACT_US_QUERYResult {
 
 interface ABOUT {
     title: string;
-    content: any;
+    content: TEXT;
+    image: Asset;
 };
 
 interface STRENGTHS {
@@ -141,7 +157,7 @@ interface HOME_DETALIS_QUERYResult {
     ogImage: Asset;
     about_course: ABOUT_COURSE;
     our_advantages: string[];
-    content: string;
+    content: TEXT;
 };
 
 interface PARTNER_Result {

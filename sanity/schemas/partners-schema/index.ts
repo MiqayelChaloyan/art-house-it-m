@@ -1,5 +1,5 @@
-import { ImagePath } from '@/types';
-import { RuleType } from '../../ruleType';
+import { ImagePath } from '@/src//types';
+import { RuleType } from '@/sanity/ruleType';
 
 const partnersSchema = {
     name: 'partners',

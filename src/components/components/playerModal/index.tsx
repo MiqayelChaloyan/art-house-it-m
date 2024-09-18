@@ -3,11 +3,13 @@
 import React, { useState, useEffect, ReactNode, useRef } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { onPlay, setPath } from '@/store/player_reducer';
+import { onPlay, setPath } from '@/src/store/player_reducer';
 
 import ReactPlayer from 'react-player';
 
 import { IoClose } from 'react-icons/io5';
+
+import colors from '@/src/themes';
 
 import cn from 'classnames';
 
@@ -84,7 +86,7 @@ const PlayerModal = () => {
                         }}>
                         <IoClose
                             size={100}
-                            fill='white'
+                            fill={colors.white}
                         />
                     </button>
                     <div ref={componentRef} className={styles.video}>

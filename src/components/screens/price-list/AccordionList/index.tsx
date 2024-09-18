@@ -5,7 +5,9 @@ import { RiArrowDownSLine } from 'react-icons/ri';
 
 import { useTranslations } from 'next-intl';
 
-import { Arial } from '@/constants/font';
+import { Arial } from '@/src/constants/font';
+
+import colors from '@/src/themes';
 
 import cn from 'classnames';
 
@@ -17,16 +19,12 @@ interface Props {
 };
 
 interface AccordionItemProps {
-    handleToggle: (id: number) => void;
-    active: number | null;
-    course:  any;
+    handleToggle: (id: number | any) => void;
+    active: number | string;
+    course: PRICES;
 };
 
-const AccordionItem = ({
-    handleToggle,
-    active,
-    course
-}: Readonly<AccordionItemProps>) => {
+const AccordionItem = ({ handleToggle, active, course }: Readonly<AccordionItemProps>) => {
     const contentEl = useRef<HTMLDivElement>(null);
     const t = useTranslations('tables-titles');
 
@@ -49,7 +47,7 @@ const AccordionItem = ({
                     <h5 className={cn(styles['accordion-title'], Arial.className)}>{course_name}</h5>
                 </div>
                 <div>
-                    <RiArrowDownSLine className={styles['accordion-icon']} size={20} color='#fff' />
+                    <RiArrowDownSLine className={styles['accordion-icon']} size={20} color={colors.white} />
                 </div>
             </div>
             <div

@@ -4,9 +4,9 @@ import { useTranslations } from 'next-intl';
 
 import Form from './Form';
 import OurWorks from './OurWorks';
-import Container from '@/components/components/container';
+import Container from '@/src/components/components/container';
 
-import { MMArmenU } from '@/constants/font';
+import { MMArmenU } from '@/src/constants/font';
 
 import styles from './styles.module.sass';
 

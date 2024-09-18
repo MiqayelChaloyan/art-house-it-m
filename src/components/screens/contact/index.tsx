@@ -3,10 +3,10 @@
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 
-import Container from '@/components/components/container';
+import Container from '@/src/components/components/container';
 import Form from './Form';
 
-import useWindowSize from '@/hooks/useWindowSize';
+import useWindowSize from '@/src/hooks/useWindowSize';
 
 import { FaFacebookF, FaTwitter, FaPinterestP, FaTiktok } from 'react-icons/fa';
 import { FaInstagram, FaViber } from 'react-icons/fa6';
@@ -15,9 +15,9 @@ import { GrLinkedinOption } from 'react-icons/gr';
 import { PiTelegramLogoLight, PiWhatsappLogo } from 'react-icons/pi';
 import { AiOutlineYoutube } from 'react-icons/ai';
 
-import { Calibri, MMArmenU } from '@/constants/font';
+import { Calibri, MMArmenU } from '@/src/constants/font';
 
-import { socialNetwork } from '@/types';
+import { socialNetwork } from '@/src/types';
 
 import cn from 'classnames';
 

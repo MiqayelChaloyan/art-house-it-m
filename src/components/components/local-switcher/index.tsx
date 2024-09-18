@@ -5,12 +5,12 @@ import { useEffect, useRef, useState, useTransition } from 'react';
 import { useLocale } from 'next-intl';
 import { usePathname, useRouter } from 'next/navigation';
 
-import useWindowSize from '@/hooks/useWindowSize';
+import useWindowSize from '@/src/hooks/useWindowSize';
 
-import Planet from '@/lib/icons/Planet';
-import { MMArmenU } from '@/constants/font';
+import Planet from '@/src/lib/icons/Planet';
+import { MMArmenU } from '@/src/constants/font';
 
-import colors from '@/themes';
+import colors from '@/src/themes';
 
 import cn from 'classnames';
 
@@ -104,7 +104,7 @@ export default function LocalSwitcher({ activeColor = colors.green, color = 'bla
       ) : (
         <>
           <button className={styles.button} onClick={handleOpen}>
-            <Planet width={25} height={25} fill="#5B5B5B" />
+            <Planet width={25} height={25} fill={colors.darkGray} />
           </button>
           {isOpen && (
             <ul ref={componentRef} className={cn(styles['menu-toggle'], isOpen ? styles.open : "")}>

@@ -1,16 +1,18 @@
 'use client'
 
 import Link from 'next/link';
-import { useLocale, useTranslations } from 'next-intl';
 import Image from 'next/image';
+import { useLocale, useTranslations } from 'next-intl';
 
-import { ImagePaths } from '@/constants';
+import Container from '@/src/components/components/container';
+import BlocksToText from '@/src/utils/BlocksToText';
 
-import Container from '@/components/components/container';
-import BlocksToText from '@/utils/BlocksToText';
+import { Pages } from '@/src/constants/pages';
+import { MMArmenU } from '@/src/constants/font';
 
-import { Pages } from '@/constants/pages';
-import { MMArmenU } from '@/constants/font';
+import { urlForImage } from '@/sanity/imageUrlBuilder';
+
+import { ImagePath } from '@/src/types';
 
 import cn from 'classnames';
 
@@ -22,11 +24,13 @@ interface Props {
 };
 
 const About = ({ data }: Readonly<Props>) => {
-    const { content, title } = data;
+    const { content, title, image } = data;
     const activeLocale = useLocale();
     const t = useTranslations();
 
-    const contentText: string = BlocksToText(content).slice(0, 350);
+    const path: ImagePath = urlForImage(image);
+
+    const contentText: string = BlocksToText(content).slice(0, 318);
 
     return (
         <section id='about' className={cn(styles.container, MMArmenU.className)}>
@@ -39,7 +43,7 @@ const About = ({ data }: Readonly<Props>) => {
                                     {title}
                                 </h1>
                                 <p className={styles.content}>
-                                    {contentText}...
+                                    {contentText}
                                 </p>
                             </div>
                             <div className={styles['buttons-large']}>
@@ -61,7 +65,7 @@ const About = ({ data }: Readonly<Props>) => {
                         </div>
                         <div className={styles.left}>
                             <Image
-                                src={ImagePaths.illustrationURL}
+                                src={path?.src}
                                 alt='illustration'
                                 className={styles.image}
                                 width={500}

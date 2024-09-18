@@ -2,8 +2,8 @@
 
 import axios from 'axios';
 
-import { BASE_URL } from '@/constants/api';
-import { FormContact, FormOrder } from '@/types';
+import { BASE_URL } from '@/src/constants/api';
+import { FormContact, FormOrder } from '@/src/types';
 
 
 // IT-M

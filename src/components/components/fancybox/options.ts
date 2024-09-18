@@ -1,4 +1,4 @@
-import { Options } from '@/types';
+import { Options } from '@/src/types';
 
 export const options: Options = {
     compact: false,

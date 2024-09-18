@@ -1,5 +1,5 @@
 import { RocketIcon } from '@sanity/icons';
-import { RuleType } from '../../ruleType';
+import { RuleType } from '@/sanity/ruleType';
 
 const lessonsSchema = {
     name: 'select-option',

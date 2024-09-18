@@ -1,8 +1,8 @@
 'use client'
 
-import About from "./About";
-import OurDay from "./OurDay";
-import VideoPlayer from "./VideoPlayer";
+import About from './About';
+import OurDay from './OurDay';
+import VideoPlayer from './VideoPlayer';
 
 interface Props {
     data: COURSES_QUERYResult;

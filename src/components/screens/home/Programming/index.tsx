@@ -5,15 +5,15 @@ import Image from 'next/image';
 import { useLocale, useTranslations } from 'next-intl';
 import { notFound, useRouter } from 'next/navigation';
 
-import Container from '@/components/components/container';
+import Container from '@/src/components/components/container';
 
-import { MMArmenU } from '@/constants/font';
+import { MMArmenU } from '@/src/constants/font';
 
-import { client } from '../../../../../sanity/client';
-import { urlForImage } from '../../../../../sanity/imageUrlBuilder';
-import { COURSE_ID_QUERY } from '../../../../../sanity/services';
+import { client } from '@/sanity/client';
+import { urlForImage } from '@/sanity/imageUrlBuilder';
+import { COURSE_ID_QUERY } from '@/sanity/services';
 
-import { ImagePath } from '@/types';
+import { ImagePath } from '@/src/types';
 
 import cn from 'classnames';
 
@@ -33,7 +33,6 @@ const Programming = ({ data }: Readonly<Props>) => {
     const features = data.features?.map((item: FEATURE) =>
         <p key={item._key} className={cn(styles.program, MMArmenU.className)}>{item.feature}</p>
     );
-
 
     const getResources = async () => {
         const _id = data.categories._ref;

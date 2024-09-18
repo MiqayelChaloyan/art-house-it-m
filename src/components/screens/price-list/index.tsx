@@ -4,12 +4,12 @@ import React from 'react';
 
 import { useTranslations } from 'next-intl';
 
-import useWindowSize from '@/hooks/useWindowSize';
+import useWindowSize from '@/src/hooks/useWindowSize';
 
 import TableList from './TableList';
 import AccordionList from './AccordionList';
 
-import { MMArmenU } from '@/constants/font';
+import { MMArmenU } from '@/src/constants/font';
 
 import cn from 'classnames';
 

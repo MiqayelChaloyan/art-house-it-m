@@ -2,16 +2,16 @@
 
 import Link from 'next/link';
 
-import Container from '@/components/components/container';
+import Container from '@/src/components/components/container';
 
-import { Pages } from '@/constants/pages';
+import { Pages } from '@/src/constants/pages';
+import { Arial } from '@/src/constants/font';
 
 import cn from 'classnames';
 
-import '@/styles/globals.sass';
-
 import styles from './styles.module.sass';
-import { Arial } from '@/constants/font';
+
+import '@/src/styles/globals.sass';
 
 
 export default function NotFound() {

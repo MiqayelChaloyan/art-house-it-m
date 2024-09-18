@@ -2,10 +2,10 @@
 
 import Image from 'next/image';
 
-import { MMArmenU } from '@/constants/font';
+import { MMArmenU } from '@/src/constants/font';
 
-import { ImagePath } from '@/types';
-import { urlForImage } from '../../../../../sanity/imageUrlBuilder';
+import { ImagePath } from '@/src/types';
+import { urlForImage } from '@/sanity/imageUrlBuilder';
 
 import cn from 'classnames';
 

@@ -2,14 +2,15 @@
 
 import Image from 'next/image';
 
-import Container from '@/components/components/container';
+import Container from '@/src/components/components/container';
 
-import { MMArmenU } from '@/constants/font';
+import { MMArmenU } from '@/src/constants/font';
 
 import { PortableText } from '@portabletext/react';
-import components from '@/utils/PortableTextComponents';
+import type { PortableTextBlock } from '@portabletext/types';
+import components from '@/src/utils/PortableTextComponents';
 
-import { Image as Asset, ImagePath, TEXT } from '@/types';
+import { Image as Asset, ImagePath } from '@/src/types';
 import { urlForImage } from '../../../../../sanity/imageUrlBuilder';
 
 import styles from './styles.module.sass';
@@ -17,7 +18,7 @@ import styles from './styles.module.sass';
 
 interface ABOUT_COURSE {
     title: string;
-    about_content: TEXT | any;
+    about_content: PortableTextBlock[];
 };
 
 interface Props {
@@ -26,11 +27,7 @@ interface Props {
     about_course: ABOUT_COURSE;
 };
 
-const About = ({
-    course,
-    image,
-    about_course
-}: Readonly<Props>) => {
+const About = ({ course, image, about_course }: Readonly<Props>) => {
     const path: ImagePath = urlForImage(image);
 
     return (

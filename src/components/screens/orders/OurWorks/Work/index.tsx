@@ -3,8 +3,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { MMArmenU } from '@/constants/font';
-import { ImagePaths } from '@/constants';
+import { MMArmenU } from '@/src/constants/font';
+import { ImagePaths } from '@/src/constants';
 
 import cn from 'classnames';
 

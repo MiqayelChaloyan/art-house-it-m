@@ -5,10 +5,18 @@ import * as React from 'react';
 import Snackbar from '@mui/material/Snackbar';
 import Alert from '@mui/material/Alert';
 
-import { MMArmenU } from '@/constants/font';
+import { STATUS } from '@/src/types';
+
+import { MMArmenU } from '@/src/constants/font';
 
 
-export default function Snackbars({ open, handleChange, info }: any) {
+interface Props {
+  open: boolean;
+  handleChange: () => void;
+  info: STATUS;
+};
+
+export default function Snackbars({ open, handleChange, info }: Readonly<Props>) {
   const handleClose = (_?: React.SyntheticEvent | Event, reason?: string) => {
     if (reason === 'clickaway') {
       return;

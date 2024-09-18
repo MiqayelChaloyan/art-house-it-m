@@ -1,7 +1,6 @@
 import { CheckmarkIcon } from '@sanity/icons';
 import { FaDiscourse } from 'react-icons/fa';
-
-import { RuleType } from '../../ruleType';
+import { RuleType } from '@/sanity/ruleType';
 
 const homeSchema = {
     name: 'home',

@@ -1,6 +1,6 @@
-import { ABOUT_US_DETAILS_QUERY, CONTACT_US_QUERY, COURSE_SLUG_QUERY, COURSES_QUERY, HOME_DETALIS_QUERY, LESSONS_ORDERS_QUERY, OUR_TEAM_QUERY, PARTNERS_QUERY, PRICE_LIST_QUERY, WEB_SITES_QUERY } from '../../../sanity/services';
+import { ABOUT_US_DETAILS_QUERY, CONTACT_US_QUERY, COURSE_SLUG_QUERY, COURSES_QUERY, HOME_DETALIS_QUERY, LESSONS_ORDERS_QUERY, OUR_TEAM_QUERY, PARTNERS_QUERY, PRICE_LIST_QUERY, WEB_SITES_QUERY } from '@/sanity/services';
 
-import { sanityFetch } from '@/api/sanity-fetch';
+import { sanityFetch } from '@/src/api/sanity-fetch';
 
 
 export async function getPriceList(locale: string): Promise<PRICE_LIST_QUERYResult> {

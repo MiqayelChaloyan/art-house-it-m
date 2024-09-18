@@ -3,10 +3,12 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-import { Pages } from '@/constants/pages';
+import { Pages } from '@/src/constants/pages';
+
 import { HiHome } from 'react-icons/hi2';
 
-import { MMArmenU } from '@/constants/font';
+import { MMArmenU } from '@/src/constants/font';
+import colors from '@/src/themes';
 
 import cn from 'classnames';
 
@@ -28,7 +30,7 @@ const GoBack = ({ theme, locale }: Readonly<Props>) => {
             className={cn(styles.btn, styles['book-now'], MMArmenU.className)}
             style={{ background: theme }}
         >
-            <HiHome color='white' size={30} />
+            <HiHome color={colors.white} size={30} />
         </Link>
     )
 };

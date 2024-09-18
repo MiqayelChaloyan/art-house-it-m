@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 
 import { Fancybox as NativeFancybox } from '@fancyapps/ui';
 import '@fancyapps/ui/dist/fancybox/fancybox.css';
-import { Options } from '@/types';
+import { Options } from '@/src/types';
 
 interface Props {
     children: React.ReactNode

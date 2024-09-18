@@ -11,13 +11,14 @@ import 'slick-carousel/slick/slick-theme.css';
 
 import Partner from './Partner';
 
+import ArrowLeft from '@/src/lib/icons/ArrowLeft';
+import ArrowRight from '@/src/lib/icons/ArrowRight';
 
-import ArrowLeft from '@/lib/icons/ArrowLeft';
-import ArrowRight from '@/lib/icons/ArrowRight';
+import useWindowSize from '@/src/hooks/useWindowSize';
 
-import useWindowSize from '@/hooks/useWindowSize';
+import { MMArmenU } from '@/src/constants/font';
 
-import { MMArmenU } from '@/constants/font';
+import colors from '@/src/themes';
 
 import cn from 'classnames';
 
@@ -65,8 +66,8 @@ const Partners = ({ partners }: Readonly<Props>) => {
         speed: 500,
         autoplay: false,
         dots: false,
-        nextArrow: <SampleNextArrow fill={windowSize.width > 1024 ? '#ECECEC' : '#fff'} />,
-        prevArrow: <SamplePrevArrow fill={windowSize.width > 1024 ? '#ECECEC' : '#fff'} />,
+        nextArrow: <SampleNextArrow fill={windowSize.width > 1024 ? colors.brown : colors.white} />,
+        prevArrow: <SamplePrevArrow fill={windowSize.width > 1024 ? colors.brown : colors.white} />,
         cssEase: 'ease-out',
         centerMode: true,
         centerPadding: "0",

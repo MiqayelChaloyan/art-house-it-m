@@ -99,6 +99,7 @@ export const ABOUT_US_DETAILS_QUERY = `
     "about_us": about_us {
         "title": title[$language],
         "content": content[$language],
+        image,
     },
     "strengths": strengths[] {
         "_key": _key,
