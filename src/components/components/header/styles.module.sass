@@ -77,13 +77,13 @@
 	align-items: center
 	justify-content: center
 	transition: var(--tr-time)
-	& > *
-		transition: var(--tr-time)
-		@media screen and ( max-width: 1280px )
-			width: 70px
-			height: 70px
 	@media screen and ( max-width: 1280px )
 		display: block
+		& > *
+			transition: var(--tr-time)
+			@media screen and ( max-width: 1280px )
+				width: 70px
+				height: 70px
 
 .image
 	object-fit: cover
