@@ -166,32 +166,29 @@
         line-height: 22.93px
         text-align: center
 
-.left
-    width: 50%
+.box
+    width: 100%
+    margin: 20px auto
+    /* @2xl */
+    @media screen and (max-width: 1600px)
+        margin: 40px auto
     /* @sm */
     @media screen and (max-width: 768px)
-        width: 100%
+        display: grid
 
-.right
-    width: 50%
-    position: relative
-    bottom: 146px
-    display: flex
+.right-side
+    float: right
+    width: 535px
     height: 457.81px
-    justify-content: center
-    /* @lg */
-    @media screen and (max-width: 1280px)
-        bottom: 130px
+    margin: 0 0 20px 30px
+    object-fit: cover
+    /* @2xl */
+    @media screen and (max-width: 1600px)
+        margin: 0 0 20px 
+        width: 388px
+        height: 388px
+        margin: 0 0 20px 40px
     /* @sm */
     @media screen and (max-width: 768px)
-        width: 100%
-        bottom: 0
-        margin-bottom: 30px
-
-.content
-    width: 90%
-
-.image
-    background-color: #F8F8F8
-    padding: 20px
-    object-fit: cover
+        float: none
+        margin: 0 auto 40px

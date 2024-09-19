@@ -41,23 +41,21 @@ const About = ({ course, image, about_course }: Readonly<Props>) => {
                         {about_course.title}
                     </h3>
                 </div>
-                <div className={styles.block}>
-                    <div className={styles.left}>
-                        <div className={styles.content}>
-                            <PortableText
-                                value={about_course?.about_content}
-                                components={components}
-                            />
-                        </div>
-                    </div>
-                    <div className={styles.right}>
+              
+
+                <div className={styles.wrapper}>
+                    <div className={styles.box}>
                         <Image
                             src={path?.src}
                             alt={image?.alt}
-                            className={styles.image}
+                            className={styles['right-side']}
                             width={500}
                             height={500}
                             priority
+                        />
+                        <PortableText
+                            value={about_course?.about_content}
+                            components={components}
                         />
                     </div>
                 </div>
