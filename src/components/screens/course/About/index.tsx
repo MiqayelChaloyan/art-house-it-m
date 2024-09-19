@@ -13,6 +13,8 @@ import components from '@/src/utils/PortableTextComponents';
 import { Image as Asset, ImagePath } from '@/src/types';
 import { urlForImage } from '../../../../../sanity/imageUrlBuilder';
 
+import cn from 'classnames';
+
 import styles from './styles.module.sass';
 
 
@@ -31,7 +33,7 @@ const About = ({ course, image, about_course }: Readonly<Props>) => {
     const path: ImagePath = urlForImage(image);
 
     return (
-        <section id='about' className={MMArmenU.className}>
+        <section id='about' className={cn(styles.section, MMArmenU.className)}>
             <Container className='container'>
                 <div>
                     <h1 className={styles.title}>
@@ -41,8 +43,6 @@ const About = ({ course, image, about_course }: Readonly<Props>) => {
                         {about_course.title}
                     </h3>
                 </div>
-              
-
                 <div className={styles.wrapper}>
                     <div className={styles.box}>
                         <Image
