@@ -4,7 +4,7 @@
     height: auto
     /* @sm */
     @media screen and (max-width: 768px)
-        margin-bottom: 70px
+        margin-bottom: 100px
 
 .title
     font-size: 50px
@@ -50,13 +50,14 @@
     
 /* Slider Styles*/
 .slider
-    width: 85%
+    width: 100%
     margin: 0 auto
-    @media screen and ( max-width: 991px )
-        width: 90%
-    /* sm */
-    @media screen and ( max-width: 640px )
-        width: 70%
+    /* @2xl */
+    @media screen and (max-width: 1600px)
+        width: 100%
+    /* xs */
+    @media screen and ( max-width: 475px )
+        width: 100%
         
 .arrow
     display: flex
@@ -66,6 +67,7 @@
     padding: 5px 15px
     z-index: 10
     cursor: pointer
+    align-items: center
     /* 2xl */
     @media screen and ( max-width: 1536px )
         top: 60px
@@ -74,88 +76,74 @@
         top: 60px
     /* lg */
     @media screen and ( max-width: 1024px )
-        display: none
+        top: 170px
+    /* md */
+    @media screen and ( max-width: 768px )
+        top: 150px
+    /* sm */
+    @media screen and ( max-width: 640px )
+        top: 160px
+    /* xs */
+    @media screen and ( max-width: 475px )
+        top: 150px
+    /* @3xs */
+    @media screen and (max-width: 360px)
+        top: 140px
     svg
         /* xl */
         @media screen and ( max-width: 1280px )
-            width: 25px
-            height: 25px
+            width: 20px
+            height: 20px
         /* sm */
         @media screen and ( max-width: 640px )
             width: 17px
             height: 17px
 
 .arrow_right
-    right: -90px
-    /* @4xl */
-    @media screen and (max-width: 2560px)
-        right: -90px
-    /* @3xl */
-    @media screen and (max-width: 1920px)
-        right: -90px
-    /* @2xl */
-    @media screen and (max-width: 1600px)
-        right: -80px
-    /* @xl */
-    @media screen and (max-width: 1440px)
-        right: -30px
-    /* @lg */
-    @media screen and (max-width: 1280px)
-        right: -30px
+    right: 0
     /* @md */
     @media screen and (max-width: 1024px)
-        right: 0
-        background-color: #B21B1B
+        right: 20px
+        background-color: var(--color-green)
         width: 50px
         height: 38px
         border-radius: 10px
     /* @sm */
     @media screen and (max-width: 768px)
-        right: 0
+        right: 20px
+        background-color: var(--color-green)
         width: 50px
         height: 38px
         border-radius: 10px
     /* @xs */
     @media screen and (max-width: 600px)
-        right: 0
+        right: 20px
+        background-color: var(--color-green)
         width: 50px
         height: 30px
         border-radius: 10px
     /* @2xs */
     @media screen and (max-width: 480px)
-        right: 0
+        right: 20px
+        background-color: var(--color-green)
         width: 40px
         height: 30px
         border-radius: 10px
     /* @3xs */
     @media screen and (max-width: 360px)
-        right: 0
+        right: 20px
+        background-color: var(--color-green)
         width: 40px
         height: 30px
         border-radius: 10px
 
 .arrow_left
-    left: -100px
-    /* @4xl */
-    @media screen and (max-width: 2560px)
-        left: -100px
-    /* @3xl */
-    @media screen and (max-width: 1920px)
-        left: -100px
-    /* @2xl */
-    @media screen and (max-width: 1600px)
-        left: -100px
-    /* @xl */
-    @media screen and (max-width: 1440px)
-        left: -50px
-    /* @lg */
-    @media screen and (max-width: 1280px)
-        left: -60px
+    left: 0
     /* @md */
     @media screen and (max-width: 1024px)
         left: auto
         right: 80px
-        background-color: #B21B1B
+        background-color: var(--color-green)
         width: 50px
         height: 38px
         border-radius: 10px
@@ -163,31 +151,31 @@
     @media screen and (max-width: 768px)
         left: auto
         right: 80px
+        background-color: var(--color-green)
         width: 50px
         height: 38px
         border-radius: 10px
     /* @xs */
     @media screen and (max-width: 600px)
         left: auto
-        right: 70px
+        right: 80px
+        background-color: var(--color-green)
         width: 50px
         height: 30px
         border-radius: 10px
     /* @2xs */
     @media screen and (max-width: 480px)
         left: auto
-        right: 70px
+        right: 80px
+        background-color: var(--color-green)
         width: 40px
         height: 30px
         border-radius: 10px
     /* @3xs */
     @media screen and (max-width: 360px)
         left: auto
-        right: 70px
+        right: 80px
+        background-color: var(--color-green)
         width: 40px
         height: 30px
         border-radius: 10px
-
-
-
-

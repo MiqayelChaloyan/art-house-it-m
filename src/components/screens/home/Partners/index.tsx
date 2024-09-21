@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { useTranslations } from 'next-intl';
 
@@ -47,6 +47,8 @@ const SamplePrevArrow: React.FC<ArrowProps> = ({ onClick, fill, ...props }) => (
 );
 
 const Partners = ({ partners }: Readonly<Props>) => {
+    const [fill, setFill] = useState<string>(colors.blue);
+
     const t = useTranslations('titles');
     const windowSize = useWindowSize();
 
@@ -59,41 +61,47 @@ const Partners = ({ partners }: Readonly<Props>) => {
         />
     ));
 
-    const settings = {
-        slidesToShow: 7,
-        slidesToScroll: 1,
-        infinite: true,
-        speed: 500,
-        autoplay: false,
+    useEffect(() => {
+        setFill(windowSize.width < 1024 ? colors.white : colors.blue)
+    }, [windowSize.width]);
+
+    const [settings] = useState({
         dots: false,
-        nextArrow: <SampleNextArrow fill={windowSize.width > 1024 ? colors.brown : colors.white} />,
-        prevArrow: <SamplePrevArrow fill={windowSize.width > 1024 ? colors.brown : colors.white} />,
-        cssEase: 'ease-out',
+        infinite: true,
+        slidesToShow: 8,
+        slidesToScroll: 1,
         centerMode: true,
-        centerPadding: "0",
+        focusOnSelect: true,
+        cssEase: 'linear',
+        nextArrow: <SampleNextArrow fill={fill} />,
+        prevArrow: <SamplePrevArrow fill={fill} />,
         responsive: [
             {
-                breakpoint: 1280,
+                breakpoint: 1600,
                 settings: {
-                    slidesToShow: 5,
+                    slidesToShow: 7,
                     slidesToScroll: 1,
-                    dots: false
+                }
+            },
+            {
+                breakpoint: 1400,
+                settings: {
+                    slidesToShow: 6,
+                    slidesToScroll: 1,
                 }
             },
             {
                 breakpoint: 1024,
                 settings: {
-                    slidesToShow: 4,
+                    slidesToShow: 5,
                     slidesToScroll: 1,
-                    dots: false
                 }
             },
             {
-                breakpoint: 991,
+                breakpoint: 780,
                 settings: {
-                    slidesToShow: 3,
+                    slidesToShow: 4,
                     slidesToScroll: 1,
-                    dots: false
                 }
             },
             {
@@ -101,8 +109,6 @@ const Partners = ({ partners }: Readonly<Props>) => {
                 settings: {
                     slidesToShow: 3,
                     slidesToScroll: 1,
-                    dots: false,
-                    centerPadding: "5px",
                 }
             },
             {
@@ -110,16 +116,16 @@ const Partners = ({ partners }: Readonly<Props>) => {
                 settings: {
                     slidesToShow: 2,
                     slidesToScroll: 1,
-                    dots: false,
-                    centerPadding: "5px",
                 }
             }
-        ]
-    };
+        ],
+    });
 
     return (
         <section id='partners' className={styles.section}>
-            <h1 className={cn(styles.title, MMArmenU.className)}>{t('our-partners')}</h1>
+            <h1 className={cn(styles.title, MMArmenU.className)}>
+                {t('our-partners')}
+            </h1>
             <div className={styles.slider}>
                 <Slider {...settings}>
                     {slidesItems}

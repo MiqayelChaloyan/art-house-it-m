@@ -19,20 +19,20 @@ const Partner = ({ _id, logo, company_name }: Readonly<PARTNER_Result>) => {
 
     return (
         <div key={_id} className={styles.card}>
-        <Image
-            src={path?.src}
-            alt={logo.alt}
-            className={styles.img}
-            width={500}
-            height={500}
-            priority
-        />
-        <div className={styles.overlay}>
-            <h1 className={cn(styles['text-h1'], Arial.className)}>
-                {company_name}
-            </h1>
+            <Image
+                src={path?.src}
+                alt={logo.alt}
+                className={styles.img}
+                width={500}
+                height={500}
+                priority
+            />
+            <div className={styles.overlay}>
+                <h1 className={cn(styles['text-h1'], Arial.className)}>
+                    {company_name}
+                </h1>
+            </div>
         </div>
-    </div>
     );
 };
 
