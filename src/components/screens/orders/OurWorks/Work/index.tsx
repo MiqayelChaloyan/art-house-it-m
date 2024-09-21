@@ -22,22 +22,22 @@ const Work = ({ site }: Readonly<Props>) => {
                 href={site.web_site_url}
                 aria-label={site.web_site_url}
             >
-                <Image
-                    src={ImagePaths.abstractURL}
-                    alt='abstract'
-                    className={styles.image}
-                    width={500}
-                    height={500}
-                    priority
-                />
-                <div className={styles.titles}>
-                    <h3 className={cn(styles['web-page-title'], MMArmenU.className)}>
-                        {site?.website_title}
-                    </h3>
-                    <p className={cn(styles.description, MMArmenU.className)}>
-                        {site?.website_activity}
-                    </p>
-                </div>
+                    <Image
+                        src={ImagePaths.abstractURL}
+                        alt='abstract'
+                        className={styles.image}
+                        width={500}
+                        height={500}
+                        priority
+                    />
+                    <div className={styles.titles}>
+                        <h3 className={cn(styles['web-page-title'], MMArmenU.className)}>
+                            {site?.website_title}
+                        </h3>
+                        <p className={cn(styles.description, MMArmenU.className)}>
+                            {site?.website_activity}
+                        </p>
+                    </div>
             </Link>
         </div>
     )
