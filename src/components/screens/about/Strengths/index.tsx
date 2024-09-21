@@ -1,7 +1,7 @@
 'use client'
 
 import { PortableText } from '@portabletext/react';
-import components from '@/src/utils/PortableTextComponents';
+import components from '@/src/helpers/PortableTextComponents';
 
 import Container from '@/src/components/components/container';
 import ImageBlock from './Image';

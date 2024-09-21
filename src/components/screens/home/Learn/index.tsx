@@ -8,7 +8,7 @@ import Container from '@/src/components/components/container';
 
 import { PortableText } from '@portabletext/react';
 import type { PortableTextBlock } from '@portabletext/types';
-import components from '@/src/utils/PortableTextComponents';
+import components from '@/src/helpers/PortableTextComponents';
 
 import { Pages } from '@/src/constants/pages';
 import { MMArmenU } from '@/src/constants/font';

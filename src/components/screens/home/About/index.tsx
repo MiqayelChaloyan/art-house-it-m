@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { useLocale, useTranslations } from 'next-intl';
 
 import Container from '@/src/components/components/container';
-import BlocksToText from '@/src/utils/BlocksToText';
+import BlocksToText from '@/src/helpers/BlocksToText';
 
 import { Pages } from '@/src/constants/pages';
 import { MMArmenU } from '@/src/constants/font';
