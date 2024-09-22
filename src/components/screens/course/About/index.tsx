@@ -1,8 +1,7 @@
 'use client'
 
-import Image from 'next/image';
-
 import Container from '@/src/components/components/container';
+import NextImage from '@/src/components/components/image';
 
 import { MMArmenU } from '@/src/constants/font';
 
@@ -45,13 +44,12 @@ const About = ({ course, image, about_course }: Readonly<Props>) => {
                 </div>
                 <div className={styles.wrapper}>
                     <div className={styles.box}>
-                        <Image
+                        <NextImage
                             src={path?.src}
                             alt={image?.alt}
                             className={styles['right-side']}
                             width={500}
                             height={500}
-                            priority
                         />
                         <PortableText
                             value={about_course?.about_content}

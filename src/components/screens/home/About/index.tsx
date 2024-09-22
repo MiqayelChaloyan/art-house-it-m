@@ -1,11 +1,11 @@
 'use client'
 
 import Link from 'next/link';
-import Image from 'next/image';
 import { useLocale, useTranslations } from 'next-intl';
 
 import Container from '@/src/components/components/container';
 import BlocksToText from '@/src/helpers/BlocksToText';
+import NextImage from '@/src/components/components/image';
 
 import { Pages } from '@/src/constants/pages';
 import { MMArmenU } from '@/src/constants/font';
@@ -64,13 +64,12 @@ const About = ({ data }: Readonly<Props>) => {
                             </div>
                         </div>
                         <div className={styles.left}>
-                            <Image
+                            <NextImage
                                 src={path?.src}
                                 alt='illustration'
                                 className={styles.image}
                                 width={500}
                                 height={500}
-                                priority
                             />
                         </div>
                     </div>

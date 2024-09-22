@@ -1,10 +1,10 @@
 'use client'
 
 import Link from 'next/link';
-import Image from 'next/image';
 import { useLocale, useTranslations } from 'next-intl';
 
 import Container from '@/src/components/components/container';
+import NextImage from '@/src/components/components/image';
 
 import { PortableText } from '@portabletext/react';
 import type { PortableTextBlock } from '@portabletext/types';
@@ -36,13 +36,12 @@ const Learn = ({ content }: Readonly<Props>) => {
                         <h2 className={styles['title-small']}>
                             {t('titles.what-to-learn')}
                         </h2>
-                        <Image
+                        <NextImage
                             src={ImagePaths.learnURL}
-                            alt='learn'
+                            alt='illustration'
                             className={styles.image}
                             width={500}
                             height={500}
-                            priority
                         />
                     </div>
                     <div className={styles.right}>

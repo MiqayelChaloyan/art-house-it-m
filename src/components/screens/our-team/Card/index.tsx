@@ -1,6 +1,6 @@
 'use client'
 
-import Image from 'next/image';
+import NextImage from '@/src/components/components/image';
 
 import { MMArmenU } from '@/src/constants/font';
 
@@ -21,13 +21,12 @@ const Card = ({ worker }: Readonly<Props>) => {
 
     return (
         <figure className={cn(styles.card, MMArmenU.className)}>
-            <Image
+            <NextImage
                 src={path?.src}
                 alt={worker?.worker_image.alt}
                 className={styles.image}
                 width={500}
                 height={500}
-                priority
             />
             <div className={styles['product-detail']}>
                 <h3 className={styles.worker}>

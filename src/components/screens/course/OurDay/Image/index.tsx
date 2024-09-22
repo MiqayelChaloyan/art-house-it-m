@@ -1,7 +1,8 @@
 'use client'
 
-import Image from 'next/image';
 import Link from 'next/link';
+
+import NextImage from '@/src/components/components/image';
 
 import { urlForImage } from '@/sanity/imageUrlBuilder';
 
@@ -23,13 +24,12 @@ const ImageBlock = ({ image }: Readonly<Props>) => {
             data-fancybox="gallery"
             href={path?.src}
         >
-            <Image
+            <NextImage
                 src={path?.src}
                 alt={image?.alt}
                 className={styles.image}
                 width={500}
                 height={500}
-                priority
             />
         </Link>
     )

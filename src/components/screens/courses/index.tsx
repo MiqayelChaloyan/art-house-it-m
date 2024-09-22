@@ -1,9 +1,9 @@
 'use client'
 
-import Image from 'next/image';
 import Link from 'next/link';
 
 import Container from '@/src/components/components/container';
+import NextImage from '@/src/components/components/image';
 
 import { urlForImage } from '@/sanity/imageUrlBuilder';
 
@@ -32,13 +32,12 @@ const Courses = ({ data, locale }: Readonly<Props>) => {
                 aria-label={course.slug}
                 className={styles.course}
             >
-                <Image
+                <NextImage
                     src={path?.src}
                     alt={course?.course_image?.alt}
                     className={styles.image}
                     width={500}
                     height={500}
-                    priority
                 />
                 <h2 className={cn(styles['course-title'], MMArmenU.className)}>
                     {course.course_name}

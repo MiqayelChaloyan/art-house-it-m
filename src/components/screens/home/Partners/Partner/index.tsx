@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-import Image from 'next/image';
+import NextImage from '@/src/components/components/image';
 
 import { urlForImage } from '@/sanity/imageUrlBuilder';
 
@@ -19,13 +19,12 @@ const Partner = ({ _id, logo, company_name }: Readonly<PARTNER_Result>) => {
 
     return (
         <div key={_id} className={styles.card}>
-            <Image
+            <NextImage
                 src={path?.src}
                 alt={logo.alt}
                 className={styles.img}
                 width={500}
                 height={500}
-                priority
             />
             <div className={styles.overlay}>
                 <h1 className={cn(styles['text-h1'], Arial.className)}>

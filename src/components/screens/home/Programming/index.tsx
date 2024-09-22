@@ -1,11 +1,10 @@
 'use client'
 
-
-import Image from 'next/image';
 import { useLocale, useTranslations } from 'next-intl';
 import { notFound, useRouter } from 'next/navigation';
 
 import Container from '@/src/components/components/container';
+import NextImage from '@/src/components/components/image';
 
 import { MMArmenU } from '@/src/constants/font';
 
@@ -51,12 +50,12 @@ const Programming = ({ data }: Readonly<Props>) => {
             <Container className='container'>
                 <div className={styles.box}>
                     <div className={styles.newsletter}>
-                        <Image
+                        <NextImage
                             src={path?.src}
                             alt={data.image?.alt}
+                            className=''
                             width={500}
                             height={500}
-                            priority
                         />
                     </div>
                     <div className={styles.programs}>

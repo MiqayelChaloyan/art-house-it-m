@@ -1,12 +1,12 @@
 'use client'
 
 import Link from 'next/link';
-import Image from 'next/image';
 import { useLocale, useTranslations } from 'use-intl';
 
 import { FaCheck } from 'react-icons/fa';
 
 import Container from '@/src/components/components/container';
+import NextImage from '@/src/components/components/image';
 
 import { Pages } from '@/src/constants/pages';
 import { MMArmenU } from '@/src/constants/font';
@@ -60,13 +60,12 @@ const OurAdvantages = ({ advantages }: Readonly<Props>) => {
                         <h2 className={styles['title-small']}>
                             {t('titles.our-advantages')}
                         </h2>
-                        <Image
+                        <NextImage
                             src={ImagePaths.advantagesURL}
-                            alt='advantages'
+                            alt='illustration'
                             className={styles.image}
                             width={500}
                             height={500}
-                            priority
                         />
                     </div>
                 </div>

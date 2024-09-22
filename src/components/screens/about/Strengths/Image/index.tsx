@@ -1,8 +1,8 @@
 'use client'
 
 import Link from 'next/link';
-import Image from 'next/image';
 
+import NextImage from '@/src/components/components/image';
 import Fancybox from '@/src/components/components/fancybox';
 import { options } from '@/src/components/components/fancybox/options';
 
@@ -27,13 +27,12 @@ const ImageBlock = ({ image }: Readonly<Props>) => {
                 data-fancybox="gallery"
                 href={path?.src}
             >
-                <Image
+                <NextImage
                     src={path?.src}
                     alt={image?.alt}
                     className={styles.picture}
                     width={500}
                     height={500}
-                    priority
                 />
             </Link>
         </Fancybox>
