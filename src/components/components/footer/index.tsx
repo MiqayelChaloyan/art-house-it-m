@@ -97,7 +97,7 @@ const Footer = ({ contacts }: Readonly<Props>) => {
                         />
                     </div>
                     <div>
-                        <div className={styles.address}>
+                        <div className={styles.contacts}>
                             <div className={styles.phone_numbers}>
                                 {phoneNumbers}
                             </div>
@@ -111,6 +111,9 @@ const Footer = ({ contacts }: Readonly<Props>) => {
                                 </p>
                             </Link>
                         </div>
+                        <p className={cn(styles.address, MMArmenU.className)}>
+                            {contacts?.address}
+                        </p>
                         <p className={cn(styles.reserved, MMArmenU.className)}>
                             {`©️ ${currentYear} ITM`}
                         </p>
