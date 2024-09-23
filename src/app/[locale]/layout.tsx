@@ -84,10 +84,12 @@ export async function generateMetadata({
     const ogTitle = data.ogTitle;
     const ogImage = data.ogImage;
     const ogDescription = data?.ogDescription;
+    const url = data?.url;
+    const keywords = data?.keywords;
 
     const path: ImagePath = urlForImage(ogImage);
     const icon = null;
 
-    const metadata = generateMetadataDynamic(ogDescription, ogTitle, path, icon, locale);
+    const metadata = generateMetadataDynamic(ogDescription, ogTitle, path, icon, url, keywords, locale);
     return metadata;
 };

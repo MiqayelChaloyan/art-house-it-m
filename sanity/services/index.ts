@@ -116,6 +116,8 @@ export const HOME_DETALIS_QUERY = `
     ogTitle,
     ogDescription,
     ogImage,
+    url,
+    keywords,
     "about_course": about_course {
         "title": title[$language],
         "features": features[] {
