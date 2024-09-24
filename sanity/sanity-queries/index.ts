@@ -155,7 +155,6 @@ interface HOME_DETALIS_QUERYResult {
     ogTitle?: string;
     ogDescription?: string;
     ogImage?: Asset;
-    url?: string;
     keywords?: string[];
     about_course: ABOUT_COURSE;
     our_advantages: string[];
