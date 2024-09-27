@@ -35,6 +35,7 @@ export const COURSES_QUERY = `
     },
     course_process,
     our_day,
+    keywords,
 }`;
 
 export const COURSE_SLUG_QUERY = `
@@ -49,6 +50,7 @@ export const COURSE_SLUG_QUERY = `
     },
     course_process,
     our_day,
+    keywords,
 }`;
 
 export const COURSE_ID_QUERY = `
@@ -63,6 +65,7 @@ export const COURSE_ID_QUERY = `
     },
     course_process,
     our_day,
+    keywords,
 }`;
 
 export const LESSONS_ORDERS_QUERY = `

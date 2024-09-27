@@ -33,7 +33,7 @@ export default (S: any) =>
                                 .icon(IoFolderOpen)
                                 .child(S.document().schemaType('home').documentId('home')),
                             S.listItem()
-                                .title('About Us')
+                                .title('About us')
                                 .icon(IoFolderOpen)
                                 .child(S.document().schemaType('about-us').documentId('about-us')),
                             S.listItem()
@@ -48,7 +48,7 @@ export default (S: any) =>
                                 .icon(IoFolderOpen)
                                 .child(S.document().schemaType('orders').documentId('orders')),
                             S.listItem()
-                                .title('Price List')
+                                .title('Price list')
                                 .icon(IoFolderOpen)
                                 .child(S.document().schemaType('price-list').documentId('price-list')),
                             S.listItem()
@@ -87,14 +87,14 @@ export default (S: any) =>
                         ])
                 ),
             S.listItem()
-                .title('Contact Us')
+                .title('Contact us')
                 .icon(MdContactSupport)
                 .child(
                     S.list()
-                        .title('Contact Us')
+                        .title('Contact us')
                         .items([
                             S.listItem()
-                                .title('Contact Us')
+                                .title('Contact us')
                                 .icon(MdContactSupport)
                                 .child(S.document().schemaType('contact-us').documentId('contact-us')),
                         ])

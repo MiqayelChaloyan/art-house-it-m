@@ -19,4 +19,4 @@
 
 ### Contact
 
-    For any inquiries or feedback, please reach out at arthouseeducationalcenter@gmail.com.
+    For any inquiries or feedback, please reach out at itmtrainingcentre@gmail.com

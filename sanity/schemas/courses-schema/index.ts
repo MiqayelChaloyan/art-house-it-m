@@ -12,6 +12,7 @@ export const coursesSchema = {
             title: "Social Share Info",
             default: true
         },
+        { name: 'all-fields', hidden: true, },
     ],
     fields: [
         {
@@ -36,6 +37,13 @@ export const coursesSchema = {
                     type: 'string'
                 }
             ]
+        },
+        {
+            title: 'Meta keywords',
+            name: 'keywords',
+            type: 'array',
+            of: [{ type: 'string' }],
+            group: 'og',
         },
         {
             title: 'Course Name',

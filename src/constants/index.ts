@@ -9,7 +9,10 @@ const ImagePaths = {
 
 const TRAINING_CENTER = 50;
 
+const defaultKeywords = ['it-m', 'courses'];
+
 export {
     ImagePaths,
     TRAINING_CENTER,
+    defaultKeywords
 };
