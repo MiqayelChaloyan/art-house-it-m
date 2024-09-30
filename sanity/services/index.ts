@@ -51,6 +51,7 @@ export const COURSE_SLUG_QUERY = `
     course_process,
     our_day,
     keywords,
+    ogImage,
 }`;
 
 export const COURSE_ID_QUERY = `
@@ -116,10 +117,6 @@ export const ABOUT_US_DETAILS_QUERY = `
 
 export const HOME_DETALIS_QUERY = `
 *[_type == "home"] {
-    ogTitle,
-    ogDescription,
-    ogImage,
-    keywords,
     "about_course": about_course {
         "title": title[$language],
         "features": features[] {
@@ -131,6 +128,14 @@ export const HOME_DETALIS_QUERY = `
     },
     "our_advantages": our_advantages[][$language],
     "content": content[$language],
+}`;
+
+export const SITE_META_QUERY = `
+*[_type == "home"] {
+    ogTitle,
+    ogImage,
+    keywords,
+    "ogDescription": ogDescription[$language],
 }`;
 
 export const WEB_SITES_QUERY = 

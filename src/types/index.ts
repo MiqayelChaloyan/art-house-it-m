@@ -104,6 +104,7 @@ export interface Site {
         }
     },
     ogDescription: string;
+    keywords: string[];
 };
 
 /* REDUX STATE TYPES */

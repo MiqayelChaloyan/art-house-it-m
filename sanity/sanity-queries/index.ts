@@ -72,7 +72,9 @@ interface OUR_DAY {
 
 interface COURSES_QUERYResult {
     [x: string]: any;
-    ogDescription: string;
+    ogDescription?: string;
+    ogImage?: Asset;
+    keywords?: string[];
     course_name: string;
     course_image: Asset;
     slug: string;

@@ -8,17 +8,24 @@ export const coursesSchema = {
     icon: BookIcon,
     groups: [
         {
-            name: "og",
-            title: "Social Share Info",
+            name: 'og',
+            title: 'Social Share Info',
             default: true
         },
         { name: 'all-fields', hidden: true, },
     ],
     fields: [
         {
-            type: "object",
-            name: "ogDescription",
-            title: "Social Share Description",
+            title: 'Meta keywords',
+            name: 'keywords',
+            type: 'array',
+            of: [{ type: 'string' }],
+            group: 'og',
+        },
+        {
+            type: 'object',
+            name: 'ogDescription',
+            title: 'Social Share Description',
             group: 'og',
             fields: [
                 {
@@ -39,12 +46,15 @@ export const coursesSchema = {
             ]
         },
         {
-            title: 'Meta keywords',
-            name: 'keywords',
-            type: 'array',
-            of: [{ type: 'string' }],
-            group: 'og',
+            type: 'image',
+            title: 'Image',
+            name: 'ogImage',
+            description:
+                'URL of the image that should be used in social media previews.',
+            validation: (Rule: RuleType) => Rule.required(),
+            group: ['og'],
         },
+        /* Schema */
         {
             title: 'Course Name',
             name: 'course_name',

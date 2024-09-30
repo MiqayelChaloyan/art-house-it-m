@@ -15,14 +15,16 @@ import PlayerModal from '@/src/components/components/playerModal';
 import ScrollToTopButton from '@/src/components/components/scrollToTopButton';
 import Advertisement from '@/src/components/components/advertisement';
 
-import { ImagePath } from '@/src/types';
+import { ImagePath, Site } from '@/src/types';
 
 import { StoreProvider } from '@/src/store/StoreProvider';
 
 import { urlForImage } from '@/sanity/imageUrlBuilder';
 
 import { generateMetadataDynamic } from '@/src/utils/default-metadata';
-import { getContacts, getHomeDetails } from '@/src/utils/data';
+import { getContacts } from '@/src/utils/data';
+import { sanityFetch } from '@/src/api/sanity-fetch';
+import { SITE_META_QUERY } from '@/sanity/services';
 
 import { MMArmenU } from '@/src/constants/font';
 
@@ -74,21 +76,28 @@ function RootLayout({
 export default RootLayout;
 
 
+async function getSiteMeta(
+    query: string = SITE_META_QUERY,
+    locale?: Locale,
+): Promise<Site> {
+    const site = await sanityFetch<Site[]>({
+        query,
+        params: { language: locale },
+    });
+
+    return site[0];
+};
+
 export async function generateMetadata({
     params: { locale },
 }: {
     params: { locale: Locale };
 }): Promise<Metadata> {
-    const data = await getHomeDetails(locale);
-
-    const ogTitle = data.ogTitle;
-    const ogImage = data.ogImage;
-    const ogDescription = data?.ogDescription;
-    const keywords = data?.keywords;
-
+    const meta: Site = await getSiteMeta(SITE_META_QUERY, locale);
+    const { ogDescription, ogTitle, ogImage, keywords } = meta;
     const path: ImagePath = urlForImage(ogImage);
     const icon = null;
 
-    const metadata = generateMetadataDynamic(ogDescription, ogTitle, path, icon, keywords, locale);
+    const metadata = generateMetadataDynamic(ogDescription, ogTitle, path, icon, locale, keywords);
     return metadata;
 };
