@@ -103,7 +103,7 @@ export default function LocalSwitcher({ activeColor = colors.green, color = 'bla
         </div>
       ) : (
         <>
-          <button className={styles.button} onClick={handleOpen}>
+          <button className={styles.button} onClick={handleOpen} name='planet'>
             <Planet width={25} height={25} fill={colors.darkGray} />
           </button>
           {isOpen && (

@@ -35,7 +35,6 @@ const About = ({ data }: Readonly<Props>) => {
     return (
         <section id='about' className={cn(styles.container, MMArmenU.className)}>
             <Container className='container'>
-                <>
                     <div className={styles.box}>
                         <div className={styles.right}>
                             <div className={styles.texts}>
@@ -89,7 +88,6 @@ const About = ({ data }: Readonly<Props>) => {
                             {t('buttons.register')}
                         </Link>
                     </div>
-                </>
             </Container>
         </section>
     )
