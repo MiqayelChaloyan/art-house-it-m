@@ -23,19 +23,19 @@ if (!(argEnv in RUN_ENV_MAP)) {
 module.exports = {
     apps: [
         {
-            name: 'art-house-holding',
+            name: 'art-house-itm',
             exec_mode: 'cluster',
             instances: 'max',
             script: 'node_modules/next/dist/bin/next',
             args: 'start',
             env_local: {
-                APP_ENV: 'local' // APP_ENV=local
+                APP_ENV: 'local'
             },
             env_dev: {
-                APP_ENV: 'dev' // APP_ENV=dev
+                APP_ENV: 'dev'
             },
             env_prod: {
-                APP_ENV: 'prod' // APP_ENV=prod
+                APP_ENV: 'prod'
             }
         }
     ]
