@@ -61,6 +61,8 @@ interface OUR_TEAM_QUERYResult {
 interface VIDEO {
     video_url: string;
     video_light: Asset;
+    useUpload: boolean;
+    videoFile: Asset;
 };
 
 interface OUR_DAY {
@@ -82,7 +84,7 @@ interface COURSES_QUERYResult {
         title: string;
         about_content: TEXT[];
     },
-    course_process: VIDEO;
+    video: VIDEO;
     our_day: OUR_DAY[];
 };
 

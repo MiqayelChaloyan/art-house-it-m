@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import Link from 'next/link';
 import { useLocale, useTranslations } from 'next-intl';
@@ -13,26 +13,23 @@ import Container from '@/src/components/components/container';
 
 import { MMArmenU } from '@/src/constants/font';
 import { Pages } from '@/src/constants/pages';
-import { Image, ImagePath, ReduxType } from '@/src/types';
+import { ImagePath, ReduxType } from '@/src/types';
 
 import { urlForImage } from '@/sanity/imageUrlBuilder';
+import VideoPreview from '@/sanity/videoBuilder';
 
 import cn from 'classnames';
 
 import styles from './styles.module.sass';
 
 
-interface PROCESS {
-    video_light: Image;
-    video_url: string;
-};
-
 interface Props {
-    course_process: PROCESS;
+    video: VIDEO;
 };
 
-const VideoPlayer = ({ course_process }: Readonly<Props>) => {
-    const path: ImagePath = urlForImage(course_process?.video_light)
+const VideoPlayer = ({ video }: Readonly<Props>) => {
+    const [url, setUrl] = useState<string>('');
+    const path: ImagePath = urlForImage(video?.video_light)
     const isPlay = useSelector((state: ReduxType) => state.player.isPlay);
     const dispatch = useDispatch();
     const t = useTranslations();
@@ -43,13 +40,24 @@ const VideoPlayer = ({ course_process }: Readonly<Props>) => {
         dispatch(setPath(path));
     };
 
+    console.log(video)
+
+    useEffect(() => {
+        if (video?.useUpload) {
+            const videoUrl = VideoPreview(video?.videoFile);
+            setUrl(videoUrl?.url);
+        } else {
+            setUrl(video?.video_url);
+        }
+    }, []);
+
     return (
         <div className={styles.container}>
             <Container className='container'>
                 <div className={styles.player}>
                     <Player
                         path={path}
-                        video_url={course_process?.video_url}
+                        video_url={url}
                         handlePlayVideo={handlePlayVideo}
                     />
                 </div>

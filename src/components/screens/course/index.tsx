@@ -9,7 +9,7 @@ interface Props {
 };
 
 const Course = ({ data }: Readonly<Props>) => {
-    const { course_name, course_image, about_course, our_day, course_process } = data;
+    const { course_name, course_image, about_course, our_day, video } = data;
 
     return (
         <>
@@ -19,7 +19,7 @@ const Course = ({ data }: Readonly<Props>) => {
                 about_course={about_course}
             />
             <OurDay our_day={our_day} />
-            <VideoPlayer course_process={course_process} />
+            <VideoPlayer video={video} />
         </>
     )
 };

@@ -183,12 +183,28 @@ export const aboutUsSchema = {
             name: 'video',
             type: 'object',
             title: 'Video',
-            validation: (Rule: RuleType) => Rule.required(),
             fields: [
+                {
+                    name: 'useUpload',
+                    type: 'boolean',
+                    title: 'Use uploaded video?',
+                    description: 'Check this box to upload a video file. Leave unchecked to provide a video URL.',
+                    initialValue: false,
+                },
                 {
                     name: 'video_url',
                     title: 'Video Link',
                     type: 'url',
+                    hidden: ({ parent }: { parent: { useUpload?: boolean } }) => parent?.useUpload === true,
+                },
+                {
+                    name: 'videoFile',
+                    type: 'file',
+                    title: 'Upload Video',
+                    options: {
+                        accept: 'video/*',
+                    },
+                    hidden: ({ parent }: { parent: { useUpload?: boolean } }) => parent?.useUpload === false,
                 },
                 {
                     name: 'video_light',
@@ -203,8 +219,18 @@ export const aboutUsSchema = {
                         }
                     ],
                 },
-            ]
-        },
+            ],
+            validation: (Rule: RuleType) =>
+                Rule.custom((fields) => {
+                    if (fields.useUpload && !fields.videoFile) {
+                        return 'Please upload a video file or uncheck "Use uploaded video?"';
+                    }
+                    if (!fields.useUpload && !fields.video_url) {
+                        return 'Please provide a video URL or check "Use uploaded video?"';
+                    }
+                    return true;
+                }),
+        }
     ],
     preview: {
         select: {

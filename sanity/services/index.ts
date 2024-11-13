@@ -33,9 +33,9 @@ export const COURSES_QUERY = `
         "title": title[$language],
         "about_content": about_content[$language]
     },
-    course_process,
     our_day,
     keywords,
+    video,
 }`;
 
 export const COURSE_SLUG_QUERY = `
@@ -48,10 +48,10 @@ export const COURSE_SLUG_QUERY = `
         "title": title[$language],
         "about_content": about_content[$language]
     },
-    course_process,
     our_day,
     keywords,
     ogImage,
+    video
 }`;
 
 export const COURSE_ID_QUERY = `
@@ -64,9 +64,10 @@ export const COURSE_ID_QUERY = `
         "title": title[$language],
         "about_content": about_content[$language]
     },
-    course_process,
     our_day,
     keywords,
+    ogImage,
+    video
 }`;
 
 export const LESSONS_ORDERS_QUERY = `
