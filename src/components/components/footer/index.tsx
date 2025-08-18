@@ -115,7 +115,7 @@ const Footer = ({ contacts }: Readonly<Props>) => {
                             {contacts?.address}
                         </p>
                         <p className={cn(styles.reserved, MMArmenU.className)}>
-                            {`©️ ${currentYear} ITM`}
+                          {`© ${currentYear} ITM`}
                         </p>
                     </div>
                     <div className={styles.hosts}>

@@ -91,6 +91,11 @@ const Form = ({ orders, ordersArmenianKeyword, classNameProperty }: Readonly<Pro
                 return
             };
 
+            setState((prev: Form) => ({
+                ...prev,
+                isLoading: true,
+            }));
+
             const res: ContactUsResponse = await sendOrderForm(formData);
 
             if (res.status !== 200) {

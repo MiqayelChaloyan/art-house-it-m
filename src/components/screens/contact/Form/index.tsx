@@ -81,6 +81,11 @@ const Form = ({
                 return
             };
 
+            setState((prev: FormT) => ({
+                ...prev,
+                isLoading: true,
+            }));
+
             const res: ContactUsResponse = await sendContactUs(formData);
 
             if (res.status !== 200) {

@@ -9,10 +9,16 @@ const ImagePaths = {
 
 const TRAINING_CENTER = 50;
 
+
+const TRAINING_CENTERS_NAMES = [
+    { name: 'IT-M Training Center', id: 50 },
+];
+
 const defaultKeywords = ['it-m', 'courses'];
 
 export {
     ImagePaths,
     TRAINING_CENTER,
+    TRAINING_CENTERS_NAMES,
     defaultKeywords
 };
